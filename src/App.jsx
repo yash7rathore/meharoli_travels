@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import emailjs from '@emailjs/browser';
+import { Helmet } from "react-helmet-async";
 
 const jaipurSlides = [
   "/pictures/main-section/Jaipur_1.jpg",
@@ -496,6 +497,10 @@ function DestinationDetailView({
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [destinationKey]);
+
+  useEffect(() => {
     if (!data.images || data.images.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % data.images.length);
@@ -503,8 +508,40 @@ function DestinationDetailView({
     return () => clearInterval(timer);
   }, [data.images]);
 
+  const pageUrl = `https://www.meharolitravels.com/#destination-${destinationKey}`;
+  const pageTitle = `${data.title} Tour Packages & Sightseeing | Meharoli Tours`;
+  const pageDesc = `${data.description} Book custom ${data.title} tour packages with direct AC taxi hire, premium hotel stays, and expert local guides.`;
+  const pageImage = `https://www.meharolitravels.com${data.coverImage}`;
+
+  const schemaJson = {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    "name": `${data.title} Tour Packages`,
+    "description": pageDesc,
+    "image": pageImage,
+    "url": pageUrl,
+    "provider": {
+      "@type": "TravelAgency",
+      "name": "Meharoli Tours & Travels",
+      "telephone": "+918824976479"
+    }
+  };
+
   return (
     <div className="destination-detail-page bg-slate-50 min-h-screen py-8 px-4 sm:px-6 lg:px-8 mt-16 animate-fadeIn">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+        <meta property="og:image" content={pageImage} />
+        <meta property="og:url" content={pageUrl} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDesc} />
+        <meta name="twitter:image" content={pageImage} />
+        <script type="application/ld+json">{JSON.stringify(schemaJson)}</script>
+      </Helmet>
       {/* Back Button */}
       <div className="max-w-7xl mx-auto mb-6">
         <button
@@ -1270,18 +1307,27 @@ function App() {
           destinationKey={activeDestination}
           activeRajasthanCity={activeRajasthanCity}
           setActiveRajasthanCity={setActiveRajasthanCity}
-          onClose={() => setActiveDestination(null)}
+          onClose={() => handleNavClick("top")}
           openWhatsApp={openWhatsApp}
           scrollToForm={scrollToForm}
         />
       ) : activeBlogKey ? (
         <BlogDetailView
           blogKey={activeBlogKey}
-          onClose={() => setActiveBlogKey(null)}
+          onClose={() => handleNavClick("blogs")}
           openWhatsApp={openWhatsApp}
         />
       ) : (
         <>
+          <Helmet>
+            <title>Meharoli Tours &amp; Travels | Custom Rajasthan, Delhi &amp; Agra Tour Packages</title>
+            <meta name="description" content="Book personalized tour packages for the Golden Triangle (Delhi, Agra, Jaipur), tiger safaris in Ranthambore, lake palaces in Udaipur, desert camping in Jaisalmer, and local shopping guides. Direct AC taxi hire, premium hotel bookings, and expert local guides." />
+            <link rel="canonical" href="https://www.meharolitravels.com/" />
+            <meta property="og:title" content="Meharoli Tours &amp; Travels | Custom Rajasthan, Delhi &amp; Agra Tour Packages" />
+            <meta property="og:description" content="Book personalized tour packages for the Golden Triangle (Delhi, Agra, Jaipur), tiger safaris, lake palaces, desert camping, and local shopping guides." />
+            <meta property="og:image" content="https://www.meharolitravels.com/pictures/agra_tajmahal.jpg" />
+            <meta property="og:url" content="https://www.meharolitravels.com/" />
+          </Helmet>
           <section className="hero" id="top">
         {/* Decorative background blobs */}
         <div className="hero-bg-effects" aria-hidden="true">
@@ -1553,6 +1599,8 @@ function App() {
                 className="decker-static-img"
                 src="/pictures/Double decker.png"
                 alt="Double Decker Bus - Jaipur Tour"
+                loading="lazy"
+                decoding="async"
               />
               <div className="decker-badge">
                 🚌 Special Double Decker Package
@@ -1679,6 +1727,8 @@ function App() {
                       src={blog.coverImage}
                       alt={blog.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute top-3 left-3 bg-orange-500 text-white text-xs font-bold px-2.5 py-1 rounded-md shadow">
                       {blog.category}
@@ -1898,6 +1948,8 @@ function App() {
                       src="/pictures/dilip_singh_meharoli.jpg"
                       alt="Dilip Singh Meharoli - Founder & CEO"
                       className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent p-6 text-center">
                       <h3 className="text-2xl font-extrabold text-white font-serif tracking-wide">
@@ -2137,6 +2189,10 @@ function BlogDetailView({ blogKey, onClose, openWhatsApp }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [blogKey]);
+
+  useEffect(() => {
     if (!blog.images || blog.images.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % blog.images.length);
@@ -2144,16 +2200,53 @@ function BlogDetailView({ blogKey, onClose, openWhatsApp }) {
     return () => clearInterval(timer);
   }, [blog.images]);
 
+  const pageUrl = `https://www.meharolitravels.com/#blog-${blogKey}`;
+  const pageTitle = `${blog.title} | Meharoli Travels Blog`;
+  const pageDesc = blog.excerpt;
+  const pageImage = `https://www.meharolitravels.com${blog.coverImage}`;
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": blog.title,
+    "description": blog.excerpt,
+    "image": pageImage,
+    "url": pageUrl,
+    "datePublished": "2026-07-29",
+    "author": {
+      "@type": "Organization",
+      "name": "Meharoli Tours & Travels"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Meharoli Tours & Travels",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.meharolitravels.com/pictures/main-section/logo-removebg-preview.png"
+      }
+    }
+  };
+
   return (
     <div className="blog-detail-page bg-slate-50 min-h-screen py-8 px-4 sm:px-6 lg:px-8 mt-16 animate-fadeIn">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+        <meta property="og:image" content={pageImage} />
+        <meta property="og:url" content={pageUrl} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDesc} />
+        <meta name="twitter:image" content={pageImage} />
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+      </Helmet>
       {/* Back Button */}
       <div className="max-w-4xl mx-auto mb-6">
         <button
           type="button"
-          onClick={() => {
-            window.location.hash = "#blogs";
-            onClose();
-          }}
+          onClick={() => onClose()}
           className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-700 hover:text-orange-600 font-semibold rounded-lg shadow-sm border border-gray-200 transition hover:shadow-md cursor-pointer"
         >
           ← Back to All Blogs
