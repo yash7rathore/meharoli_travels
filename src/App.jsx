@@ -20,8 +20,8 @@ const destinationsData = {
     coverImage: "/pictures/delhi.jpg",
     images: [
       "/pictures/delhi.jpg",
-      "/pictures/main-section/Jaipur_3.jpg",
-      "/pictures/main-section/Jaipur_4.jpg"
+      "/pictures/delhi_red_fort.jpg",
+      "/pictures/delhi_qutub_minar.jpg"
     ],
     markets: [
       {
@@ -70,8 +70,8 @@ const destinationsData = {
     coverImage: "/pictures/agra_tajmahal.jpg",
     images: [
       "/pictures/agra_tajmahal.jpg",
-      "/pictures/main-section/Jaipur_2.jpg",
-      "/pictures/main-section/Jaipur_5.jpg"
+      "/pictures/agra_fort.jpg",
+      "/pictures/taj_marble_detail.jpg"
     ],
     markets: [
       {
@@ -366,6 +366,122 @@ const destinationsData = {
   }
 };
 
+const blogsData = [
+  {
+    id: "agra-taj-mahal-guide",
+    title: "The Ultimate Guide to Agra: Taj Mahal & Beyond",
+    excerpt: "Experience the romance of the Taj Mahal at sunrise, uncover the corridors of Agra Fort, and sample Agra's legendary local street food.",
+    category: "Agra Guide",
+    date: "July 29, 2026",
+    readTime: "5 min read",
+    coverImage: "/pictures/agra_tajmahal.jpg",
+    images: [
+      "/pictures/agra_tajmahal.jpg",
+      "/pictures/taj_marble_detail.jpg",
+      "/pictures/main-section/Jaipur_5.jpg"
+    ],
+    content: [
+      {
+        heading: "Taj Mahal Sunrise: The Golden Hour",
+        text: "There is nothing quite like watching the first rays of the morning sun strike the white marble dome of the Taj Mahal. To experience this, plan to arrive at the gates by 5:30 AM. The morning mist over the Yamuna River adds a mystical overlay to the view, and you'll beat the heavy midday crowds. Remember to book your tickets online in advance to skip the main queues."
+      },
+      {
+        heading: "Exploring Agra Fort's Mughal Legacy",
+        text: "After visiting the Taj, head to Agra Fort, a massive 16th-century red sandstone fortress. Walk through the grand Amar Singh Gate, explore the Jahangiri Mahal, and stand in the octagonal tower (Musamman Burj) where Emperor Shah Jahan spent his final years gazing out at the Taj Mahal. The fort is a masterpiece of design, blending Persian, Timurid, and Hindu architecture."
+      },
+      {
+        heading: "Street Food & Marble Bazaars",
+        text: "Agra is famous for its culinary delights. Don't leave without tasting Bedai (puffy fried bread stuffed with lentils) served with spicy potato curry and sweet, crispy Jalebi, Agra's traditional breakfast. For souvenirs, visit Taj Ganj or Sadar Bazar to purchase beautiful marble inlay replicas, leather crafts, and the famous 'Petha' (a translucent sweet made from ash gourd)."
+      }
+    ]
+  },
+  {
+    id: "mandawa-fresco-art",
+    title: "Mandawa: Shekhawati's Open-Air Art Gallery",
+    excerpt: "Step back in time as we wander the corridors of Mandawa, exploring beautifully painted heritage Havelis adorned with vintage frescoes.",
+    category: "Heritage & Art",
+    date: "July 25, 2026",
+    readTime: "4 min read",
+    coverImage: "/pictures/mandawa.jpg",
+    images: [
+      "/pictures/mandawa.jpg",
+      "/pictures/haveli_wall_detail.jpg",
+      "/pictures/bikaner.jpg"
+    ],
+    content: [
+      {
+        heading: "The Painted Havelis of Mandawa",
+        text: "Mandawa, situated in the Shekhawati region of Rajasthan, is world-famous for its grand Havelis (mansions) built by wealthy merchant families in the 18th and 19th centuries. What makes these structures unique is their walls, which are covered in rich, hand-painted frescoes. These murals depict everything from traditional mythology and royal processions to modern 19th-century inventions like trains and telephones."
+      },
+      {
+        heading: "Must-Visit Havelis in Mandawa",
+        text: "Make sure to visit the Sewaram Saraf Haveli, known for its pristine paintings, and the Hanuman Prasad Goenka Haveli, which has a fresco showing Lord Indra on his elephant. Castle Mandawa, now a heritage hotel, is another grand spot showcasing old weapons, portraits, and traditional courtyards."
+      },
+      {
+        heading: "Shopping for Antiques & Local Art",
+        text: "The local bazaars around Mandawa Castle are perfect for finding vintage chests, hand-painted wooden furniture, puppets, and traditional miniature paintings. Local artisans still practice the ancient painting styles, using natural dyes extracted from minerals and plants, which you can watch live in their workshops."
+      }
+    ]
+  },
+  {
+    id: "rajasthan-secret-forts",
+    title: "Secret Forts & Palaces of Royal Rajasthan",
+    excerpt: "Go beyond the usual tourist trail and discover the lesser-known fortresses, palace views, and mountain lakes of Rajasthan.",
+    category: "Adventure Tour",
+    date: "July 20, 2026",
+    readTime: "6 min read",
+    coverImage: "/pictures/main-section/Jaipur_2.jpg",
+    images: [
+      "/pictures/main-section/Jaipur_2.jpg",
+      "/pictures/jodhpur.jpg",
+      "/pictures/udaipur.jpg",
+      "/pictures/jaisalmer_desert.jpg"
+    ],
+    content: [
+      {
+        heading: "Junagarh Fort, Bikaner: The Unconquered Palace",
+        text: "While Jaipur's Amer Fort and Jodhpur's Mehrangarh are famous, Bikaner's Junagarh Fort is an underrated masterpiece. Unlike most forts built on hilltops, Junagarh was constructed on flat ground. Inside, you'll find incredibly preserved courtyards, gold-leaf-embellished halls, and even a historic World War I biplane model housed inside the Darbar Hall."
+      },
+      {
+        heading: "Nakki Lake & Toad Rock, Mount Abu",
+        text: "Escape the desert heat and head to Mount Abu, Rajasthan's only hill station. Nakki Lake is a sacred lake surrounded by Aravali hills, where you can paddle-boat in the cool breeze. Right above the lake sits Toad Rock, a massive natural boulder that looks like a toad about to leap. The views from the top at sunset are breath-taking."
+      },
+      {
+        heading: "The Thar Desert Sunset of Jaisalmer",
+        text: "Nothing compares to spending a night in the Thar Desert. Explore Jaisalmer's living Golden Fort (Sonar Qila), then head to Sam Sand Dunes. Ride a camel over the soft sand ridges, watch a colorful traditional Rajasthani folk dance program by the campfire, and sleep under a clear, un-polluted night sky filled with stars."
+      }
+    ]
+  },
+  {
+    id: "delhi-street-food-markets",
+    title: "Delhi Street Food & Local Bazaars Guide",
+    excerpt: "A beginner-friendly guide to tasting the legendary street food of Old Delhi and shopping for traditional handicrafts at local markets.",
+    category: "Food & Shopping",
+    date: "July 15, 2026",
+    readTime: "5 min read",
+    coverImage: "/pictures/delhi.jpg",
+    images: [
+      "/pictures/delhi.jpg",
+      "/pictures/main-section/Jaipur_3.jpg",
+      "/pictures/main-section/Jaipur_4.jpg"
+    ],
+    content: [
+      {
+        heading: "The Flavors of Chandni Chowk",
+        text: "Chandni Chowk in Old Delhi is the street food capital of India. Navigate its crowded lanes to visit the famous Paranthe Wali Gali, where flatbreads stuffed with everything from potatoes to bananas are deep-fried in ghee. Try the sweet, thick Jalebi at Old Famous Jalebi Wala, and cool down with Rabri Falooda at Giani's."
+      },
+      {
+        heading: "Shopping at Dilli Haat & Janpath",
+        text: "If you want to shop for authentic souvenirs, head to Dilli Haat, a relaxed open-air marketplace showcasing handloom clothing, embroidered textiles, leather bags, and wood carvings directly from rural artisans. If you are good at bargaining, check out Janpath Market for brass statues, colorful accessories, and fashionable clothes."
+      },
+      {
+        heading: "Navigating Delhi's Historic Monuments",
+        text: "In between meals, make time to visit Humayun's Tomb, a gorgeous red sandstone Mughal garden tomb, and the Qutub Minar complex. Using Delhi's air-conditioned Metro is the fastest and cleanest way to zip between Old Delhi's food markets and New Delhi's heritage monuments."
+      }
+    ]
+  }
+];
+
 function DestinationDetailView({
   destinationKey,
   activeRajasthanCity,
@@ -393,7 +509,10 @@ function DestinationDetailView({
       <div className="max-w-7xl mx-auto mb-6">
         <button
           type="button"
-          onClick={onClose}
+          onClick={() => {
+            window.location.hash = "#top";
+            onClose();
+          }}
           className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-700 hover:text-orange-600 font-semibold rounded-lg shadow-sm border border-gray-200 transition hover:shadow-md cursor-pointer"
         >
           ← Back to Homepage
@@ -607,6 +726,7 @@ function App() {
   const [activeDestination, setActiveDestination] = useState(null);
   const [activeRajasthanCity, setActiveRajasthanCity] = useState(null);
   const [destDropdownOpen, setDestDropdownOpen] = useState(false);
+  const [activeBlogKey, setActiveBlogKey] = useState(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -615,17 +735,85 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
+  // Handle URL Hash Deep-linking & SEO Title Sync for Crawlers & Visitors
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith("#destination-")) {
+        const dest = hash.replace("#destination-", "");
+        if (destinationsData[dest]) {
+          setActiveDestination(dest);
+          setActiveBlogKey(null);
+        }
+      } else if (hash.startsWith("#blog-")) {
+        const blogId = hash.replace("#blog-", "");
+        const blog = blogsData.find((b) => b.id === blogId);
+        if (blog) {
+          setActiveBlogKey(blogId);
+          setActiveDestination(null);
+        }
+      } else if (hash === "" || hash === "#top" || hash === "#packages" || hash === "#blogs" || hash === "#services" || hash === "#cars" || hash === "#about") {
+        if (hash === "" || hash === "#top") {
+          setActiveDestination(null);
+          setActiveBlogKey(null);
+        }
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  // Update Page Title dynamically based on active view for search engines
+  useEffect(() => {
+    if (activeBlogKey) {
+      const blog = blogsData.find((b) => b.id === activeBlogKey);
+      if (blog) {
+        document.title = `${blog.title} | Meharoli Travels Blog`;
+      }
+    } else if (activeDestination) {
+      const dest = destinationsData[activeDestination];
+      if (dest) {
+        document.title = `${dest.title} Tour Packages & Sightseeing | Meharoli Tours`;
+      }
+    } else {
+      document.title = "Meharoli Tours & Travels | Custom Rajasthan, Delhi & Agra Tour Packages";
+    }
+  }, [activeDestination, activeBlogKey]);
+
   const scrollCars = (dir) => {
     if (carScrollRef.current) {
       carScrollRef.current.scrollBy({ left: dir * 300, behavior: "smooth" });
     }
   };
 
-  const scrollToForm = () => {
-    const formSection = document.getElementById("enquiry-form-section");
-    if (formSection) {
-      formSection.scrollIntoView({ behavior: "smooth" });
+  const handleNavClick = (targetId) => {
+    setMenuOpen(false);
+    setActiveDestination(null);
+    setActiveBlogKey(null);
+    setDestDropdownOpen(false);
+
+    if (targetId === "top") {
+      window.location.hash = "#top";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
     }
+
+    window.location.hash = `#${targetId}`;
+
+    setTimeout(() => {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }, 60);
+  };
+
+  const scrollToForm = () => {
+    handleNavClick("enquiry-form-section");
   };
 
   const openWhatsApp = (message) => {
@@ -891,9 +1079,9 @@ function App() {
           <a
             href="#top"
             className="header-brand"
-            onClick={() => {
-              setMenuOpen(false);
-              setActiveDestination(null);
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick("top");
             }}
           >
             <img
@@ -916,9 +1104,9 @@ function App() {
             <a
               href="#top"
               className="nav-item"
-              onClick={() => {
-                setMenuOpen(false);
-                setActiveDestination(null);
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("top");
               }}
             >
               Home
@@ -941,7 +1129,9 @@ function App() {
                   type="button"
                   className="dropdown-item"
                   onClick={() => {
+                    window.location.hash = "#destination-delhi";
                     setActiveDestination("delhi");
+                    setActiveBlogKey(null);
                     setMenuOpen(false);
                     setDestDropdownOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -953,7 +1143,9 @@ function App() {
                   type="button"
                   className="dropdown-item"
                   onClick={() => {
+                    window.location.hash = "#destination-agra";
                     setActiveDestination("agra");
+                    setActiveBlogKey(null);
                     setMenuOpen(false);
                     setDestDropdownOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -965,8 +1157,10 @@ function App() {
                   type="button"
                   className="dropdown-item"
                   onClick={() => {
+                    window.location.hash = "#destination-rajasthan";
                     setActiveDestination("rajasthan");
                     setActiveRajasthanCity(null);
+                    setActiveBlogKey(null);
                     setMenuOpen(false);
                     setDestDropdownOpen(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -979,49 +1173,80 @@ function App() {
             <a
               href="#packages"
               className="nav-item"
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("packages");
+              }}
             >
               Packages
             </a>
             <a
               href="#double-decker-package"
               className="nav-item"
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("double-decker-package");
+              }}
             >
               Double Decker
             </a>
             <a
               href="#cars"
               className="nav-item"
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("cars");
+              }}
             >
               Cars
             </a>
             <a
               href="#services"
               className="nav-item"
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("services");
+              }}
             >
               Services
             </a>
             <a
               href="#testimonials"
               className="nav-item"
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("testimonials");
+              }}
             >
               Reviews
             </a>
             <a
+              href="#blogs"
+              className="nav-item"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("blogs");
+              }}
+            >
+              Blogs
+            </a>
+            <a
               href="#about"
               className="nav-item"
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("about");
+              }}
             >
               About
             </a>
             <a
               href="#enquiry-form-section"
               className="nav-item nav-cta"
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("enquiry-form-section");
+              }}
             >
               Book Now
             </a>
@@ -1048,6 +1273,12 @@ function App() {
           onClose={() => setActiveDestination(null)}
           openWhatsApp={openWhatsApp}
           scrollToForm={scrollToForm}
+        />
+      ) : activeBlogKey ? (
+        <BlogDetailView
+          blogKey={activeBlogKey}
+          onClose={() => setActiveBlogKey(null)}
+          openWhatsApp={openWhatsApp}
         />
       ) : (
         <>
@@ -1417,6 +1648,68 @@ function App() {
           </div>
         </section>
 
+        {/* ── TRAVEL BLOGS & GUIDES ── */}
+        <section className="blogs py-16 bg-slate-100/60" id="blogs">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="bg-orange-100 text-orange-600 text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full inline-block mb-3">
+                Travel Stories &amp; Insights
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-800 font-serif">
+                Travel Guides &amp; Inspiration
+              </h2>
+              <p className="text-gray-500 mt-2 text-sm sm:text-base max-w-2xl mx-auto">
+                Explore insider tips, food guides, and secret heritage destinations curated by our expert local travel team.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {blogsData.map((blog) => (
+                <article
+                  key={blog.id}
+                  className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col cursor-pointer group"
+                  onClick={() => {
+                    window.location.hash = `#blog-${blog.id}`;
+                    setActiveBlogKey(blog.id);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  <div className="h-48 overflow-hidden relative">
+                    <img
+                      src={blog.coverImage}
+                      alt={blog.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 left-3 bg-orange-500 text-white text-xs font-bold px-2.5 py-1 rounded-md shadow">
+                      {blog.category}
+                    </div>
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex justify-between items-center text-xs text-gray-400 font-medium mb-2">
+                        <span>📅 {blog.date}</span>
+                        <span>⏱ {blog.readTime}</span>
+                      </div>
+                      <h3 className="text-lg font-bold text-slate-800 group-hover:text-orange-600 transition-colors line-clamp-2 mb-2 font-serif">
+                        {blog.title}
+                      </h3>
+                      <p className="text-gray-500 text-xs sm:text-sm line-clamp-3 leading-relaxed mb-4">
+                        {blog.excerpt}
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      className="w-full py-2.5 bg-orange-50 hover:bg-orange-500 text-orange-600 hover:text-white font-semibold text-xs sm:text-sm rounded-xl transition-colors duration-200 border border-orange-200 hover:border-orange-500 flex items-center justify-center gap-1"
+                    >
+                      Read Full Article →
+                    </button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── TESTIMONIALS ── */}
         <section className="testimonials" id="testimonials">
           <div className="section-heading">
@@ -1591,38 +1884,118 @@ function App() {
           </div>
         </section>
 
-        <section className="about-jaipur" id="about">
-          <div className="about-jaipur-inner">
-            <div className="about-jaipur-text">
-              <h2>About Jaipur Tourism</h2>
-              <p>
-                Known as the "Pink City", Jaipur blends royal palaces, bustling
-                bazaars and colourful streets with warm Rajasthani hospitality.
-              </p>
-              <p>
-                From the iconic Hawa Mahal and Amer Fort to serene lakes and
-                vibrant markets, Jaipur offers a perfect mix of history, culture
-                and photo-worthy spots for every traveller.
-              </p>
-              <p>
-                Whether you are planning a short weekend escape or an extended
-                Rajasthan circuit, Meharoli Tours and Travels designs Jaipur
-                holidays that match your pace and budget.
-              </p>
-              <button
-                type="button"
-                className="btn primary about-btn"
-                onClick={() =>
-                  openWhatsApp(
-                    "Hi Meharoli Tours and Travels, I want to talk to a Jaipur travel expert.",
-                  )
-                }
-              >
-                Talk to an Expert
-              </button>
-            </div>
-            <div className="about-jaipur-image" aria-hidden="true">
-              <div className="about-jaipur-photo" />
+        {/* ── FOUNDER & LEADERSHIP SECTION ── */}
+        <section className="founder-section py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white relative overflow-hidden my-8 rounded-3xl mx-4 sm:mx-8 shadow-2xl" id="about">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              
+              {/* Photo Column */}
+              <div className="lg:col-span-5 flex justify-center">
+                <div className="relative group w-full max-w-sm">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-amber-400 rounded-3xl blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-400/30">
+                    <img
+                      src="/pictures/dilip_singh_meharoli.jpg"
+                      alt="Dilip Singh Meharoli - Founder & CEO"
+                      className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent p-6 text-center">
+                      <h3 className="text-2xl font-extrabold text-white font-serif tracking-wide">
+                        Shri Dilip Singh Meharoli
+                      </h3>
+                      <p className="text-amber-400 text-sm font-semibold mt-1">
+                        Founder &amp; Managing Director
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Text & Accomplishments Column */}
+              <div className="lg:col-span-7 flex flex-col justify-center">
+                <span className="bg-orange-500/20 text-orange-400 border border-orange-500/40 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block w-fit mb-4">
+                  Leadership &amp; Social Reformer
+                </span>
+                
+                <h2 className="text-2xl sm:text-4xl font-extrabold font-serif leading-tight text-white mb-4">
+                  Steered by 20+ Years of Tourism Excellence &amp; Dedicated Social Work
+                </h2>
+
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                  Founded under the vision of <strong className="text-amber-300">Shri Dilip Singh Meharoli</strong>, Meharoli Tours and Travels has grown into one of Rajasthan&apos;s premier travel organizations. With over two decades of hands-on expertise in Rajasthan tourism, Shri Dilip Singh Ji ensures that every guest experiences authentic Indian culture, top-tier luxury, and unmatched safety.
+                </p>
+
+                {/* Key Roles & Badges */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 flex items-start gap-3.5">
+                    <div className="bg-orange-500/20 text-orange-400 p-2.5 rounded-xl text-xl flex-shrink-0">
+                      🚘
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-white">President / Head</h4>
+                      <p className="text-xs text-slate-300 mt-0.5">Rajasthan Tour &amp; Travel Car Association</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 flex items-start gap-3.5">
+                    <div className="bg-amber-500/20 text-amber-400 p-2.5 rounded-xl text-xl flex-shrink-0">
+                      🎗️
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-white">President (Adhyaksh)</h4>
+                      <p className="text-xs text-slate-300 mt-0.5">Shree Rajput Dahej Virodhi Sangh</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 flex items-start gap-3.5">
+                    <div className="bg-emerald-500/20 text-emerald-400 p-2.5 rounded-xl text-xl flex-shrink-0">
+                      ⭐
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-white">20+ Years Experience</h4>
+                      <p className="text-xs text-slate-300 mt-0.5">Rajasthan, Delhi &amp; Agra Tourism Industry</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 flex items-start gap-3.5">
+                    <div className="bg-purple-500/20 text-purple-400 p-2.5 rounded-xl text-xl flex-shrink-0">
+                      🤝
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-white">Social Reformer</h4>
+                      <p className="text-xs text-slate-300 mt-0.5">Active Anti-Dowry Campaigner &amp; Social Worker</p>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 italic border-l-4 border-amber-400 pl-4 py-1 bg-amber-400/5 rounded-r-xl">
+                  &ldquo;We believe that true leadership lies in serving both our travelers and our society. We are committed to eradicating social evils like dowry while promoting ethical tourism across India.&rdquo;
+                </p>
+
+                <div className="flex flex-wrap gap-4 items-center">
+                  <button
+                    type="button"
+                    className="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold rounded-xl shadow-lg hover:shadow-orange-500/30 transition duration-300 flex items-center gap-2 text-sm cursor-pointer"
+                    onClick={() =>
+                      openWhatsApp(
+                        "Hi Shri Dilip Singh Meharoli, I want to book a custom travel itinerary with Meharoli Tours."
+                      )
+                    }
+                  >
+                    💬 Connect on WhatsApp
+                  </button>
+
+                  <button
+                    type="button"
+                    className="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-semibold rounded-xl border border-slate-700 transition duration-300 text-sm cursor-pointer"
+                    onClick={scrollToForm}
+                  >
+                    📝 Request Custom Quote
+                  </button>
+                </div>
+
+              </div>
+
             </div>
           </div>
         </section>
@@ -1753,6 +2126,98 @@ function App() {
           </p>
         </div>
       </footer>
+    </div>
+  );
+}
+
+function BlogDetailView({ blogKey, onClose, openWhatsApp }) {
+  const blog = blogsData.find((b) => b.id === blogKey);
+  if (!blog) return null;
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    if (!blog.images || blog.images.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % blog.images.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [blog.images]);
+
+  return (
+    <div className="blog-detail-page bg-slate-50 min-h-screen py-8 px-4 sm:px-6 lg:px-8 mt-16 animate-fadeIn">
+      {/* Back Button */}
+      <div className="max-w-4xl mx-auto mb-6">
+        <button
+          type="button"
+          onClick={() => {
+            window.location.hash = "#blogs";
+            onClose();
+          }}
+          className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-700 hover:text-orange-600 font-semibold rounded-lg shadow-sm border border-gray-200 transition hover:shadow-md cursor-pointer"
+        >
+          ← Back to All Blogs
+        </button>
+      </div>
+
+      {/* Hero Banner Section with Slideshow */}
+      <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-xl mb-10 relative h-[250px] sm:h-[400px]">
+        {blog.images && blog.images.length > 0 ? (
+          blog.images.map((src, idx) => (
+            <div
+              key={idx}
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+                idx === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ backgroundImage: `url(${src})` }}
+            />
+          ))
+        ) : (
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${blog.coverImage})` }}
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent z-10" />
+        <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10 text-white z-20">
+          <span className="bg-orange-500 text-white text-xs uppercase tracking-wider font-bold px-3 py-1 rounded-full mb-3 inline-block">
+            {blog.category}
+          </span>
+          <h1 className="text-2xl sm:text-4xl font-extrabold font-serif mb-2">{blog.title}</h1>
+          <div className="flex gap-4 text-xs sm:text-sm text-slate-200 font-medium">
+            <span>📅 {blog.date}</span>
+            <span>•</span>
+            <span>⏱ {blog.readTime}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Blog Content */}
+      <article className="max-w-4xl mx-auto bg-white p-6 sm:p-10 rounded-3xl shadow-sm border border-gray-100 mb-10">
+        {blog.content.map((sec, idx) => (
+          <div key={idx} className="mb-8 last:mb-0">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-800 mb-4 font-serif">{sec.heading}</h2>
+            <p className="text-gray-600 leading-relaxed text-sm sm:text-base whitespace-pre-line">{sec.text}</p>
+          </div>
+        ))}
+
+        {/* CTA box at end of blog */}
+        <div className="mt-12 p-6 sm:p-8 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl text-white text-center shadow-lg">
+          <h3 className="text-lg sm:text-xl font-bold mb-2">Want to experience this yourself?</h3>
+          <p className="text-sm text-orange-50 mb-6">Let us build a customized heritage &amp; travel itinerary for you today.</p>
+          <button
+            type="button"
+            className="px-6 py-3 bg-white text-orange-600 font-bold rounded-xl shadow-md hover:bg-orange-50 transition transform hover:-translate-y-0.5 cursor-pointer text-sm"
+            onClick={() =>
+              openWhatsApp(
+                `Hi Meharoli Tours, I read your blog "${blog.title}" and would like to plan a custom trip.`
+              )
+            }
+          >
+            💬 Inquire via WhatsApp
+          </button>
+        </div>
+      </article>
     </div>
   );
 }
