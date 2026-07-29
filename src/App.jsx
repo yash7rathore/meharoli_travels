@@ -12,12 +12,601 @@ const jaipurSlides = [
   "/pictures/main-section/Jaipur_7.jpg",
 ];
 
+const destinationsData = {
+  delhi: {
+    title: "Delhi",
+    subtitle: "India's Historic Capital City",
+    description: "Explore Delhi, where the ancient past blends seamlessly with a bustling, modern metropolis. From grand Mughal monuments to vibrant street food and markets, Delhi is a sensory adventure.",
+    coverImage: "/pictures/delhi.jpg",
+    images: [
+      "/pictures/delhi.jpg",
+      "/pictures/main-section/Jaipur_3.jpg",
+      "/pictures/main-section/Jaipur_4.jpg"
+    ],
+    markets: [
+      {
+        name: "Chandni Chowk",
+        specialty: "Bridal wear, antique jewelry, street food & spices",
+        desc: "One of the oldest and busiest markets in Old Delhi, dating back to the Mughal era. Explore its narrow lanes, packed with shops and historic eateries."
+      },
+      {
+        name: "Dilli Haat",
+        specialty: "Traditional Indian handicrafts & regional food stalls",
+        desc: "An open-air food plaza and craft bazaar run by Delhi Tourism. A perfect, relaxed space to buy authentic handloom clothing and regional crafts."
+      },
+      {
+        name: "Janpath & Sarojini Nagar",
+        specialty: "Trendy clothes, accessories, and cheap souvenirs",
+        desc: "Perfect for budget-friendly clothing shopping, local handicrafts, brass artifacts, and matching outfits."
+      }
+    ],
+    itinerary: [
+      {
+        day: "Day 1",
+        title: "Old Delhi Heritage & Rickshaw Rides",
+        details: [
+          "Start your morning with a visit to the grand Red Fort (Lal Qila), built by Emperor Shah Jahan.",
+          "Explore Jama Masjid, one of the largest mosques in India, offering panoramic views of Old Delhi.",
+          "Embark on an exciting cycle rickshaw ride through the chaotic lanes of Chandni Chowk.",
+          "Stop at Khari Baoli, Asia's largest wholesale spice market, known for its rich colors and intense aromas."
+        ]
+      },
+      {
+        day: "Day 2",
+        title: "New Delhi Monuments & Markets",
+        details: [
+          "Drive past the majestic India Gate, Rashtrapati Bhavan (President's Palace), and Parliament House.",
+          "Visit Humayun's Tomb, a UNESCO World Heritage site and the architectural inspiration for the Taj Mahal.",
+          "Explore the towering Qutub Minar complex, dating back to the 12th century.",
+          "End the day shopping and dining at the upscale Khan Market or browsing traditional crafts at Dilli Haat."
+        ]
+      }
+    ]
+  },
+  agra: {
+    title: "Agra",
+    subtitle: "The City of the Taj Mahal",
+    description: "Witness the pinnacle of Mughal architecture and design. Home to three UNESCO World Heritage sites, Agra offers a magical dive into romantic royal history.",
+    coverImage: "/pictures/agra_tajmahal.jpg",
+    images: [
+      "/pictures/agra_tajmahal.jpg",
+      "/pictures/main-section/Jaipur_2.jpg",
+      "/pictures/main-section/Jaipur_5.jpg"
+    ],
+    markets: [
+      {
+        name: "Sadar Bazar",
+        specialty: "Agra Petha, premium leather footwear, & marble crafts",
+        desc: "Agra's premier shopping destination. Bustling with shops selling leather jackets, handcrafted Mojri shoes, brass items, and mouth-watering sweets."
+      },
+      {
+        name: "Kinari Bazar",
+        specialty: "Bridal wear, textiles, and local jewelry",
+        desc: "A historic wholesale bazaar located near Agra Fort. Great for picking up traditional block prints, colorful fabrics, and local handicrafts."
+      },
+      {
+        name: "Taj Ganj",
+        specialty: "Marble inlay replicas & stone carvings",
+        desc: "Located right outside the Taj Mahal gates. Watch local artisans construct beautiful Pietra Dura (marble inlay) souvenirs using ancient techniques."
+      }
+    ],
+    itinerary: [
+      {
+        day: "Same Day / Day 1",
+        title: "The Ultimate Taj Sunrise & Agra Fort",
+        details: [
+          "At sunrise, experience the majestic Taj Mahal when the morning mist rises and the white marble glows in golden hues.",
+          "Return to your hotel for breakfast, then visit the massive red sandstone walls of the Agra Fort.",
+          "Explore the beautiful tomb of Itimad-ud-Daulah, affectionately known as the 'Baby Taj'.",
+          "Catch a sunset view of the Taj Mahal across the river from the Mehtab Bagh gardens.",
+          "Spend your evening exploring Sadar Bazar for shopping and enjoying authentic local snacks."
+        ]
+      }
+    ]
+  },
+  rajasthan: {
+    title: "Royal Rajasthan",
+    subtitle: "The Land of Kings & Forts",
+    description: "Welcome to India's most colorful state. Experience majestic forts perched on hills, romantic lake palaces, golden sand dunes, camel safaris, and rich royal heritage.",
+    coverImage: "/pictures/main-section/Jaipur_2.jpg",
+    images: [
+      "/pictures/main-section/Jaipur_2.jpg",
+      "/pictures/udaipur.jpg",
+      "/pictures/jodhpur.jpg",
+      "/pictures/jaisalmer_desert.jpg",
+      "/pictures/bikaner.jpg",
+      "/pictures/mandawa.jpg",
+      "/pictures/mount_abu.jpg"
+    ],
+    cities: [
+      {
+        id: "jaipur",
+        name: "Jaipur (Pink City)",
+        tagline: "Capital of heritage, palaces, and gems",
+        coverImage: "/pictures/main-section/Jaipur_1.jpg",
+        markets: [
+          {
+            name: "Johari Bazar",
+            specialty: "Gems, gold jewelry, and handmade tie-dye sarees"
+          },
+          {
+            name: "Bapu Bazar",
+            specialty: "Camel leather Mojri shoes, Sanganeri print fabrics, and pottery"
+          }
+        ],
+        itinerary: [
+          {
+            day: "Day 1",
+            title: "Forts & Royal Views",
+            details: [
+              "Explore the massive Amer Fort on the hilltop and its stunning Sheesh Mahal (Mirror Palace).",
+              "Take a picture at Jal Mahal (Water Palace) in the middle of Man Sagar Lake.",
+              "Visit Hawa Mahal (Palace of Winds) with its 953 small windows."
+            ]
+          },
+          {
+            day: "Day 2",
+            title: "Palace & Observatory",
+            details: [
+              "Tour the Royal City Palace museum containing rare weapons and textiles.",
+              "See the giant stone astronomical instruments at Jantar Mantar (UNESCO site).",
+              "Go souvenir shopping at Bapu Bazar and enjoy authentic Rajasthani Thali."
+            ]
+          }
+        ]
+      },
+      {
+        id: "udaipur",
+        name: "Udaipur (City of Lakes)",
+        tagline: "The Venice of the East",
+        coverImage: "/pictures/udaipur.jpg",
+        markets: [
+          {
+            name: "Hathi Pol Bazar",
+            specialty: "Miniature Rajasthani paintings and wooden toys"
+          },
+          {
+            name: "Bada Bazar",
+            specialty: "Bandhani print fabrics and handmade leather diaries"
+          }
+        ],
+        itinerary: [
+          {
+            day: "Day 1",
+            title: "Lake Cruise & City Palace",
+            details: [
+              "Tour the magnificent City Palace complex overlooking Lake Pichola.",
+              "Take a sunset boat cruise on Lake Pichola, visiting the iconic Jag Mandir Palace.",
+              "Visit Jagdish Temple, a large Hindu temple in the heart of the city."
+            ]
+          },
+          {
+            day: "Day 2",
+            title: "Royal Gardens & Fortresses",
+            details: [
+              "Visit Saheliyon-ki-Bari (Garden of the Maids) with fountains and marble elephants.",
+              "Take a cable car ride up to Mansapurna Karni Mata temple for panoramic views.",
+              "Drive up to the Monsoon Palace (Sajjangarh) for a spectacular panoramic sunset."
+            ]
+          }
+        ]
+      },
+      {
+        id: "jodhpur",
+        name: "Jodhpur (Blue City)",
+        tagline: "Sun-drenched blue houses and mighty forts",
+        coverImage: "/pictures/jodhpur.jpg",
+        markets: [
+          {
+            name: "Clock Tower Market (Sadar Market)",
+            specialty: "Hand-ground spices, Mathaniya red chilies, and handicrafts"
+          },
+          {
+            name: "Mochi Bazar",
+            specialty: "Intricately embroidered Jodhpuri Mojri shoes"
+          }
+        ],
+        itinerary: [
+          {
+            day: "Day 1",
+            title: "Mehrangarh Fort & Jaswant Thada",
+            details: [
+              "Climb Mehrangarh Fort, towering 400 feet above the city with incredible views of blue houses.",
+              "Visit Jaswant Thada, a peaceful white marble cenotaph dedicated to Maharaja Jaswant Singh II.",
+              "Walk through the blue-painted residential lanes of Old Jodhpur.",
+              "Shop at Sadar Market and try the famous Shahi Samosa and Makhaniya Lassi."
+            ]
+          }
+        ]
+      },
+      {
+        id: "jaisalmer",
+        name: "Jaisalmer (Golden City)",
+        tagline: "Thar desert camping and living sandstone forts",
+        coverImage: "/pictures/jaisalmer_desert.jpg",
+        markets: [
+          {
+            name: "Sadar Bazar",
+            specialty: "Puppets, camel leather bags, and silver tribal jewelry"
+          },
+          {
+            name: "Bhatia Bazar",
+            specialty: "Mirror-work textiles and antique wood carvings"
+          }
+        ],
+        itinerary: [
+          {
+            day: "Day 1",
+            title: "Sandstone Havelis & Golden Fort",
+            details: [
+              "Explore Jaisalmer Fort (Sonar Qila), a living fort where 1/4th of the city's population resides.",
+              "Visit Patwon ki Haveli, a cluster of five grand havelis with intricate stone lattices.",
+              "Take a walk around the serene Gadisar Lake at sunset."
+            ]
+          },
+          {
+            day: "Day 2",
+            title: "Desert Dunes & Camp Nights",
+            details: [
+              "Drive to Sam Sand Dunes in the Thar Desert (40 km from Jaisalmer).",
+              "Enjoy a thrilling Jeep Dune Bashing session and a camel safari at sunset.",
+              "Check into a luxury desert camp, complete with cultural folk dances and buffet dinner."
+            ]
+          }
+        ]
+      },
+      {
+        id: "bikaner",
+        name: "Bikaner",
+        tagline: "Magnificent red sandstone palaces and desert heritage",
+        coverImage: "/pictures/bikaner.jpg",
+        markets: [
+          {
+            name: "Kote Gate Market",
+            specialty: "Camel leather goods, Bikaneri bhujia, local sweets, and Kundan jewelry"
+          },
+          {
+            name: "Station Road Market",
+            specialty: "Spices, dry fruits, and handloom fabrics"
+          }
+        ],
+        itinerary: [
+          {
+            day: "Day 1",
+            title: "Junagarh Fort & Karni Mata Temple",
+            details: [
+              "Visit the massive Junagarh Fort, an un-conquered fort displaying grand royal chambers.",
+              "Travel to the unique Karni Mata Temple (Rat Temple) in Deshnoke, known for its sacred white rats.",
+              "Tour the National Research Centre on Camel, the largest camel breeding farm in Asia.",
+              "Stroll through the heritage Havelis of Old Bikaner and sample famous Bikaneri Bhujia."
+            ]
+          }
+        ]
+      },
+      {
+        id: "mandawa",
+        name: "Mandawa",
+        tagline: "An open-air art gallery of beautiful historic frescoed Havelis",
+        coverImage: "/pictures/mandawa.jpg",
+        markets: [
+          {
+            name: "Mandawa Main Bazar",
+            specialty: "Hand-painted wooden items, puppets, antiques, and local paintings"
+          }
+        ],
+        itinerary: [
+          {
+            day: "Day 1",
+            title: "Heritage Havelis & Fresco Walk",
+            details: [
+              "Take a guided walk to see the beautifully painted frescoes of Sewaram Saraf Haveli and Ram Pratap Nemani Haveli.",
+              "Visit the Mandawa Castle, a beautiful fort-hotel showcasing historic artifacts and weapons.",
+              "Explore local art stores where artists practice traditional miniature painting styles."
+            ]
+          }
+        ]
+      },
+      {
+        id: "mount_abu",
+        name: "Mount Abu",
+        tagline: "Rajasthan's only scenic hill station of lakes and temples",
+        coverImage: "/pictures/mount_abu.jpg",
+        markets: [
+          {
+            name: "Nakki Lake Mall Road",
+            specialty: "Rajasthani handicrafts, wooden toys, leather artifacts, and warm shawls"
+          }
+        ],
+        itinerary: [
+          {
+            day: "Day 1",
+            title: "Scenic Nakki Lake & Sunsets",
+            details: [
+              "Enjoy a relaxing paddle boat ride on the scenic Nakki Lake.",
+              "Walk up to Toad Rock, a massive natural boulder shaped like a toad overlooking the lake.",
+              "Experience the spectacular panoramic sunset view from Sunset Point."
+            ]
+          },
+          {
+            day: "Day 2",
+            title: "Dilwara Temples & Peaks",
+            details: [
+              "Tour the Dilwara Jain Temples, world-famous for their breathtakingly detailed marble carvings.",
+              "Drive up to Guru Shikhar, the highest peak of the Aravali Range, for spectacular mountain views.",
+              "Visit the serene Achalgarh Fort and its ancient temples."
+            ]
+          }
+        ]
+      },
+      {
+        id: "pushkar",
+        name: "Pushkar (Holy Town)",
+        tagline: "Sacred ghats, temples, and spiritual bazaars",
+        coverImage: "/pictures/pushkar.jpg",
+        markets: [
+          {
+            name: "Pushkar Sadar Bazar",
+            specialty: "Spiritual incense, rose waters, hippie clothes, and silver jewelry"
+          }
+        ],
+        itinerary: [
+          {
+            day: "Day 1",
+            title: "Temple Visits & Lake Ghats",
+            details: [
+              "Visit the rare 14th-century Lord Brahma Temple, one of the few in the world.",
+              "Walk down the 52 sacred ghats of Pushkar Lake to witness local Hindu rituals.",
+              "Stroll through the spiritual Sadar Bazar packed with local rose products and handicrafts.",
+              "Climb up the Savitri Temple hill (by foot or cable car) for a gorgeous sunset view of the lake."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+};
+
+function DestinationDetailView({
+  destinationKey,
+  activeRajasthanCity,
+  setActiveRajasthanCity,
+  onClose,
+  openWhatsApp,
+  scrollToForm
+}) {
+  const data = destinationsData[destinationKey];
+  if (!data) return null;
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    if (!data.images || data.images.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % data.images.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [data.images]);
+
+  return (
+    <div className="destination-detail-page bg-slate-50 min-h-screen py-8 px-4 sm:px-6 lg:px-8 mt-16 animate-fadeIn">
+      {/* Back Button */}
+      <div className="max-w-7xl mx-auto mb-6">
+        <button
+          type="button"
+          onClick={onClose}
+          className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-700 hover:text-orange-600 font-semibold rounded-lg shadow-sm border border-gray-200 transition hover:shadow-md cursor-pointer"
+        >
+          ← Back to Homepage
+        </button>
+      </div>
+
+      {/* Hero Banner Section with Slideshow */}
+      <div className="max-w-7xl mx-auto rounded-3xl overflow-hidden shadow-xl mb-10 relative h-[250px] sm:h-[350px]">
+        {data.images && data.images.length > 0 ? (
+          data.images.map((src, idx) => (
+            <div
+              key={idx}
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+                idx === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ backgroundImage: `url(${src})` }}
+            />
+          ))
+        ) : (
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${data.coverImage})` }}
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent z-10" />
+        <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10 text-white z-20">
+          <span className="bg-orange-500 text-white text-xs uppercase tracking-wider font-bold px-3 py-1 rounded-full mb-3 inline-block">
+            Explore Destination
+          </span>
+          <h1 className="text-3xl sm:text-5xl font-extrabold font-serif mb-2">{data.title}</h1>
+          <p className="text-sm sm:text-lg text-slate-200 font-medium max-w-2xl">{data.subtitle}</p>
+        </div>
+      </div>
+
+      {/* Description */}
+      <div className="max-w-7xl mx-auto bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-100 mb-10">
+        <h2 className="text-xl sm:text-2xl font-bold text-slate-800 mb-3">About {data.title}</h2>
+        <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{data.description}</p>
+      </div>
+
+      {/* Rajasthan Main Cities Grid */}
+      {destinationKey === "rajasthan" && !activeRajasthanCity && (
+        <div className="max-w-7xl mx-auto mb-10">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 font-serif">Main Cities of Rajasthan</h2>
+            <p className="text-gray-500 mt-2 text-sm sm:text-base">Click a city below to view its detailed itinerary & famous local shopping markets</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {data.cities.map((city) => (
+              <div
+                key={city.id}
+                className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col"
+              >
+                <div
+                  className="h-48 bg-cover bg-center relative"
+                  style={{ backgroundImage: `url(${city.coverImage})` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="text-xl font-bold">{city.name}</h3>
+                  </div>
+                </div>
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <p className="text-gray-600 text-xs sm:text-sm italic mb-4">{city.tagline}</p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActiveRajasthanCity(city);
+                      window.scrollTo({ top: 400, behavior: "smooth" });
+                    }}
+                    className="w-full text-center py-2.5 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition shadow-sm hover:shadow cursor-pointer"
+                  >
+                    View Itinerary & Markets
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Active Rajasthan City View / Delhi Agra View */}
+      {((destinationKey !== "rajasthan") || (destinationKey === "rajasthan" && activeRajasthanCity)) && (
+        <div className="max-w-7xl mx-auto">
+          {/* Back to Cities list for Rajasthan */}
+          {destinationKey === "rajasthan" && (
+            <button
+              type="button"
+              onClick={() => setActiveRajasthanCity(null)}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-200 text-slate-700 hover:bg-slate-300 font-semibold rounded-lg text-xs mb-6 transition cursor-pointer"
+            >
+              ← Back to Rajasthan Cities
+            </button>
+          )}
+
+          {/* Active City Header */}
+          {activeRajasthanCity && (
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8 flex flex-col sm:flex-row gap-6 items-center">
+              <div 
+                className="w-full sm:w-1/3 h-40 bg-cover bg-center rounded-xl"
+                style={{ backgroundImage: `url(${activeRajasthanCity.coverImage})` }}
+              />
+              <div className="flex-1 text-center sm:text-left">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 font-serif mb-1">{activeRajasthanCity.name}</h2>
+                <p className="text-orange-500 font-medium text-sm sm:text-base italic mb-3">{activeRajasthanCity.tagline}</p>
+                <p className="text-gray-600 text-xs sm:text-sm">Explore our curated day-by-day itinerary and local market recommendations below.</p>
+              </div>
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Itinerary Column */}
+            <div className="lg:col-span-7 flex flex-col gap-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-800 flex items-center gap-2 border-b pb-3 border-gray-200 font-serif">
+                🗺️ Suggested Itinerary
+              </h3>
+              {(activeRajasthanCity || data).itinerary.map((item, index) => (
+                <div key={index} className="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-gray-100">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="bg-orange-100 text-orange-600 font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full">
+                      {item.day}
+                    </span>
+                    <h4 className="text-base sm:text-lg font-bold text-slate-800">{item.title}</h4>
+                  </div>
+                  <ul className="space-y-3">
+                    {item.details.map((detail, idx) => (
+                      <li key={idx} className="flex gap-2.5 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                        <span className="text-orange-500 mt-1 flex-shrink-0">🔸</span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            {/* Local Markets Column */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-800 flex items-center gap-2 border-b pb-3 border-gray-200 font-serif">
+                🛍️ Local Shopping Markets
+              </h3>
+              {(activeRajasthanCity || data).markets.map((market, index) => (
+                <div key={index} className="bg-orange-50/40 p-5 rounded-2xl shadow-sm border border-orange-100/60 hover:bg-orange-50 transition duration-300">
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h4 className="text-base font-bold text-slate-800 flex items-center gap-1.5">
+                      🛒 {market.name}
+                    </h4>
+                  </div>
+                  <div className="mb-2">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-orange-600 bg-orange-100/60 px-2 py-0.5 rounded">
+                      Specialty: {market.specialty}
+                    </span>
+                  </div>
+                  {market.desc && (
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{market.desc}</p>
+                  )}
+                </div>
+              ))}
+
+              {/* Package Call-to-action */}
+              <div className="bg-gradient-to-br from-slate-900 to-slate-800 p-6 rounded-2xl text-white shadow-lg mt-4">
+                <h4 className="text-lg font-bold mb-2">Plan your custom holiday!</h4>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
+                  Want to customize this itinerary or add more destinations? Contact our travel specialists. We arrange comfortable AC cabs, handpicked hotels, and local guides.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const cityName = activeRajasthanCity ? activeRajasthanCity.name : data.title;
+                      openWhatsApp(`Hi, I am interested in planning a trip to ${cityName} with local market visits.`);
+                    }}
+                    className="flex-1 text-center py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition text-xs sm:text-sm shadow-md hover:shadow-lg cursor-pointer"
+                  >
+                    💬 WhatsApp Enquiry
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onClose();
+                      setTimeout(() => {
+                        scrollToForm();
+                        const packageInput = document.getElementById("package-name-field");
+                        if (packageInput) {
+                          const cityName = activeRajasthanCity ? activeRajasthanCity.name : data.title;
+                          packageInput.value = `${cityName} Custom Tour`;
+                          packageInput.dispatchEvent(new Event("input", { bubbles: true }));
+                        }
+                      }, 200);
+                    }}
+                    className="flex-1 text-center py-2.5 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition text-xs sm:text-sm shadow-md hover:shadow-lg cursor-pointer"
+                  >
+                    📝 Request Quote
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function App() {
   const whatsappNumber = "918824976479"; // TODO: replace with real WhatsApp number
   const carScrollRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const [heroSlide, setHeroSlide] = useState(0);
+  const [activeDestination, setActiveDestination] = useState(null);
+  const [activeRajasthanCity, setActiveRajasthanCity] = useState(null);
+  const [destDropdownOpen, setDestDropdownOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -58,28 +647,60 @@ function App() {
   const packages = [
     {
       id: 1,
-      name: "Jaipur City Highlights",
-      tag: "Pink City",
-      destinations: ["Hawa Mahal", "City Palace", "Jantar Mantar"],
-      //priceFrom: "₹7,499",
-      image: "/pictures/lalitajapa-jaipur-7798509_1920.jpg",
+      name: "Golden Triangle",
+      tag: "Best Seller",
+      duration: "5 Days / 4 Nights",
+      destinations: ["Delhi", "Agra (Taj Mahal)", "Jaipur (Pink City)"],
+      image: "/pictures/agra_tajmahal.jpg",
+      includes: [
+        "3★ / 4★ Hotels with Breakfast",
+        "Private AC Sedan/SUV Cab",
+        "Expert Local Tour Guides",
+        "All Tolls, Parking & Taxes Included"
+      ]
     },
     {
       id: 2,
-      name: "Amer Fort & Lakeside",
-      tag: "Heritage",
-      destinations: ["Amer Fort", "Jal Mahal", "Nahargarh"],
-      //priceFrom: "₹8,999",
-      image: "/pictures/main-section/Jaipur_2.jpg",
+      name: "Maharaja Heritage Trail",
+      tag: "Grand Heritage",
+      duration: "10 Days / 9 Nights",
+      destinations: ["Delhi", "Mandawa", "Bikaner", "Jodhpur", "Udaipur", "Jaipur", "Agra"],
+      image: "/pictures/bikaner.jpg",
+      includes: [
+        "Heritage Palace Hotel Stays",
+        "Private Chauffeur Cab",
+        "Thar Desert Camel Safari",
+        "Guided Royal City Tours"
+      ]
     },
     {
       id: 3,
-      name: "Jaipur Nights & Bazaars",
-      tag: "Markets",
-      destinations: ["Johari Bazaar", "Bapu Bazaar", "Chokhi Dhani"],
-      //priceFrom: "₹9,499",
-      image: "/pictures/main-section/Jaipur_3.jpg",
+      name: "Golden Triangle and Tiger Safari",
+      tag: "Wildlife Special",
+      duration: "6 Days / 5 Nights",
+      destinations: ["Delhi", "Agra", "Ranthambore (Tiger Safari)", "Jaipur"],
+      image: "/pictures/ranthambore_tiger.jpg",
+      includes: [
+        "Luxury Resort Stays",
+        "2 Open-Gypsy Jungle Safaris",
+        "Taj Mahal Sunrise Sightseeing",
+        "Dedicated Chauffeur & Transfers"
+      ]
     },
+    {
+      id: 4,
+      name: "Golden Triangle and Lake Palace",
+      tag: "Luxury & Lakes",
+      duration: "8 Days / 7 Nights",
+      destinations: ["Delhi", "Agra", "Jaipur", "Udaipur (Lake Pichola)"],
+      image: "/pictures/udaipur.jpg",
+      includes: [
+        "Lake view stays in Udaipur",
+        "Boat Cruise on Lake Pichola",
+        "Private AC Cab Transfers",
+        "All Monument Entrance Tickets"
+      ]
+    }
   ];
 
   const services = [
@@ -203,7 +824,7 @@ function App() {
     capacity: "4 Passengers",
     ac: true,
     color: "#0891b2",
-    image: "pictures/cars/dzire.jpeg",
+    image: "/pictures/cars/dzire.jpeg",
     features: ["AC", "Luggage Space", "Music System"],
   },
   {
@@ -213,7 +834,7 @@ function App() {
     capacity: "6 Passengers",
     ac: true,
     color: "#0891b2",
-    image: "pictures/cars/ertiga.jpeg",
+    image: "/pictures/cars/ertiga.jpeg",
     features: ["AC", "Luggage Space", "Music System"],
   },
   {
@@ -223,7 +844,7 @@ function App() {
     capacity: "6 Passengers",
     ac: true,
     color: "#059669",
-    image: "pictures/cars/innova.jpeg",
+    image: "/pictures/cars/innova.jpeg",
     features: ["AC", "Premium Seats", "GPS", "USB Charging"],
   },
   {
@@ -233,7 +854,7 @@ function App() {
     capacity: "7 Passengers",
     ac: true,
     color: "#d97706",
-    image: "pictures/cars/crysta.jpeg",
+    image: "/pictures/cars/crysta.jpeg",
     features: ["AC", "Luxury Interior", "GPS", "USB Charging"],
   },
   {
@@ -243,7 +864,7 @@ function App() {
     capacity: "12–17 Passengers",
     ac: true,
     color: "#db2777",
-    image: "pictures/cars/traveller.jpeg",
+    image: "/pictures/cars/traveller.jpeg",
     features: ["AC", "Wide Seats", "Luggage Rack", "Music System"],
   },
   {
@@ -253,7 +874,7 @@ function App() {
     capacity: "30+ Passengers",
     ac: true,
     color: "#7c3aed",
-    image: "pictures/cars/volvo.jpeg",
+    image: "/pictures/cars/volvo.jpeg",
     features: ["AC", "Recliner Seats", "Onboard TV", "Restroom"],
   },
 ];
@@ -270,7 +891,10 @@ function App() {
           <a
             href="#top"
             className="header-brand"
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              setMenuOpen(false);
+              setActiveDestination(null);
+            }}
           >
             <img
               src="/pictures/main-section/logo-removebg-preview.png"
@@ -292,10 +916,66 @@ function App() {
             <a
               href="#top"
               className="nav-item"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                setMenuOpen(false);
+                setActiveDestination(null);
+              }}
             >
               Home
             </a>
+            
+            <div 
+              className={`nav-dropdown${destDropdownOpen ? " open-mobile open-desktop" : ""}`}
+              onMouseEnter={() => setDestDropdownOpen(true)}
+              onMouseLeave={() => setDestDropdownOpen(false)}
+            >
+              <button
+                type="button"
+                className="dropdown-trigger"
+                onClick={() => setDestDropdownOpen(!destDropdownOpen)}
+              >
+                Destinations <span className="dropdown-arrow">▼</span>
+              </button>
+              <div className="dropdown-menu">
+                <button
+                  type="button"
+                  className="dropdown-item"
+                  onClick={() => {
+                    setActiveDestination("delhi");
+                    setMenuOpen(false);
+                    setDestDropdownOpen(false);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  Delhi
+                </button>
+                <button
+                  type="button"
+                  className="dropdown-item"
+                  onClick={() => {
+                    setActiveDestination("agra");
+                    setMenuOpen(false);
+                    setDestDropdownOpen(false);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  Agra
+                </button>
+                <button
+                  type="button"
+                  className="dropdown-item"
+                  onClick={() => {
+                    setActiveDestination("rajasthan");
+                    setActiveRajasthanCity(null);
+                    setMenuOpen(false);
+                    setDestDropdownOpen(false);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  Royal Rajasthan
+                </button>
+              </div>
+            </div>
             <a
               href="#packages"
               className="nav-item"
@@ -360,8 +1040,18 @@ function App() {
           </button>
         </div>
       </header>
-
-      <section className="hero" id="top">
+      {activeDestination ? (
+        <DestinationDetailView
+          destinationKey={activeDestination}
+          activeRajasthanCity={activeRajasthanCity}
+          setActiveRajasthanCity={setActiveRajasthanCity}
+          onClose={() => setActiveDestination(null)}
+          openWhatsApp={openWhatsApp}
+          scrollToForm={scrollToForm}
+        />
+      ) : (
+        <>
+          <section className="hero" id="top">
         {/* Decorative background blobs */}
         <div className="hero-bg-effects" aria-hidden="true">
           <div className="hero-blob b1" />
@@ -390,7 +1080,7 @@ function App() {
         {/* Left – branding & CTA */}
         <div className="hero-left">
           <span className="hero-badge">
-            ⭐ Rajasthan Certified Travel Partner
+            ⭐ Rajasthan Certified Travel Partner | 🌐 Trusted by US, UK & Global Travelers
           </span>
           <h1 className="hero-title">
             <span aria-hidden="true">
@@ -400,7 +1090,7 @@ function App() {
                   O
                   <img
                     src="/pictures/main-section/logo-removebg-preview.png"
-                    alt=""
+                    alt="Meharoli Logo"
                     className="title-o-logo"
                   />
                 </span>
@@ -413,8 +1103,7 @@ function App() {
             <span className="sr-only">Meharoli Tours and Travels</span>
           </h1>
           <p className="hero-tagline">
-            Your trusted guide to Jaipur &amp; Rajasthan — crafting
-            unforgettable journeys since 2004.
+            Crafting custom luxury tour packages across Rajasthan, Delhi &amp; Agra for international guests from USA, UK, Europe, Australia, New Zealand &amp; worldwide.
           </p>
           <div className="hero-stats">
             <div className="hero-stat">
@@ -678,15 +1367,28 @@ function App() {
                     <div className="package-badge">{pkg.tag}</div>
                   </div>
                   <div className="package-body">
-                    <h3>{pkg.name}</h3>
+                    <div className="package-title-row">
+                      <h3>{pkg.name}</h3>
+                      {pkg.duration && (
+                        <span className="package-duration-badge">⏱ {pkg.duration}</span>
+                      )}
+                    </div>
                     <p className="package-destinations">
-                      Destinations: {pkg.destinations.join(" · ")}
+                      <strong>Route:</strong> {pkg.destinations.join(" → ")}
                     </p>
                     <ul className="package-includes">
-                      <li>Comfortable hotels</li>
-                      <li>Private cab transfers</li>
-                      <li>Guided sightseeing</li>
-                      <li>Breakfast & selected meals</li>
+                      {pkg.includes ? (
+                        pkg.includes.map((inc, idx) => (
+                          <li key={idx}>{inc}</li>
+                        ))
+                      ) : (
+                        <>
+                          <li>Comfortable hotels</li>
+                          <li>Private cab transfers</li>
+                          <li>Guided sightseeing</li>
+                          <li>Breakfast & selected meals</li>
+                        </>
+                      )}
                     </ul>
                     <div className="package-actions">
                       <button
@@ -948,6 +1650,8 @@ function App() {
           </div>
         </section>
       </main>
+        </>
+      )}
 
       <footer className="app-footer">
         <div className="footer-inner">
@@ -962,11 +1666,12 @@ function App() {
           </div>
           <div className="footer-columns">
             <div className="footer-column">
-              <h4>Jaipur Packages</h4>
+              <h4>Holiday Packages</h4>
               <ul>
-                <li>Weekend Pink City Getaway</li>
-                <li>Jaipur with Amer &amp; Nahargarh</li>
-                <li>Jaipur, Ajmer &amp; Pushkar</li>
+                <li><a href="#packages" className="hover:text-orange-500 transition-colors">Golden Triangle Tour</a></li>
+                <li><a href="#packages" className="hover:text-orange-500 transition-colors">Maharaja Heritage Trail</a></li>
+                <li><a href="#packages" className="hover:text-orange-500 transition-colors">Tiger Safari &amp; Wildlife Special</a></li>
+                <li><a href="#packages" className="hover:text-orange-500 transition-colors">Lake Palace Luxury Tour</a></li>
               </ul>
             </div>
             <div className="footer-column">
