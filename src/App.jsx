@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
+import emailjs from '@emailjs/browser';
 
 const jaipurSlides = [
   "/pictures/main-section/Jaipur_1.jpg",
@@ -12,7 +13,7 @@ const jaipurSlides = [
 ];
 
 function App() {
-  const whatsappNumber = "919999999999"; // TODO: replace with real WhatsApp number
+  const whatsappNumber = "918824976479"; // TODO: replace with real WhatsApp number
   const carScrollRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -60,7 +61,7 @@ function App() {
       name: "Jaipur City Highlights",
       tag: "Pink City",
       destinations: ["Hawa Mahal", "City Palace", "Jantar Mantar"],
-      priceFrom: "₹7,499",
+      //priceFrom: "₹7,499",
       image: "/pictures/lalitajapa-jaipur-7798509_1920.jpg",
     },
     {
@@ -68,7 +69,7 @@ function App() {
       name: "Amer Fort & Lakeside",
       tag: "Heritage",
       destinations: ["Amer Fort", "Jal Mahal", "Nahargarh"],
-      priceFrom: "₹8,999",
+      //priceFrom: "₹8,999",
       image: "/pictures/main-section/Jaipur_2.jpg",
     },
     {
@@ -76,7 +77,7 @@ function App() {
       name: "Jaipur Nights & Bazaars",
       tag: "Markets",
       destinations: ["Johari Bazaar", "Bapu Bazaar", "Chokhi Dhani"],
-      priceFrom: "₹9,499",
+      //priceFrom: "₹9,499",
       image: "/pictures/main-section/Jaipur_3.jpg",
     },
   ];
@@ -195,62 +196,67 @@ function App() {
   ];
 
   const cars = [
-    {
-      id: 2,
-      name: "Maruti Ertiga",
-      type: "MPV",
-      capacity: "6 Passengers",
-      ac: true,
-      priceFrom: "₹2,000/day",
-      color: "#0891b2",
-      icon: "🚙",
-      features: ["AC", "Luggage Space", "Music System"],
-    },
-    {
-      id: 3,
-      name: "Toyota Innova",
-      type: "SUV",
-      capacity: "6 Passengers",
-      ac: true,
-      priceFrom: "₹2,500/day",
-      color: "#059669",
-      icon: "🚐",
-      features: ["AC", "Premium Seats", "GPS", "USB Charging"],
-    },
-    {
-      id: 4,
-      name: "Toyota Crysta",
-      type: "Premium SUV",
-      capacity: "7 Passengers",
-      ac: true,
-      priceFrom: "₹3,200/day",
-      color: "#d97706",
-      icon: "🚘",
-      features: ["AC", "Luxury Interior", "GPS", "USB Charging"],
-    },
-    {
-      id: 5,
-      name: "Tempo Traveller",
-      type: "Mini Coach",
-      capacity: "12–17 Passengers",
-      ac: true,
-      priceFrom: "₹4,500/day",
-      color: "#db2777",
-      icon: "🚌",
-      features: ["AC", "Wide Seats", "Luggage Rack", "Music System"],
-    },
-    {
-      id: 6,
-      name: "Luxury Coach",
-      type: "Bus",
-      capacity: "30+ Passengers",
-      ac: true,
-      priceFrom: "₹12,000/day",
-      color: "#7c3aed",
-      icon: "🚎",
-      features: ["AC", "Recliner Seats", "Onboard TV", "Restroom"],
-    },
-  ];
+  {
+    id: 1,
+    name: "Maruti Dzire",
+    type: "Sedan",
+    capacity: "4 Passengers",
+    ac: true,
+    color: "#0891b2",
+    image: "pictures/cars/dzire.jpeg",
+    features: ["AC", "Luggage Space", "Music System"],
+  },
+  {
+    id: 2,
+    name: "Maruti Ertiga",
+    type: "MPV",
+    capacity: "6 Passengers",
+    ac: true,
+    color: "#0891b2",
+    image: "pictures/cars/ertiga.jpeg",
+    features: ["AC", "Luggage Space", "Music System"],
+  },
+  {
+    id: 3,
+    name: "Toyota Innova",
+    type: "SUV",
+    capacity: "6 Passengers",
+    ac: true,
+    color: "#059669",
+    image: "pictures/cars/innova.jpeg",
+    features: ["AC", "Premium Seats", "GPS", "USB Charging"],
+  },
+  {
+    id: 4,
+    name: "Toyota Crysta",
+    type: "Premium SUV",
+    capacity: "7 Passengers",
+    ac: true,
+    color: "#d97706",
+    image: "pictures/cars/crysta.jpeg",
+    features: ["AC", "Luxury Interior", "GPS", "USB Charging"],
+  },
+  {
+    id: 5,
+    name: "Tempo Traveller",
+    type: "Mini Coach",
+    capacity: "12–17 Passengers",
+    ac: true,
+    color: "#db2777",
+    image: "pictures/cars/traveller.jpeg",
+    features: ["AC", "Wide Seats", "Luggage Rack", "Music System"],
+  },
+  {
+    id: 6,
+    name: "Luxury Coach",
+    type: "Bus",
+    capacity: "30+ Passengers",
+    ac: true,
+    color: "#7c3aed",
+    image: "pictures/cars/volvo.jpeg",
+    features: ["AC", "Recliner Seats", "Onboard TV", "Restroom"],
+  },
+];
 
   return (
     <div className="app">
@@ -511,13 +517,37 @@ function App() {
             </div>
             <div className="enquiry-layout">
               <form
-                className="enquiry-form"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  alert("Thank you! Your enquiry has been received.");
-                  e.target.reset();
-                }}
-              >
+  className="enquiry-form"
+  onSubmit={(e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: e.target.name.value,
+      phone: e.target.phone.value,
+      email: e.target.email.value,
+      destination: e.target.destination.value,
+      travel_date: e.target['travel-date'].value,
+      travellers: e.target.travellers.value,
+      message: e.target.message.value,
+    };
+
+    emailjs
+      .send(
+        'service_ddemm88',       // replace with your Service ID
+        'template_io5ljmk',      // replace with your Template ID
+        formData,
+        '9AJfyV2Fy_U8DRKyi'        // replace with your Public Key
+      )
+      .then(() => {
+        alert('Thank you! Your enquiry has been received. We will contact you shortly.');
+        e.target.reset();
+      })
+      .catch((error) => {
+        console.error('EmailJS error:', error);
+        alert('Something went wrong. Please try WhatsApp or call us directly.');
+      });
+  }}
+>
                 <div className="form-row two-cols">
                   <div className="form-field">
                     <label htmlFor="name">Name</label>
@@ -613,7 +643,7 @@ function App() {
                 forts, bazaars and palaces with the wind in your hair.
               </p>
               <p className="decker-price-tag">
-                Starting at <strong>₹900</strong> / person
+                Starting at <strong>₹200 (Non-AC) / ₹300 (AC)</strong> / person
               </p>
               <button
                 type="button"
@@ -758,13 +788,15 @@ function App() {
             <div className="cars-carousel" ref={carScrollRef}>
               {cars.map((car) => (
                 <article key={car.id} className="car-card">
-                  <div
-                    className="car-card-top"
-                    style={{ background: car.color }}
-                  >
-                    <span className="car-icon">{car.icon}</span>
-                    <span className="car-type-badge">{car.type}</span>
-                  </div>
+                  <div className="car-card-top" style={{ background: car.color }}>
+  <img
+    src={car.image}
+    alt={car.name}
+    className="car-card-img"
+    onError={(e) => { e.target.style.display = 'none'; }}
+  />
+  <span className="car-type-badge">{car.type}</span>
+</div>
                   <div className="car-card-body">
                     <h3 className="car-name">{car.name}</h3>
                     <p className="car-capacity">👥 {car.capacity}</p>
@@ -942,7 +974,8 @@ function App() {
               <ul>
                 <li>Dilip Singh Meharoli: +91 9829017853</li>
                 <li>Namrata Shekhawat: +91 88249 76479</li>
-                <li>Email: info@meharolitravels.com</li>
+                <li>Yashwant Rathore : +91 97844 91826</li>
+                <li>Email: meharolitours.travels@gmail.com</li>
               </ul>
             </div>
             <div className="footer-column">
@@ -960,7 +993,7 @@ function App() {
               </button>
               <div className="footer-socials">
                 <a
-                  href="https://wa.me/919999999999"
+                  href="https://wa.me/918824976479"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-btn whatsapp"
@@ -972,7 +1005,7 @@ function App() {
                   </svg>
                 </a>
                 <a
-                  href="https://instagram.com/meharolitravels"
+                  href="https://www.instagram.com/meharolitourstravels?igsh=MTg3OWtlYjBoZGVqaA%3D%3D&utm_source=qr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-btn instagram"
@@ -983,7 +1016,7 @@ function App() {
                   </svg>
                 </a>
                 <a
-                  href="https://youtube.com/@meharolitravels"
+                  href="https://youtube.com/@meharolitoursandtravels?si=uVJoAWQhV00Mt6XQ"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-btn youtube"
@@ -994,7 +1027,7 @@ function App() {
                   </svg>
                 </a>
                 <a
-                  href="https://facebook.com/meharolitravels"
+                  href="https://www.facebook.com/share/1ZYMfib2Wd/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-btn facebook"
