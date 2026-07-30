@@ -1,16 +1,37 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import "./App.css";
 import emailjs from '@emailjs/browser';
 import { Helmet } from "react-helmet-async";
 
 const jaipurSlides = [
-  "/pictures/main-section/Jaipur_1.jpg",
-  "/pictures/main-section/Jaipur_2.jpg",
-  "/pictures/main-section/Jaipur_3.jpg",
-  "/pictures/main-section/Jaipur_4.jpg",
-  "/pictures/main-section/Jaipur_5.jpg",
-  "/pictures/main-section/Jaipur_6.jpg",
-  "/pictures/main-section/Jaipur_7.jpg",
+  {
+    src: "/pictures/main-section/jaipur-jal-mahal-water-palace.jpg",
+    alt: "Jal Mahal Water Palace in Jaipur Rajasthan India at sunset",
+  },
+  {
+    src: "/pictures/main-section/jaipur-amber-fort-amer-palace.jpg",
+    alt: "Amber Fort Fortress and Maota Lake in Amer Jaipur Rajasthan",
+  },
+  {
+    src: "/pictures/main-section/jaipur-patrika-gate-monument.jpg",
+    alt: "Patrika Gate Pink Monument Entrance in Jawahar Circle Jaipur",
+  },
+  {
+    src: "/pictures/main-section/jaipur-hawa-mahal-palace-of-winds.jpg",
+    alt: "Hawa Mahal Palace of Winds Architecture in Jaipur Pink City",
+  },
+  {
+    src: "/pictures/main-section/jaipur-jal-mahal-lake-view.jpg",
+    alt: "Jal Mahal Palace surrounded by Man Sagar Lake with flying birds in Jaipur",
+  },
+  {
+    src: "/pictures/main-section/jaipur-hawa-mahal-pink-city-facade.jpg",
+    alt: "Hawa Mahal Pink City Facade View in Jaipur Rajasthan",
+  },
+  {
+    src: "/pictures/main-section/jaipur-albert-hall-museum.jpg",
+    alt: "Albert Hall Museum Architecture in Jaipur Rajasthan India",
+  },
 ];
 
 const destinationsData = {
@@ -109,9 +130,9 @@ const destinationsData = {
     title: "Royal Rajasthan",
     subtitle: "The Land of Kings & Forts",
     description: "Welcome to India's most colorful state. Experience majestic forts perched on hills, romantic lake palaces, golden sand dunes, camel safaris, and rich royal heritage.",
-    coverImage: "/pictures/main-section/Jaipur_2.jpg",
+    coverImage: "/pictures/main-section/jaipur-amber-fort-amer-palace.jpg",
     images: [
-      "/pictures/main-section/Jaipur_2.jpg",
+      "/pictures/main-section/jaipur-amber-fort-amer-palace.jpg",
       "/pictures/udaipur.jpg",
       "/pictures/jodhpur.jpg",
       "/pictures/jaisalmer_desert.jpg",
@@ -124,7 +145,7 @@ const destinationsData = {
         id: "jaipur",
         name: "Jaipur (Pink City)",
         tagline: "Capital of heritage, palaces, and gems",
-        coverImage: "/pictures/main-section/Jaipur_1.jpg",
+        coverImage: "/pictures/main-section/jaipur-jal-mahal-water-palace.jpg",
         markets: [
           {
             name: "Johari Bazar",
@@ -379,7 +400,7 @@ const blogsData = [
     images: [
       "/pictures/agra_tajmahal.jpg",
       "/pictures/taj_marble_detail.jpg",
-      "/pictures/main-section/Jaipur_5.jpg"
+      "/pictures/main-section/jaipur-jal-mahal-lake-view.jpg"
     ],
     content: [
       {
@@ -431,9 +452,9 @@ const blogsData = [
     category: "Adventure Tour",
     date: "July 20, 2026",
     readTime: "6 min read",
-    coverImage: "/pictures/main-section/Jaipur_2.jpg",
+    coverImage: "/pictures/main-section/jaipur-amber-fort-amer-palace.jpg",
     images: [
-      "/pictures/main-section/Jaipur_2.jpg",
+      "/pictures/main-section/jaipur-amber-fort-amer-palace.jpg",
       "/pictures/jodhpur.jpg",
       "/pictures/udaipur.jpg",
       "/pictures/jaisalmer_desert.jpg"
@@ -463,8 +484,8 @@ const blogsData = [
     coverImage: "/pictures/delhi.jpg",
     images: [
       "/pictures/delhi.jpg",
-      "/pictures/main-section/Jaipur_3.jpg",
-      "/pictures/main-section/Jaipur_4.jpg"
+      "/pictures/main-section/jaipur-patrika-gate-monument.jpg",
+      "/pictures/main-section/jaipur-hawa-mahal-palace-of-winds.jpg"
     ],
     content: [
       {
@@ -496,8 +517,19 @@ function DestinationDetailView({
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }, [destinationKey]);
+
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
+    const t = setTimeout(() => {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }, 10);
+    return () => clearTimeout(t);
   }, [destinationKey]);
 
   useEffect(() => {
@@ -772,6 +804,17 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
+  const scrollToTarget = (id, attempts = 0) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else if (attempts < 15) {
+      setTimeout(() => scrollToTarget(id, attempts + 1), 40);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   // Handle URL Hash Deep-linking & SEO Title Sync for Crawlers & Visitors
   useEffect(() => {
     const handleHashChange = () => {
@@ -781,6 +824,9 @@ function App() {
         if (destinationsData[dest]) {
           setActiveDestination(dest);
           setActiveBlogKey(null);
+          window.scrollTo(0, 0);
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
         }
       } else if (hash.startsWith("#blog-")) {
         const blogId = hash.replace("#blog-", "");
@@ -788,12 +834,23 @@ function App() {
         if (blog) {
           setActiveBlogKey(blogId);
           setActiveDestination(null);
+          window.scrollTo(0, 0);
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
         }
-      } else if (hash === "" || hash === "#top" || hash === "#packages" || hash === "#blogs" || hash === "#services" || hash === "#cars" || hash === "#about") {
-        if (hash === "" || hash === "#top") {
-          setActiveDestination(null);
-          setActiveBlogKey(null);
-        }
+      } else if (hash === "#blogs") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget("blogs");
+      } else if (hash.startsWith("#") && hash.length > 1 && hash !== "#top") {
+        const targetId = hash.replace("#", "");
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget(targetId);
+      } else if (hash === "" || hash === "#top") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     };
 
@@ -838,15 +895,7 @@ function App() {
     }
 
     window.location.hash = `#${targetId}`;
-
-    setTimeout(() => {
-      const el = document.getElementById(targetId);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      } else {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    }, 60);
+    scrollToTarget(targetId);
   };
 
   const scrollToForm = () => {
@@ -941,21 +990,21 @@ function App() {
       title: "Tourist Attractions",
       description:
         "Guided visits to Hawa Mahal, Amer Fort, City Palace, Jantar Mantar and more.",
-      image: "/pictures/main-section/Jaipur_4.jpg",
+      image: "/pictures/main-section/jaipur-hawa-mahal-palace-of-winds.jpg",
     },
     {
       id: 3,
       title: "Local Experiences",
       description:
         "Food walks, cultural shows and authentic Rajasthani experiences curated for you.",
-      image: "/pictures/main-section/Jaipur_5.jpg",
+      image: "/pictures/main-section/jaipur-jal-mahal-lake-view.jpg",
     },
     {
       id: 4,
       title: "Transport & Travel Tips",
       description:
         "Airport and railway station transfers, local cabs and personalised assistance.",
-      image: "/pictures/main-section/Jaipur_6.jpg",
+      image: "/pictures/main-section/jaipur-hawa-mahal-pink-city-facade.jpg",
     },
   ];
 
@@ -972,21 +1021,21 @@ function App() {
       title: "Premium Support",
       description:
         "Dedicated trip coordinator and on-ground support throughout your stay.",
-      image: "/pictures/main-section/Jaipur_7.jpg",
+      image: "/pictures/main-section/jaipur-albert-hall-museum.jpg",
     },
     {
       id: 3,
       title: "Secure & Transparent",
       description:
         "Clear inclusions, no hidden costs and secure payment options.",
-      image: "/pictures/main-section/Jaipur_2.jpg",
+      image: "/pictures/main-section/jaipur-amber-fort-amer-palace.jpg",
     },
     {
       id: 4,
       title: "Customer Friendly",
       description:
         "Custom itineraries for families, couples, and groups of all sizes.",
-      image: "/pictures/main-section/Jaipur_4.jpg",
+      image: "/pictures/main-section/jaipur-hawa-mahal-palace-of-winds.jpg",
     },
   ];
 
@@ -1419,12 +1468,15 @@ function App() {
         {/* Right – photo carousel */}
         <div className="hero-right">
           <div className="hero-img-wrap">
-            {jaipurSlides.map((src, i) => (
+            {jaipurSlides.map((slide, i) => (
               <img
-                key={src}
+                key={slide.src}
                 className={`hero-img${i === heroSlide ? " active" : ""}`}
-                src={src}
-                alt={`Jaipur - view ${i + 1}`}
+                src={slide.src}
+                alt={slide.alt}
+                loading={i === 0 ? "eager" : "lazy"}
+                fetchPriority={i === 0 ? "high" : "low"}
+                decoding="async"
               />
             ))}
             <div className="hero-img-badge">
@@ -2188,8 +2240,19 @@ function BlogDetailView({ blogKey, onClose, openWhatsApp }) {
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }, [blogKey]);
+
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
+    const t = setTimeout(() => {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }, 10);
+    return () => clearTimeout(t);
   }, [blogKey]);
 
   useEffect(() => {
