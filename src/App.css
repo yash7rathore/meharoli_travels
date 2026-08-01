@@ -2290,20 +2290,55 @@ main {
   .header-inner {
     height: 58px;
     position: relative;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.3rem;
   }
 
-  .hamburger-btn {
-    display: flex;
-    margin-left: 0;
-    order: 3;
+  .header-brand {
+    order: 1;
+    margin-right: 0.2rem;
+  }
+
+  .header-logo {
+    height: 32px;
+  }
+
+  .header-brand-name {
+    font-size: 0.85rem;
+  }
+
+  .header-brand-sub {
+    font-size: 0.55rem;
+  }
+
+  .header-top-pay-btn {
+    order: 2;
+    margin-left: auto;
+    margin-right: 0.2rem;
+    font-size: 0.72rem;
+    padding: 0.35rem 0.65rem;
+    box-shadow: 0 3px 10px rgba(234, 88, 12, 0.35);
   }
 
   .guru-kripa-img {
     position: static;
     transform: none;
-    order: 2;
-    margin-left: auto;
+    order: 3;
+    width: 32px;
+    height: 32px;
+    margin-left: 0;
+    margin-right: 0.2rem;
+    flex-shrink: 0;
+  }
+
+  .hamburger-btn {
+    display: flex;
+    margin-left: 0;
+    order: 4;
+    padding: 0.35rem;
   }
 
   .header-nav {
@@ -2731,3 +2766,311 @@ main {
   background: #fff7ed;
   color: #ea580c;
 }
+
+/* Header Top Pay Button (Always visible in top bar) */
+.header-top-pay-btn {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-left: 0.5rem;
+}
+
+.header-top-pay-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.45);
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+}
+
+/* ── RAZORPAY PAYMENT GATEWAY & MODAL STYLES ── */
+.razorpay-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1.25rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.razorpay-button-wrapper form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.razorpay-payment-button {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  color: #ffffff !important;
+  font-family: inherit !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  padding: 0.9rem 2.2rem !important;
+  border-radius: 9999px !important;
+  border: 1px solid rgba(251, 146, 60, 0.4) !important;
+  box-shadow: 0 10px 25px -5px rgba(234, 88, 12, 0.3), 0 4px 12px rgba(15, 23, 42, 0.2) !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  max-width: 100% !important;
+  width: auto !important;
+  min-width: 220px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+}
+
+.razorpay-payment-button:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  background: linear-gradient(135deg, #ea580c 0%, #d97706 100%) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 15px 30px -5px rgba(234, 88, 12, 0.5), 0 6px 16px rgba(15, 23, 42, 0.3) !important;
+}
+
+.razorpay-payment-button:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+/* Nav Payment CTA Button */
+.nav-pay-btn {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  padding: 0.45rem 1rem !important;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-pay-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.4);
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+}
+
+/* Payment Modal Overlay */
+.payment-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.payment-modal-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(251, 146, 60, 0.2);
+  position: relative;
+  overflow: hidden;
+  animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.payment-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  color: #475569;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.payment-modal-close:hover {
+  background: #fee2e2;
+  color: #ef4444;
+  transform: rotate(90deg);
+}
+
+.payment-modal-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 2rem 1.75rem 1.75rem;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  border-bottom: 3px solid #f97316;
+}
+
+.payment-modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(249, 115, 22, 0.2);
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  color: #fb923c;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.payment-modal-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0 0 0.4rem;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+
+.payment-modal-subtitle {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.payment-modal-body {
+  padding: 1.5rem 1.5rem 1.75rem;
+}
+
+.payment-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.payment-feature-item {
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 0.85rem;
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.payment-feature-item .p-icon {
+  font-size: 1.3rem;
+}
+
+.payment-feature-item strong {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+.payment-feature-item small {
+  display: block;
+  font-size: 0.65rem;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+.payment-security-footer {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed #e2e8f0;
+  text-align: center;
+}
+
+.payment-cards-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.payment-cards-icons span {
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  border-radius: 0.4rem;
+}
+
+.payment-help-text {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.payment-help-text a {
+  color: #ea580c;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.payment-help-text a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .payment-modal-card {
+    border-radius: 1.25rem;
+  }
+  .payment-modal-header {
+    padding: 1.5rem 1.25rem 1.25rem;
+  }
+  .payment-modal-title {
+    font-size: 1.35rem;
+  }
+  .payment-features-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .payment-feature-item {
+    flex-direction: row;
+    text-align: left;
+    padding: 0.6rem 0.85rem;
+    gap: 0.75rem;
+  }
+}
+
