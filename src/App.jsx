@@ -510,7 +510,8 @@ function DestinationDetailView({
   setActiveRajasthanCity,
   onClose,
   openWhatsApp,
-  scrollToForm
+  scrollToForm,
+  onPayOnline
 }) {
   const data = destinationsData[destinationKey];
   if (!data) return null;
@@ -776,12 +777,122 @@ function DestinationDetailView({
                   >
                     📝 Request Quote
                   </button>
+                  {onPayOnline && (
+                    <button
+                      type="button"
+                      onClick={onPayOnline}
+                      className="flex-1 text-center py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl transition text-xs sm:text-sm shadow-md hover:shadow-lg cursor-pointer border border-orange-500/40"
+                    >
+                      💳 Pay Deposit Online
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function RazorpayButton({ buttonId = "pl_TK5OoEH10bnyk7", className = "" }) {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    containerRef.current.innerHTML = "";
+
+    const form = document.createElement("form");
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/payment-button.js";
+    script.setAttribute("data-payment_button_id", buttonId);
+    script.async = true;
+
+    form.appendChild(script);
+    containerRef.current.appendChild(form);
+  }, [buttonId]);
+
+  return (
+    <div ref={containerRef} className={`razorpay-button-wrapper ${className}`} />
+  );
+}
+
+function PaymentModal({ isOpen, onClose }) {
+  if (!isOpen) return null;
+
+  return (
+    <div className="payment-modal-overlay animate-fadeIn" onClick={onClose}>
+      <div className="payment-modal-card" onClick={(e) => e.stopPropagation()}>
+        <button
+          type="button"
+          className="payment-modal-close"
+          onClick={onClose}
+          aria-label="Close modal"
+        >
+          ✕
+        </button>
+
+        <div className="payment-modal-header">
+          <div className="payment-modal-badge">
+            🔒 100% Secure Payment Gateway
+          </div>
+          <h2 className="payment-modal-title">Meharoli Tours &amp; Travels</h2>
+          <p className="payment-modal-subtitle">
+            Pay safely and instantly via UPI, Cards, NetBanking or Wallets
+          </p>
+        </div>
+
+        <div className="payment-modal-body">
+          <div className="payment-features-grid">
+            <div className="payment-feature-item">
+              <span className="p-icon">🔒</span>
+              <div>
+                <strong>SSL Encrypted</strong>
+                <small>256-bit Protection</small>
+              </div>
+            </div>
+            <div className="payment-feature-item">
+              <span className="p-icon">⚡</span>
+              <div>
+                <strong>Instant Booking</strong>
+                <small>Razorpay Verified</small>
+              </div>
+            </div>
+            <div className="payment-feature-item">
+              <span className="p-icon">📲</span>
+              <div>
+                <strong>UPI &amp; Cards</strong>
+                <small>GPay, PhonePe &amp; Cards</small>
+              </div>
+            </div>
+          </div>
+
+          <div className="payment-button-container">
+            <RazorpayButton buttonId="pl_TK5OoEH10bnyk7" />
+          </div>
+
+          <div className="payment-security-footer">
+            <div className="payment-cards-icons">
+              <span>💳 Credit/Debit Card</span>
+              <span>📱 Google Pay</span>
+              <span>📱 PhonePe</span>
+              <span>📱 Paytm</span>
+              <span>🏦 NetBanking</span>
+            </div>
+            <p className="payment-help-text">
+              Need assistance? Call/WhatsApp:{" "}
+              <a
+                href="https://wa.me/918824976479"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                +91 88249 76479
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -796,6 +907,7 @@ function App() {
   const [activeRajasthanCity, setActiveRajasthanCity] = useState(null);
   const [destDropdownOpen, setDestDropdownOpen] = useState(false);
   const [activeBlogKey, setActiveBlogKey] = useState(null);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -1155,13 +1267,12 @@ function App() {
 
   return (
     <div className="app">
+      <PaymentModal
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+      />
       <header className="app-header">
         <div className="header-inner">
-          <img
-            src="/pictures/main-section/guru_kripa.png"
-            alt="Guru Kripa"
-            className="guru-kripa-img"
-          />
           <a
             href="#top"
             className="header-brand"
@@ -1182,6 +1293,20 @@ function App() {
               <span className="header-brand-sub">Tours &amp; Travels</span>
             </div>
           </a>
+
+          <button
+            type="button"
+            className="header-top-pay-btn"
+            onClick={() => setIsPaymentModalOpen(true)}
+          >
+            💳 Pay Online
+          </button>
+
+          <img
+            src="/pictures/main-section/guru_kripa.png"
+            alt="Guru Kripa"
+            className="guru-kripa-img"
+          />
 
           <nav
             className={`header-nav${menuOpen ? " open" : ""}`}
@@ -1359,6 +1484,7 @@ function App() {
           onClose={() => handleNavClick("top")}
           openWhatsApp={openWhatsApp}
           scrollToForm={scrollToForm}
+          onPayOnline={() => setIsPaymentModalOpen(true)}
         />
       ) : activeBlogKey ? (
         <BlogDetailView
@@ -1459,6 +1585,14 @@ function App() {
             >
               Plan My Trip
             </button>
+            <button
+              type="button"
+              className="nav-pay-btn"
+              style={{ padding: "0.7rem 1.4rem", fontSize: "0.9rem" }}
+              onClick={() => setIsPaymentModalOpen(true)}
+            >
+              💳 Pay Online Now
+            </button>
             <a href="#packages" className="btn ghost">
               View Packages
             </a>
@@ -1498,7 +1632,10 @@ function App() {
               </div>
               <div className="highlight-item">🌟 4.9 Star Google Reviews</div>
               <div className="highlight-item">🏆 20+ Years of Experience</div>
-              <div className="highlight-item">
+              <div
+                className="highlight-item cursor-pointer underline hover:text-orange-500"
+                onClick={() => setIsPaymentModalOpen(true)}
+              >
                 💳 Pay Online with Card &amp; UPI
               </div>
               {/* duplicate for seamless loop */}
@@ -1517,7 +1654,11 @@ function App() {
               <div className="highlight-item" aria-hidden="true">
                 🏆 20+ Years of Experience
               </div>
-              <div className="highlight-item" aria-hidden="true">
+              <div
+                className="highlight-item cursor-pointer underline hover:text-orange-500"
+                onClick={() => setIsPaymentModalOpen(true)}
+                aria-hidden="true"
+              >
                 💳 Pay Online with Card &amp; UPI
               </div>
             </div>
