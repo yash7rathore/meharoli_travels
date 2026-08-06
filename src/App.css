@@ -1169,6 +1169,13 @@ main {
   margin-bottom: 0.2rem;
 }
 
+.package-meta-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 .package-duration-badge {
   display: inline-flex;
   align-items: center;
@@ -1180,6 +1187,36 @@ main {
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   width: fit-content;
+}
+
+.package-km-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0369a1;
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.package-starting-rate-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #c2410c;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border: 1px solid #fed7aa;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  width: fit-content;
+  margin: 0.2rem 0 0.4rem;
+  box-shadow: 0 1px 3px rgba(194, 65, 12, 0.12);
 }
 
 .package-destinations {
@@ -1697,6 +1734,10 @@ main {
   margin-bottom: 0.85rem;
 }
 
+.form-field.full-width {
+  width: 100%;
+}
+
 .form-field label {
   font-size: 0.8rem;
   margin-bottom: 0.3rem;
@@ -1706,6 +1747,7 @@ main {
 .form-field input,
 .form-field select,
 .form-field textarea {
+  width: 100%;
   border-radius: 0.8rem;
   border: 1px solid rgba(209, 213, 219, 0.9);
   background: #f9fafb;
@@ -1713,6 +1755,22 @@ main {
   padding: 0.6rem 0.75rem;
   font-size: 0.9rem;
   font-family: inherit;
+  box-sizing: border-box;
+}
+
+.form-field select {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.form-field select option {
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  padding: 6px 8px;
+  font-size: 0.88rem;
 }
 
 .form-field input::placeholder,
@@ -1722,6 +1780,115 @@ main {
 
 .form-field textarea {
   resize: vertical;
+}
+
+.custom-select-container {
+  position: relative;
+  z-index: 25;
+}
+
+.custom-select-trigger {
+  width: 100%;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  background: #f9fafb;
+  color: #111827;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.custom-select-trigger:hover,
+.custom-select-trigger.active {
+  border-color: #f97316;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+.custom-select-val-placeholder {
+  color: #9ca3af;
+  font-size: 0.88rem;
+}
+
+.custom-select-val-selected {
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.custom-select-arrow {
+  font-size: 0.65rem;
+  color: #64748b;
+  transition: transform 0.25s ease;
+  margin-left: 0.5rem;
+}
+
+.custom-select-arrow.open {
+  transform: rotate(180deg);
+  color: #ea580c;
+}
+
+.custom-select-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-height: 240px;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1.5px solid #fed7aa;
+  border-radius: 0.75rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  z-index: 99;
+  padding: 0.35rem 0;
+  box-sizing: border-box;
+}
+
+.custom-select-item {
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.15s ease, color 0.15s ease;
+  line-height: 1.35;
+}
+
+.custom-select-item:hover {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.custom-select-item.selected {
+  background: #ffedd5;
+  color: #ea580c;
+  font-weight: 700;
+}
+
+.custom-select-item .check-mark {
+  color: #ea580c;
+  font-weight: 800;
+}
+
+.footer-logo-img {
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 3px;
+  border: 1.5px solid #fdba74;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .app-footer {
@@ -1746,6 +1913,121 @@ main {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+}
+
+.footer-taxi-section {
+  width: 100%;
+  margin: 1.5rem 0 1rem;
+  padding: 1.25rem 1.5rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+}
+
+.footer-taxi-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.taxi-swipe-hint {
+  display: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #ea580c;
+  background: #ffedd5;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  border: 1px solid #fed7aa;
+}
+
+.footer-taxi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem 1rem;
+}
+
+@media (max-width: 900px) {
+  .footer-taxi-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .taxi-swipe-hint {
+    display: inline-flex;
+  }
+  .footer-taxi-section {
+    padding: 1rem 0.75rem;
+    overflow: hidden;
+  }
+  .footer-taxi-grid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 170px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 0.35rem 1.5rem;
+    padding: 0.25rem 0.25rem 0.6rem;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    scrollbar-width: thin;
+    scrollbar-color: #fdba74 transparent;
+  }
+  .footer-taxi-grid::-webkit-scrollbar {
+    height: 4px;
+    display: block;
+  }
+  .footer-taxi-grid::-webkit-scrollbar-thumb {
+    background: #fdba74;
+    border-radius: 4px;
+  }
+  .footer-taxi-grid a {
+    white-space: nowrap;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #334155;
+    background: transparent;
+    border: none;
+    padding: 0.15rem 0;
+    margin: 0;
+    height: 28px;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+  }
+  .footer-taxi-grid a:active,
+  .footer-taxi-grid a:hover {
+    color: #ea580c;
+  }
+}
+
+.footer-taxi-grid a {
+  font-size: 0.82rem;
+  color: #334155;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.footer-taxi-grid a:hover {
+  color: #ea580c;
+  transform: translateX(3px);
 }
 
 .footer-columns {
@@ -3072,5 +3354,125 @@ main {
     padding: 0.6rem 0.85rem;
     gap: 0.75rem;
   }
+}
+
+/* ── PACKAGE LOCAL TIP & TRANSPARENT CAR FARE GRID ── */
+.package-tip-box {
+  background: #fff7ed;
+  border: 1px solid #ffedd5;
+  border-left: 3px solid #f97316;
+  border-radius: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.76rem;
+  color: #9a3412;
+  font-weight: 600;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin: 0.4rem 0;
+  line-height: 1.35;
+}
+
+.package-fare-grid-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.fare-grid-header {
+  background: #0f172a;
+  color: #f8fafc;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.5rem 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.fare-grid-header span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.fare-grid-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.78rem;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.fare-grid-row:last-child {
+  border-bottom: none;
+}
+
+.fare-grid-row:nth-child(even) {
+  background: #ffffff;
+}
+
+.fare-grid-row .car-name {
+  color: #334155;
+  font-weight: 600;
+}
+
+.fare-grid-row .car-price {
+  color: #ea580c;
+  font-weight: 800;
+  font-size: 0.85rem;
+  background: #fff7ed;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.4rem;
+  border: 1px solid #ffedd5;
+}
+
+.no-hidden-badge {
+  background: #f0fdf4;
+  border: 1px solid #dcfce7;
+  color: #166534;
+  font-size: 0.74rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.6rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+
+/* Official Green WhatsApp Button */
+.btn-whatsapp-green {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1.5px solid #22c55e;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.55rem 1rem;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-whatsapp-green:hover {
+  background: #22c55e;
+  color: #ffffff;
+  border-color: #16a34a;
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
+}
+
+.btn-whatsapp-green svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex-shrink: 0;
 }
 

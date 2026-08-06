@@ -2,6 +2,10 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import "./App.css";
 import emailjs from '@emailjs/browser';
 import { Helmet } from "react-helmet-async";
+import { db } from "./firebase";
+import { collection, addDoc, serverTimestamp, query, where, onSnapshot } from "firebase/firestore";
+import AdminPanel from "./AdminPanel";
+import ReviewModal from "./ReviewModal";
 
 const jaipurSlides = [
   {
@@ -908,6 +912,29 @@ function App() {
   const [destDropdownOpen, setDestDropdownOpen] = useState(false);
   const [activeBlogKey, setActiveBlogKey] = useState(null);
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
+  const [approvedReviews, setApprovedReviews] = useState([]);
+
+  // Fetch approved customer reviews from Firebase Firestore in Real-Time
+  useEffect(() => {
+    try {
+      const q = query(
+        collection(db, "reviews"),
+        where("status", "==", "Approved")
+      );
+      const unsubscribe = onSnapshot(q, (snapshot) => {
+        const liveRevs = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setApprovedReviews(liveRevs);
+      });
+      return () => unsubscribe();
+    } catch (err) {
+      console.error("Error fetching approved reviews:", err);
+    }
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -931,7 +958,9 @@ function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
-      if (hash.startsWith("#destination-")) {
+      if (hash === "#admin" || hash === "#adminpanel") {
+        setIsAdminOpen(true);
+      } else if (hash.startsWith("#destination-")) {
         const dest = hash.replace("#destination-", "");
         if (destinationsData[dest]) {
           setActiveDestination(dest);
@@ -1021,70 +1050,224 @@ function App() {
     window.open(url, "_blank");
   };
 
+  const [selectedPackage, setSelectedPackage] = useState("");
+  const [isPackageDropdownOpen, setIsPackageDropdownOpen] = useState(false);
+  const packageDropdownRef = useRef(null);
+
+  const packageOptions = [
+    { value: "Jaipur Royal Forts & Heritage Sightseeing", label: "Jaipur Royal Forts & Heritage Sightseeing" },
+    { value: "Jaipur Cultural, Street Food & Chokhi Dhani Night Tour", label: "Jaipur Cultural & Chokhi Dhani Night Tour" },
+    { value: "Khatu Shyam Ji & Salasar Balaji Divine Circuit", label: "Khatu Shyam Ji & Salasar Balaji Divine Circuit" },
+    { value: "Ranthambore Tiger Safari & Wildlife Excursion", label: "Ranthambore Tiger Safari & Wildlife Excursion" },
+    { value: "Golden Triangle (Delhi - Agra - Jaipur)", label: "Golden Triangle (Delhi - Agra - Jaipur)" },
+    { value: "Maharaja Royal Rajasthan Circuit", label: "Maharaja Royal Rajasthan Circuit" },
+    { value: "Jaipur Ajmer & Pushkar Holy Lake Day Excursion", label: "Jaipur Ajmer & Pushkar Holy Lake Tour" },
+    { value: "Jaipur Abhaneri Stepwell & Agra Taj Mahal Excursion", label: "Jaipur Abhaneri Stepwell & Agra Taj Mahal Tour" },
+    { value: "Custom Rajasthan Cab & Hotel Itinerary", label: "Custom Cab & Hotel Booking" },
+  ];
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        packageDropdownRef.current &&
+        !packageDropdownRef.current.contains(event.target)
+      ) {
+        setIsPackageDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const handlePackageEnquiry = (pkgName) => {
-    const packageInput = document.getElementById("package-name-field");
-    if (packageInput) {
-      packageInput.value = pkgName;
-      packageInput.dispatchEvent(new Event("input", { bubbles: true }));
-    }
+    setSelectedPackage(pkgName);
+    setIsPackageDropdownOpen(false);
     scrollToForm();
   };
 
   const packages = [
     {
       id: 1,
-      name: "Golden Triangle",
-      tag: "Best Seller",
-      duration: "5 Days / 4 Nights",
-      destinations: ["Delhi", "Agra (Taj Mahal)", "Jaipur (Pink City)"],
-      image: "/pictures/agra_tajmahal.jpg",
+      name: "Jaipur Royal Forts & Heritage Sightseeing",
+      tag: "Most Popular",
+      duration: "Full Day (8–10 Hours)",
+      kms: "80 KMs Total",
+      startingRate: "Starting @ $24 / Day (Private Cab)",
+      destinations: ["Amer Fort", "Jaigarh (Jaivana Cannon)", "Nahargarh Sunset Point", "Jal Mahal", "Hawa Mahal", "City Palace", "Jantar Mantar", "Panna Meena Stepwell"],
+      image: "/pictures/main-section/jaipur-amber-fort-amer-palace.jpg",
+      tip: "🌅 Sunset Tip: Nahargarh Padao offers the best panoramic sunset view over Pink City!",
+      carRates: [
+        { car: "Swift Dzire (4-Seater Sedan)", fare: "$24" },
+        { car: "Maruti Ertiga (6-Seater MPV)", fare: "$36" },
+        { car: "Toyota Innova Crysta (7-Seater Luxury SUV)", fare: "$54" },
+        { car: "Tempo Traveller (12-Seater Coach)", fare: "$78" }
+      ],
       includes: [
-        "3★ / 4★ Hotels with Breakfast",
-        "Private AC Sedan/SUV Cab",
-        "Expert Local Tour Guides",
-        "All Tolls, Parking & Taxes Included"
+        "Private AC Cab Hire (Fuel Included)",
+        "Dedicated Professional Chauffeur",
+        "All Tolls, Parking & Driver Taxes Included (No Hidden Charges)",
+        "Doorstep Hotel / Railway Station Pickup & Drop"
       ]
     },
     {
       id: 2,
-      name: "Maharaja Heritage Trail",
-      tag: "Grand Heritage",
-      duration: "10 Days / 9 Nights",
-      destinations: ["Delhi", "Mandawa", "Bikaner", "Jodhpur", "Udaipur", "Jaipur", "Agra"],
-      image: "/pictures/bikaner.jpg",
+      name: "Jaipur Cultural, Street Food & Chokhi Dhani Night Tour",
+      tag: "Evening & Food Special",
+      duration: "Evening Tour (4 PM – 10 PM)",
+      kms: "60 KMs Total",
+      startingRate: "Starting @ $26 / Evening Tour",
+      destinations: ["Patrika Gate", "Albert Hall Museum (Night Lighting)", "Amer Fort Light & Sound Show", "Chokhi Dhani Ethnic Village & Rajasthani Thali", "Pink City Spice Walk"],
+      image: "/pictures/main-section/jaipur-albert-hall-museum.jpg",
+      tip: "💃 Live Kalbelia folk dance, puppet shows & authentic Dal Baati Churma included at Chokhi Dhani!",
+      carRates: [
+        { car: "Swift Dzire (4-Seater Sedan)", fare: "$26" },
+        { car: "Maruti Ertiga (6-Seater MPV)", fare: "$42" },
+        { car: "Toyota Innova Crysta (7-Seater Luxury SUV)", fare: "$60" },
+        { car: "Tempo Traveller (12-Seater Coach)", fare: "$84" }
+      ],
       includes: [
-        "Heritage Palace Hotel Stays",
-        "Private Chauffeur Cab",
-        "Thar Desert Camel Safari",
-        "Guided Royal City Tours"
+        "Private AC Cab for Evening Sightseeing",
+        "Drop to Chokhi Dhani Village & Driver Waiting",
+        "All Tolls, Parking & Driver Charges Included",
+        "Handpicked Food & Shopping Guide"
       ]
     },
     {
       id: 3,
-      name: "Golden Triangle and Tiger Safari",
-      tag: "Wildlife Special",
-      duration: "6 Days / 5 Nights",
-      destinations: ["Delhi", "Agra", "Ranthambore (Tiger Safari)", "Jaipur"],
-      image: "/pictures/ranthambore_tiger.jpg",
+      name: "Khatu Shyam Ji & Salasar Balaji Divine Circuit",
+      tag: "Spiritual Special",
+      duration: "Full Day (Same Day Return)",
+      kms: "360 KMs Roundtrip",
+      startingRate: "Starting @ $78 / Day (Roundtrip Cab)",
+      destinations: ["Jaipur Pickup", "Khatu Shyam Ji (Reengus)", "Salasar Balaji Temple", "Return Jaipur Drop"],
+      image: "/pictures/khatu_shyam_salasar_temple.jpg",
+      tip: "🕉️ Priority Darshan guidance & comfortable highway AC transfers for families & senior citizens!",
+      carRates: [
+        { car: "Swift Dzire (4-Seater Sedan)", fare: "$78" },
+        { car: "Maruti Ertiga (6-Seater MPV)", fare: "$90" },
+        { car: "Toyota Innova Crysta (7-Seater Luxury SUV)", fare: "$102" },
+        { car: "Tempo Traveller (12-Seater Coach)", fare: "$150" }
+      ],
       includes: [
-        "Luxury Resort Stays",
-        "2 Open-Gypsy Jungle Safaris",
-        "Taj Mahal Sunrise Sightseeing",
-        "Dedicated Chauffeur & Transfers"
+        "Same Day Round-trip Private AC Cab",
+        "Highways Toll Tax & State Taxes Included",
+        "Experienced Highway Chauffeur",
+        "Doorstep Pickup & Drop (Hotel / Residence)"
       ]
     },
     {
       id: 4,
-      name: "Golden Triangle and Lake Palace",
-      tag: "Luxury & Lakes",
-      duration: "8 Days / 7 Nights",
-      destinations: ["Delhi", "Agra", "Jaipur", "Udaipur (Lake Pichola)"],
-      image: "/pictures/udaipur.jpg",
+      name: "Ranthambore Tiger Safari & Wildlife Excursion",
+      tag: "🐅 Wild & Thrilling",
+      duration: "Full Day (Same Day Afternoon Safari Possible)",
+      kms: "380 KMs Roundtrip",
+      startingRate: "Starting @ $72 / Day (Roundtrip Cab)",
+      destinations: ["Jaipur Pickup", "Ranthambore Tiger Reserve (Canter/Gypsy Safari)", "Ranthambore Fort", "Trinetra Ganesh Temple", "Return Jaipur Drop"],
+      image: "/pictures/ranthambore_tiger_safari.jpg",
+      tip: "🐅 Wildlife Tip: Same-day Afternoon Safari booking assistance available! Best chance for Royal Bengal Tiger sightings in Zone 1-5.",
+      carRates: [
+        { car: "Swift Dzire (4-Seater Sedan)", fare: "$72" },
+        { car: "Maruti Ertiga (6-Seater MPV)", fare: "$90" },
+        { car: "Toyota Innova Crysta (7-Seater Luxury SUV)", fare: "$102" },
+        { car: "Tempo Traveller (12-Seater Coach)", fare: "$138" }
+      ],
       includes: [
-        "Lake view stays in Udaipur",
-        "Boat Cruise on Lake Pichola",
-        "Private AC Cab Transfers",
-        "All Monument Entrance Tickets"
+        "Private AC Cab Round-trip (Jaipur ➔ Ranthambore ➔ Jaipur)",
+        "Highway Toll Taxes, Parking & Fuel Included",
+        "Doorstep Hotel / Airport Pickup & Evening Return Drop",
+        "Ranthambore Fort & Trinetra Ganesh Mandir Sightseeing"
+      ]
+    },
+    {
+      id: 5,
+      name: "Golden Triangle (Delhi - Agra - Jaipur)",
+      tag: "Best Seller",
+      duration: "5 Days / 4 Nights",
+      kms: "1,000 KMs Total Circuit",
+      startingRate: "Starting @ $43 / Day ($216 Total for 5 Days ~ $54 per person)",
+      destinations: ["Delhi (Red Fort & Qutub)", "Agra (Taj Mahal & Agra Fort)", "Jaipur (Pink City Forts)"],
+      image: "/pictures/agra_tajmahal.jpg",
+      tip: "📸 Sunrise Taj Mahal visit included with professional local tour guide!",
+      carRates: [
+        { car: "Swift Dzire (4-Seater Sedan)", fare: "$216" },
+        { car: "Maruti Ertiga (6-Seater MPV)", fare: "$264" },
+        { car: "Toyota Innova Crysta (7-Seater Luxury SUV)", fare: "$300" },
+        { car: "Tempo Traveller (12-Seater Coach)", fare: "$420" }
+      ],
+      includes: [
+        "Private AC Cab for Entire 5-Day Tour (~1,000 KMs)",
+        "All Inter-state Tolls, Parking & Driver Taxes Included",
+        "Taj Mahal Sunrise & Guided Local Sightseeing",
+        "3★ / 4★ Hotel Booking Available on Request"
+      ]
+    },
+    {
+      id: 6,
+      name: "Maharaja Royal Rajasthan Circuit",
+      tag: "Grand Heritage",
+      duration: "12 Days / 11 Nights",
+      kms: "2,800 KMs Total Circuit",
+      startingRate: "Starting @ $42 / Day ($504 Total for 12 Days ~ $126 per person)",
+      destinations: ["Delhi", "Mandawa", "Bikaner", "Jaisalmer (Desert Safari)", "Jodhpur", "Udaipur", "Jaipur", "Agra"],
+      image: "/pictures/bikaner.jpg",
+      tip: "🐪 Thar Desert Camel Safari in Jaisalmer & Royal Lake Pichola Boat Cruise included!",
+      carRates: [
+        { car: "Swift Dzire (4-Seater Sedan)", fare: "$504" },
+        { car: "Maruti Ertiga (6-Seater MPV)", fare: "$648" },
+        { car: "Toyota Innova Crysta (7-Seater Luxury SUV)", fare: "$720" },
+        { car: "Tempo Traveller (12-Seater Coach)", fare: "$1,080" }
+      ],
+      includes: [
+        "Private Chauffeur Cab for Entire 12-Day Tour (~2,800 KMs)",
+        "All Inter-state Tolls, Parking & Driver Allowance Included",
+        "Thar Desert Camel Safari in Jaisalmer & City Tours",
+        "Heritage Palace Hotel Booking Available on Request"
+      ]
+    },
+    {
+      id: 7,
+      name: "Jaipur Ajmer & Pushkar Holy Lake Day Excursion",
+      tag: "🕌 Sacred Heritage",
+      duration: "Full Day (Same Day Return)",
+      kms: "300 KMs Roundtrip",
+      startingRate: "Starting @ $58 / Day (Roundtrip Cab)",
+      destinations: ["Jaipur Pickup", "Ajmer Dargah Sharif", "Ana Sagar Lake", "Pushkar Brahma Temple", "Pushkar Lake & Ghats", "Return Jaipur Drop"],
+      image: "/pictures/pushkar_lake.jpg",
+      tip: "🕉️ Visit the world's only Lord Brahma Temple and experience holy evening Aarti at Pushkar Lake!",
+      carRates: [
+        { car: "Swift Dzire (4-Seater Sedan)", fare: "$58" },
+        { car: "Maruti Ertiga (6-Seater MPV)", fare: "$72" },
+        { car: "Toyota Innova Crysta (7-Seater Luxury SUV)", fare: "$88" },
+        { car: "Tempo Traveller (12-Seater Coach)", fare: "$130" }
+      ],
+      includes: [
+        "Same Day Round-trip Private AC Cab",
+        "Ajmer Dargah & Pushkar Temple Sightseeing",
+        "Highways Toll Tax & State Permit Included",
+        "Doorstep Pickup & Drop (Hotel / Residence)"
+      ]
+    },
+    {
+      id: 8,
+      name: "Jaipur Abhaneri Stepwell & Agra Taj Mahal Excursion",
+      tag: "🕌 Taj Mahal Special",
+      duration: "Same Day Excursion (12–14 Hours)",
+      kms: "480 KMs Total Circuit",
+      startingRate: "Starting @ $85 / Day (Jaipur to Agra Cab)",
+      destinations: ["Jaipur Pickup", "Abhaneri Chand Baori Stepwell", "Fatehpur Sikri Palace", "Taj Mahal", "Agra Fort", "Agra / Jaipur Drop"],
+      image: "/pictures/abhaneri_stepwell.jpg",
+      tip: "📸 Explore Chand Baori (world's deepest stepwell) & UNESCO Taj Mahal in a single day private AC cab!",
+      carRates: [
+        { car: "Swift Dzire (4-Seater Sedan)", fare: "$85" },
+        { car: "Maruti Ertiga (6-Seater MPV)", fare: "$110" },
+        { car: "Toyota Innova Crysta (7-Seater Luxury SUV)", fare: "$140" },
+        { car: "Tempo Traveller (12-Seater Coach)", fare: "$195" }
+      ],
+      includes: [
+        "Private AC Cab Hire (Fuel & Highway Tolls Included)",
+        "Abhaneri Stepwell, Fatehpur Sikri & Agra Sightseeing",
+        "Experienced Highway Chauffeur",
+        "Doorstep Hotel / Airport Pickup & Drop"
       ]
     }
   ];
@@ -1210,6 +1393,7 @@ function App() {
     capacity: "4 Passengers",
     ac: true,
     color: "#0891b2",
+    priceFrom: "$24 / day",
     image: "/pictures/cars/dzire.jpeg",
     features: ["AC", "Luggage Space", "Music System"],
   },
@@ -1220,6 +1404,7 @@ function App() {
     capacity: "6 Passengers",
     ac: true,
     color: "#0891b2",
+    priceFrom: "$36 / day",
     image: "/pictures/cars/ertiga.jpeg",
     features: ["AC", "Luggage Space", "Music System"],
   },
@@ -1230,6 +1415,7 @@ function App() {
     capacity: "6 Passengers",
     ac: true,
     color: "#059669",
+    priceFrom: "$42 / day",
     image: "/pictures/cars/innova.jpeg",
     features: ["AC", "Premium Seats", "GPS", "USB Charging"],
   },
@@ -1240,6 +1426,7 @@ function App() {
     capacity: "7 Passengers",
     ac: true,
     color: "#d97706",
+    priceFrom: "$54 / day",
     image: "/pictures/cars/crysta.jpeg",
     features: ["AC", "Luxury Interior", "GPS", "USB Charging"],
   },
@@ -1247,9 +1434,10 @@ function App() {
     id: 5,
     name: "Tempo Traveller",
     type: "Mini Coach",
-    capacity: "12–17 Passengers",
+    capacity: "12–20 Passengers",
     ac: true,
     color: "#db2777",
+    priceFrom: "$78 / day",
     image: "/pictures/cars/traveller.jpeg",
     features: ["AC", "Wide Seats", "Luggage Rack", "Music System"],
   },
@@ -1260,6 +1448,7 @@ function App() {
     capacity: "30+ Passengers",
     ac: true,
     color: "#7c3aed",
+    priceFrom: "$150 / day",
     image: "/pictures/cars/volvo.jpeg",
     features: ["AC", "Recliner Seats", "Onboard TV", "Restroom"],
   },
@@ -1267,9 +1456,14 @@ function App() {
 
   return (
     <div className="app">
+      {isAdminOpen && <AdminPanel onClose={() => setIsAdminOpen(false)} />}
       <PaymentModal
         isOpen={isPaymentModalOpen}
         onClose={() => setIsPaymentModalOpen(false)}
+      />
+      <ReviewModal
+        isOpen={isReviewModalOpen}
+        onClose={() => setIsReviewModalOpen(false)}
       />
       <header className="app-header">
         <div className="header-inner">
@@ -1676,37 +1870,49 @@ function App() {
             </div>
             <div className="enquiry-layout">
               <form
-  className="enquiry-form"
-  onSubmit={(e) => {
-    e.preventDefault();
+                className="enquiry-form"
+                onSubmit={async (e) => {
+                  e.preventDefault();
 
-    const formData = {
-      name: e.target.name.value,
-      phone: e.target.phone.value,
-      email: e.target.email.value,
-      destination: e.target.destination.value,
-      travel_date: e.target['travel-date'].value,
-      travellers: e.target.travellers.value,
-      message: e.target.message.value,
-    };
+                  const formData = {
+                    name: e.target.name.value,
+                    phone: e.target.phone.value,
+                    email: e.target.email.value,
+                    destination: e.target.destination.value,
+                    travel_date: e.target['travel-date'].value,
+                    travellers: e.target.travellers.value,
+                    message: e.target.message.value,
+                    status: "New",
+                    dateSubmitted: new Date().toLocaleString("en-IN"),
+                    createdAt: serverTimestamp(),
+                  };
 
-    emailjs
-      .send(
-        'service_ddemm88',       // replace with your Service ID
-        'template_io5ljmk',      // replace with your Template ID
-        formData,
-        '9AJfyV2Fy_U8DRKyi'        // replace with your Public Key
-      )
-      .then(() => {
-        alert('Thank you! Your enquiry has been received. We will contact you shortly.');
-        e.target.reset();
-      })
-      .catch((error) => {
-        console.error('EmailJS error:', error);
-        alert('Something went wrong. Please try WhatsApp or call us directly.');
-      });
-  }}
->
+                  // 1. Save to Firebase Firestore Database in Real-Time
+                  try {
+                    await addDoc(collection(db, "enquiries"), formData);
+                  } catch (err) {
+                    console.error("Firebase save error:", err);
+                  }
+
+                  // 2. Also send EmailJS Notification
+                  emailjs
+                    .send(
+                      'service_ddemm88',
+                      'template_io5ljmk',
+                      formData,
+                      '9AJfyV2Fy_U8DRKyi'
+                    )
+                    .then(() => {
+                      alert('Thank you! Your enquiry has been received & saved. We will contact you shortly.');
+                      e.target.reset();
+                    })
+                    .catch((error) => {
+                      console.error('EmailJS error:', error);
+                      alert('Thank you! Your enquiry has been saved. We will contact you shortly.');
+                      e.target.reset();
+                    });
+                }}
+              >
                 <div className="form-row two-cols">
                   <div className="form-field">
                     <label htmlFor="name">Name</label>
@@ -1739,14 +1945,53 @@ function App() {
                       placeholder="Optional"
                     />
                   </div>
-                  <div className="form-field">
-                    <label htmlFor="destination">Destination / Tour</label>
+                  <div
+                    ref={packageDropdownRef}
+                    className="form-field custom-select-container"
+                  >
+                    <label htmlFor="destination">Select Package / Tour *</label>
                     <input
+                      type="hidden"
                       id="destination"
                       name="destination"
-                      type="text"
-                      placeholder="e.g. Jaipur Day Tour"
+                      value={selectedPackage}
+                      required
                     />
+
+                    <button
+                      type="button"
+                      className={`custom-select-trigger ${isPackageDropdownOpen ? "active" : ""}`}
+                      onClick={() => setIsPackageDropdownOpen((prev) => !prev)}
+                    >
+                      <span className={selectedPackage ? "custom-select-val-selected" : "custom-select-val-placeholder"}>
+                        {selectedPackage
+                          ? (packageOptions.find((opt) => opt.value === selectedPackage)?.label || selectedPackage)
+                          : "-- Select Tour Package --"}
+                      </span>
+                      <span className={`custom-select-arrow ${isPackageDropdownOpen ? "open" : ""}`}>
+                        ▼
+                      </span>
+                    </button>
+
+                    {isPackageDropdownOpen && (
+                      <div className="custom-select-menu">
+                        {packageOptions.map((opt) => (
+                          <div
+                            key={opt.value}
+                            className={`custom-select-item ${selectedPackage === opt.value ? "selected" : ""}`}
+                            onClick={() => {
+                              setSelectedPackage(opt.value);
+                              setIsPackageDropdownOpen(false);
+                            }}
+                          >
+                            <span>{opt.label}</span>
+                            {selectedPackage === opt.value && (
+                              <span className="check-mark">✓</span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="form-row two-cols">
@@ -1845,9 +2090,41 @@ function App() {
                         <span className="package-duration-badge">⏱ {pkg.duration}</span>
                       )}
                     </div>
+                    {pkg.startingRate && (
+                      <div className="package-starting-rate-badge">
+                        <span>🏷️ {pkg.startingRate}</span>
+                      </div>
+                    )}
                     <p className="package-destinations">
                       <strong>Route:</strong> {pkg.destinations.join(" → ")}
                     </p>
+
+                    {pkg.tip && (
+                      <div className="package-tip-box">
+                        <span className="tip-icon">💡</span>
+                        <span>{pkg.tip}</span>
+                      </div>
+                    )}
+
+                    {pkg.carRates && pkg.carRates.length > 0 && (
+                      <div className="package-fare-grid-box">
+                        <div className="fare-grid-header">
+                          <span>🚘 Vehicle Type</span>
+                          <span>🏷️ Cab Fare</span>
+                        </div>
+                        {pkg.carRates.map((rate, rIdx) => (
+                          <div key={rIdx} className="fare-grid-row">
+                            <span className="car-name">{rate.car}</span>
+                            <span className="car-price">{rate.fare}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    <div className="no-hidden-badge">
+                      🛡️ <strong>No Hidden Charges:</strong> Toll, Parking, Fuel &amp; Driver Allowance Included!
+                    </div>
+
                     <ul className="package-includes">
                       {pkg.includes ? (
                         pkg.includes.map((inc, idx) => (
@@ -1868,18 +2145,30 @@ function App() {
                         className="btn primary full"
                         onClick={() => handlePackageEnquiry(pkg.name)}
                       >
-                        Send enquiry
+                        📝 Send Enquiry
                       </button>
                       <button
                         type="button"
-                        className="btn ghost full"
+                        className="btn-whatsapp-green full"
                         onClick={() =>
                           openWhatsApp(
-                            `Hi Meharoli Tours and Travels, I want to know more about the ${pkg.name} package.`,
+                            `Hi Meharoli Tours, I am interested in ${pkg.name}. Please share details & availability.`,
                           )
                         }
                       >
-                        WhatsApp about this
+                        <svg viewBox="0 0 24 24">
+                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                          <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.407A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.958 7.958 0 01-4.078-1.123l-.292-.173-3.027.854.855-3.02-.19-.31A7.96 7.96 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" />
+                        </svg>
+                        <span>Get Upto 5% Off on WhatsApp</span>
+                      </button>
+                      <button
+                        type="button"
+                        className="header-top-pay-btn full text-center justify-center"
+                        style={{ margin: 0, padding: "0.6rem 1rem", fontSize: "0.85rem" }}
+                        onClick={() => setIsPaymentModalOpen(true)}
+                      >
+                        💳 Pay Deposit &amp; Book
                       </button>
                     </div>
                   </div>
@@ -1961,11 +2250,28 @@ function App() {
               Thousands of happy travellers have explored Jaipur with us.
               Here&apos;s what some of them had to share.
             </p>
+            <button
+              type="button"
+              onClick={() => setIsReviewModalOpen(true)}
+              className="mt-3 px-5 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-xs sm:text-sm rounded-full shadow-lg hover:shadow-orange-500/30 transition duration-300 inline-flex items-center gap-2 cursor-pointer border border-amber-300/40"
+            >
+              <span>⭐ Write a Review</span>
+            </button>
           </div>
           <div className="testimonials-grid">
             <div className="testimonials-track">
-              {testimonials.map((t) => (
-                <article key={t.id} className="testimonial-card">
+              {[
+                ...approvedReviews.map((r) => ({
+                  id: r.id,
+                  name: r.name,
+                  city: r.city,
+                  rating: r.rating || 5,
+                  text: r.text,
+                  avatar: r.avatar || "MK",
+                })),
+                ...testimonials,
+              ].map((t, idx) => (
+                <article key={t.id || idx} className="testimonial-card">
                   <div className="testimonial-stars">
                     {"★".repeat(t.rating)}
                     {"☆".repeat(5 - t.rating)}
@@ -1981,9 +2287,19 @@ function App() {
                 </article>
               ))}
               {/* duplicate for seamless mobile loop */}
-              {testimonials.map((t) => (
+              {[
+                ...approvedReviews.map((r) => ({
+                  id: `d-${r.id}`,
+                  name: r.name,
+                  city: r.city,
+                  rating: r.rating || 5,
+                  text: r.text,
+                  avatar: r.avatar || "MK",
+                })),
+                ...testimonials,
+              ].map((t, idx) => (
                 <article
-                  key={`d-${t.id}`}
+                  key={`dup-${t.id || idx}`}
                   className="testimonial-card"
                   aria-hidden="true"
                 >
@@ -2043,7 +2359,9 @@ function App() {
                         <li key={f}>{f}</li>
                       ))}
                     </ul>
-                    <p className="car-price">From {car.priceFrom}</p>
+                    <p className="car-price font-semibold text-slate-700 text-sm">
+                      Starting @ <strong className="text-orange-600 text-base">{car.priceFrom}</strong>
+                    </p>
                     <button
                       type="button"
                       className="btn primary full"
@@ -2128,7 +2446,7 @@ function App() {
         </section>
 
         {/* ── FOUNDER & LEADERSHIP SECTION ── */}
-        <section className="founder-section py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white relative overflow-hidden my-8 rounded-3xl mx-4 sm:mx-8 shadow-2xl" id="about">
+        <section className="founder-section py-16 bg-gradient-to-br from-orange-50/90 via-amber-50/80 to-amber-100/70 border border-orange-200/80 text-slate-900 relative overflow-hidden my-8 rounded-3xl mx-4 sm:mx-8 shadow-xl" id="about">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -2136,7 +2454,7 @@ function App() {
               <div className="lg:col-span-5 flex justify-center">
                 <div className="relative group w-full max-w-sm">
                   <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-amber-400 rounded-3xl blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
-                  <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-400/30">
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-400/40">
                     <img
                       src="/pictures/dilip_singh_meharoli.jpg"
                       alt="Dilip Singh Meharoli - Founder & CEO"
@@ -2158,81 +2476,85 @@ function App() {
 
               {/* Text & Accomplishments Column */}
               <div className="lg:col-span-7 flex flex-col justify-center">
-                <span className="bg-orange-500/20 text-orange-400 border border-orange-500/40 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block w-fit mb-4">
+                <span className="bg-orange-500/15 text-orange-700 border border-orange-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block w-fit mb-4">
                   Leadership &amp; Social Reformer
                 </span>
                 
-                <h2 className="text-2xl sm:text-4xl font-extrabold font-serif leading-tight text-white mb-4">
+                <h2 className="text-2xl sm:text-4xl font-extrabold font-serif leading-tight text-slate-900 mb-4">
                   Steered by 20+ Years of Tourism Excellence &amp; Dedicated Social Work
                 </h2>
 
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-                  Founded under the vision of <strong className="text-amber-300">Shri Dilip Singh Meharoli</strong>, Meharoli Tours and Travels has grown into one of Rajasthan&apos;s premier travel organizations. With over two decades of hands-on expertise in Rajasthan tourism, Shri Dilip Singh Ji ensures that every guest experiences authentic Indian culture, top-tier luxury, and unmatched safety.
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-6">
+                  Founded under the vision of <strong className="text-orange-700">Shri Dilip Singh Meharoli</strong>, Meharoli Tours and Travels has grown into one of Rajasthan&apos;s premier travel organizations. With over two decades of hands-on expertise in Rajasthan tourism, Shri Dilip Singh Ji ensures that every guest experiences authentic Indian culture, top-tier luxury, and unmatched safety.
                 </p>
 
                 {/* Key Roles & Badges */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                  <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 flex items-start gap-3.5">
-                    <div className="bg-orange-500/20 text-orange-400 p-2.5 rounded-xl text-xl flex-shrink-0">
+                  <div className="bg-white/90 border border-orange-100/90 shadow-md rounded-2xl p-4 flex items-start gap-3.5">
+                    <div className="bg-orange-500/15 text-orange-600 p-2.5 rounded-xl text-xl flex-shrink-0">
                       🚘
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-white">President / Head</h4>
-                      <p className="text-xs text-slate-300 mt-0.5">Rajasthan Tour &amp; Travel Car Association</p>
+                      <h4 className="text-sm font-bold text-slate-900">President / Head</h4>
+                      <p className="text-xs text-slate-600 mt-0.5">Rajasthan Tour &amp; Travel Car Association</p>
                     </div>
                   </div>
 
-                  <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 flex items-start gap-3.5">
-                    <div className="bg-amber-500/20 text-amber-400 p-2.5 rounded-xl text-xl flex-shrink-0">
+                  <div className="bg-white/90 border border-orange-100/90 shadow-md rounded-2xl p-4 flex items-start gap-3.5">
+                    <div className="bg-amber-500/15 text-amber-600 p-2.5 rounded-xl text-xl flex-shrink-0">
                       🎗️
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-white">President (Adhyaksh)</h4>
-                      <p className="text-xs text-slate-300 mt-0.5">Shree Rajput Dahej Virodhi Sangh</p>
+                      <h4 className="text-sm font-bold text-slate-900">President (Adhyaksh)</h4>
+                      <p className="text-xs text-slate-600 mt-0.5">Shree Rajput Dahej Virodhi Sangh</p>
                     </div>
                   </div>
 
-                  <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 flex items-start gap-3.5">
-                    <div className="bg-emerald-500/20 text-emerald-400 p-2.5 rounded-xl text-xl flex-shrink-0">
+                  <div className="bg-white/90 border border-orange-100/90 shadow-md rounded-2xl p-4 flex items-start gap-3.5">
+                    <div className="bg-emerald-500/15 text-emerald-600 p-2.5 rounded-xl text-xl flex-shrink-0">
                       ⭐
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-white">20+ Years Experience</h4>
-                      <p className="text-xs text-slate-300 mt-0.5">Rajasthan, Delhi &amp; Agra Tourism Industry</p>
+                      <h4 className="text-sm font-bold text-slate-900">20+ Years Experience</h4>
+                      <p className="text-xs text-slate-600 mt-0.5">Rajasthan, Delhi &amp; Agra Tourism Industry</p>
                     </div>
                   </div>
 
-                  <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 flex items-start gap-3.5">
-                    <div className="bg-purple-500/20 text-purple-400 p-2.5 rounded-xl text-xl flex-shrink-0">
+                  <div className="bg-white/90 border border-orange-100/90 shadow-md rounded-2xl p-4 flex items-start gap-3.5">
+                    <div className="bg-purple-500/15 text-purple-600 p-2.5 rounded-xl text-xl flex-shrink-0">
                       🤝
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-white">Social Reformer</h4>
-                      <p className="text-xs text-slate-300 mt-0.5">Active Anti-Dowry Campaigner &amp; Social Worker</p>
+                      <h4 className="text-sm font-bold text-slate-900">Social Reformer</h4>
+                      <p className="text-xs text-slate-600 mt-0.5">Active Anti-Dowry Campaigner &amp; Social Worker</p>
                     </div>
                   </div>
                 </div>
 
-                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 italic border-l-4 border-amber-400 pl-4 py-1 bg-amber-400/5 rounded-r-xl">
+                <p className="text-slate-800 text-xs sm:text-sm leading-relaxed mb-6 italic border-l-4 border-orange-500 pl-4 py-2 bg-orange-500/10 rounded-r-xl font-medium">
                   &ldquo;We believe that true leadership lies in serving both our travelers and our society. We are committed to eradicating social evils like dowry while promoting ethical tourism across India.&rdquo;
                 </p>
 
                 <div className="flex flex-wrap gap-4 items-center">
                   <button
                     type="button"
-                    className="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold rounded-xl shadow-lg hover:shadow-orange-500/30 transition duration-300 flex items-center gap-2 text-sm cursor-pointer"
+                    className="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow-lg hover:shadow-emerald-600/30 transition duration-300 flex items-center gap-2 text-sm cursor-pointer"
                     onClick={() =>
                       openWhatsApp(
                         "Hi Shri Dilip Singh Meharoli, I want to book a custom travel itinerary with Meharoli Tours."
                       )
                     }
                   >
-                    💬 Connect on WhatsApp
+                    <svg className="w-5 h-5 fill-current text-white shrink-0" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                      <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.407A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.958 7.958 0 01-4.078-1.123l-.292-.173-3.027.854.855-3.02-.19-.31A7.96 7.96 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" />
+                    </svg>
+                    <span>Connect on WhatsApp</span>
                   </button>
 
                   <button
                     type="button"
-                    className="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-semibold rounded-xl border border-slate-700 transition duration-300 text-sm cursor-pointer"
+                    className="px-6 py-3 bg-white hover:bg-orange-50 text-slate-700 hover:text-orange-600 font-semibold rounded-xl border border-gray-300 shadow-sm transition duration-300 text-sm cursor-pointer"
                     onClick={scrollToForm}
                   >
                     📝 Request Custom Quote
@@ -2274,12 +2596,46 @@ function App() {
       <footer className="app-footer">
         <div className="footer-inner">
           <div className="footer-brand">
-            <div className="logo-mark">MT</div>
+            <img
+              src="/pictures/main-section/logo-removebg-preview.png"
+              alt="Meharoli Tours &amp; Travels Logo"
+              className="footer-logo-img"
+            />
             <div>
               <div className="brand-name">Meharoli Tours and Travels</div>
               <div className="brand-tagline">
                 Jaipur &amp; Rajasthan specialists
               </div>
+            </div>
+          </div>
+          <div className="footer-taxi-section">
+            <h4 className="footer-taxi-title">
+              Popular Taxi Services &amp; Intercity Cab Routes from Jaipur
+              <span className="taxi-swipe-hint">👈 Slide Left-Right 👉</span>
+            </h4>
+            <div className="footer-taxi-grid">
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur City Taxi Tour."); }}>› Jaipur Taxi Tour</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need Jaipur Airport Transfer Pickup/Drop Cab."); }}>› Jaipur Airport Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Delhi Taxi."); }}>› Jaipur to Delhi Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Agra Taj Mahal Taxi."); }}>› Jaipur to Agra Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Ajmer Sharif Taxi."); }}>› Jaipur to Ajmer Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Pushkar Brahma Temple Taxi."); }}>› Jaipur to Pushkar Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Khatu Shyam Ji Temple Taxi."); }}>› Jaipur to Khatu Shyam Ji Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Salasar Balaji Temple Taxi."); }}>› Jaipur to Salasar Balaji Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Ranthambore Tiger Safari Taxi."); }}>› Jaipur to Ranthambore Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Jodhpur Blue City Taxi."); }}>› Jaipur to Jodhpur Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Udaipur Lake City Taxi."); }}>› Jaipur to Udaipur Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Jaisalmer Desert Safari Taxi."); }}>› Jaipur to Jaisalmer Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Bikaner Fort Taxi."); }}>› Jaipur to Bikaner Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Mount Abu Hill Station Taxi."); }}>› Jaipur to Mount Abu Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Haridwar Rishikesh Taxi."); }}>› Jaipur to Haridwar Rishikesh Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Mathura Vrindavan Taxi."); }}>› Jaipur to Mathura Vrindavan Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Chokhi Dhani Ethnic Village Taxi."); }}>› Jaipur to Chokhi Dhani Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Banasthali Vidyapith Taxi."); }}>› Jaipur to Banasthali Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Bharatpur Bird Sanctuary Taxi."); }}>› Jaipur to Bharatpur Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Sariska Tiger Reserve Taxi."); }}>› Jaipur to Sariska Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Mandawa Haveli Heritage Taxi."); }}>› Jaipur to Mandawa Taxi</a>
+              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Golden Triangle Tour (Delhi-Agra-Jaipur)."); }}>› Taxi for Golden Triangle Tour</a>
             </div>
           </div>
           <div className="footer-columns">
@@ -2364,11 +2720,18 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="footer-bottom">
+        <div className="footer-bottom flex flex-col sm:flex-row items-center justify-between gap-2">
           <p>
             © {new Date().getFullYear()} Meharoli Tours and Travels. All rights
             reserved.
           </p>
+          <button
+            type="button"
+            onClick={() => setIsAdminOpen(true)}
+            className="text-xs text-slate-400 hover:text-orange-400 transition flex items-center gap-1.5 cursor-pointer bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700"
+          >
+            <span>🔐 Admin Portal</span>
+          </button>
         </div>
       </footer>
     </div>
