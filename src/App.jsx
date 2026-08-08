@@ -900,6 +900,37 @@ function PaymentModal({ isOpen, onClose }) {
     </div>
   );
 }
+const taxiCategories = [
+  { id: "all", label: " All Routes" },
+  { id: "devotional", label: " Devotional & Yatra" },
+  { id: "outstation", label: " Outstation & Intercity" },
+  { id: "local", label: " Local & Airport Transfer" },
+];
+
+const taxiRoutes = [
+  { label: "Jaipur Taxi Tour", category: "local", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur City Taxi Tour." },
+  { label: "Jaipur Airport Taxi", category: "local", msg: "Hi Meharoli Tours, I need Jaipur Airport Transfer Pickup/Drop Cab." },
+  { label: "Jaipur to Delhi Taxi", category: "outstation", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Delhi Taxi." },
+  { label: "Jaipur to Agra Taxi", category: "outstation", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Agra Taj Mahal Taxi." },
+  { label: "Jaipur to Ajmer Taxi", category: "devotional", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Ajmer Sharif Taxi." },
+  { label: "Jaipur to Pushkar Taxi", category: "devotional", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Pushkar Brahma Temple Taxi." },
+  { label: "Jaipur to Khatu Shyam Ji Taxi", category: "devotional", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Khatu Shyam Ji Temple Taxi." },
+  { label: "Jaipur to Salasar Balaji Taxi", category: "devotional", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Salasar Balaji Temple Taxi." },
+  { label: "Jaipur to Ranthambore Taxi", category: "outstation", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Ranthambore Tiger Safari Taxi." },
+  { label: "Jaipur to Jodhpur Taxi", category: "outstation", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Jodhpur Blue City Taxi." },
+  { label: "Jaipur to Udaipur Taxi", category: "outstation", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Udaipur Lake City Taxi." },
+  { label: "Jaipur to Jaisalmer Taxi", category: "outstation", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Jaisalmer Desert Safari Taxi." },
+  { label: "Jaipur to Bikaner Taxi", category: "outstation", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Bikaner Fort Taxi." },
+  { label: "Jaipur to Mount Abu Taxi", category: "outstation", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Mount Abu Hill Station Taxi." },
+  { label: "Jaipur to Haridwar Rishikesh Taxi", category: "devotional", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Haridwar Rishikesh Taxi." },
+  { label: "Jaipur to Mathura Vrindavan Taxi", category: "devotional", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Mathura Vrindavan Taxi." },
+  { label: "Jaipur to Chokhi Dhani Taxi", category: "local", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Chokhi Dhani Ethnic Village Taxi." },
+  { label: "Jaipur to Banasthali Taxi", category: "outstation", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Banasthali Vidyapith Taxi." },
+  { label: "Jaipur to Bharatpur Taxi", category: "outstation", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Bharatpur Bird Sanctuary Taxi." },
+  { label: "Jaipur to Sariska Taxi", category: "outstation", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Sariska Tiger Reserve Taxi." },
+  { label: "Jaipur to Mandawa Taxi", category: "outstation", msg: "Hi Meharoli Tours, I need a cab fare quote for Jaipur to Mandawa Haveli Heritage Taxi." },
+  { label: "Taxi for Golden Triangle Tour", category: "outstation", msg: "Hi Meharoli Tours, I need a cab fare quote for Golden Triangle Tour (Delhi-Agra-Jaipur)." },
+];
 
 function App() {
   const whatsappNumber = "918824976479"; // TODO: replace with real WhatsApp number
@@ -915,6 +946,7 @@ function App() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   const [approvedReviews, setApprovedReviews] = useState([]);
+  const [activeTaxiCategory, setActiveTaxiCategory] = useState("all");
 
   // Fetch approved customer reviews from Firebase Firestore in Real-Time
   useEffect(() => {
@@ -954,11 +986,13 @@ function App() {
     }
   };
 
-  // Handle URL Hash Deep-linking & SEO Title Sync for Crawlers & Visitors
+  // Handle URL Hash & Path Deep-linking & SEO Title Sync for Crawlers & Visitors
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash === "#admin" || hash === "#adminpanel") {
+    const handleUrlChange = () => {
+      const hash = window.location.hash.toLowerCase();
+      const path = window.location.pathname.toLowerCase().replace(/\/$/, "");
+
+      if (path === "/admin" || hash === "#admin") {
         setIsAdminOpen(true);
       } else if (hash.startsWith("#destination-")) {
         const dest = hash.replace("#destination-", "");
@@ -995,9 +1029,13 @@ function App() {
       }
     };
 
-    handleHashChange();
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
+    handleUrlChange();
+    window.addEventListener("hashchange", handleUrlChange);
+    window.addEventListener("popstate", handleUrlChange);
+    return () => {
+      window.removeEventListener("hashchange", handleUrlChange);
+      window.removeEventListener("popstate", handleUrlChange);
+    };
   }, []);
 
   // Update Page Title dynamically based on active view for search engines
@@ -1013,7 +1051,7 @@ function App() {
         document.title = `${dest.title} Tour Packages & Sightseeing | Meharoli Tours`;
       }
     } else {
-      document.title = "Meharoli Tours & Travels | Custom Rajasthan, Delhi & Agra Tour Packages";
+      document.title = "Best Travel Agency in Jaipur | Jaipur Sightseeing & Tours | Meharoli Tours";
     }
   }, [activeDestination, activeBlogKey]);
 
@@ -1048,6 +1086,26 @@ function App() {
       message,
     )}`;
     window.open(url, "_blank");
+  };
+
+  const handleTaxiRouteClick = async (route) => {
+    try {
+      await addDoc(collection(db, "enquiries"), {
+        name: `Taxi Enquiry: ${route.label}`,
+        phone: "WhatsApp Link Click",
+        email: "",
+        destination: route.label,
+        travel_date: "Via Route Selection",
+        travellers: "1",
+        message: `Customer requested fare quote for: ${route.label}`,
+        status: "New",
+        dateSubmitted: new Date().toLocaleString("en-IN"),
+        createdAt: serverTimestamp(),
+      });
+    } catch (err) {
+      console.error("Error saving taxi route booking:", err);
+    }
+    openWhatsApp(route.msg);
   };
 
   const [selectedPackage, setSelectedPackage] = useState("");
@@ -1456,7 +1514,18 @@ function App() {
 
   return (
     <div className="app">
-      {isAdminOpen && <AdminPanel onClose={() => setIsAdminOpen(false)} />}
+      {isAdminOpen && (
+        <AdminPanel
+          onClose={() => {
+            setIsAdminOpen(false);
+            if (window.location.hash === "#admin") {
+              window.history.replaceState(null, "", window.location.pathname);
+            } else if (window.location.pathname.toLowerCase().replace(/\/$/, "") === "/admin") {
+              window.history.replaceState(null, "", "/");
+            }
+          }}
+        />
+      )}
       <PaymentModal
         isOpen={isPaymentModalOpen}
         onClose={() => setIsPaymentModalOpen(false)}
@@ -1604,6 +1673,16 @@ function App() {
               }}
             >
               Cars
+            </a>
+            <a
+              href="#popular-taxi-routes"
+              className="nav-item"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("popular-taxi-routes");
+              }}
+            >
+              Cabs &amp; Taxi
             </a>
             <a
               href="#services"
@@ -1770,7 +1849,7 @@ function App() {
           <div className="hero-cta-row">
             <button
               type="button"
-              className="btn primary"
+              className="btn primary hero-cta-btn"
               onClick={() =>
                 openWhatsApp(
                   "Hi Meharoli Tours and Travels, I would like to plan my Jaipur trip.",
@@ -1781,13 +1860,12 @@ function App() {
             </button>
             <button
               type="button"
-              className="nav-pay-btn"
-              style={{ padding: "0.7rem 1.4rem", fontSize: "0.9rem" }}
+              className="nav-pay-btn hero-cta-btn"
               onClick={() => setIsPaymentModalOpen(true)}
             >
-              💳 Pay Online Now
+              💳 Pay Online
             </button>
-            <a href="#packages" className="btn ghost">
+            <a href="#packages" className="btn primary hero-cta-btn">
               View Packages
             </a>
           </div>
@@ -1855,6 +1933,64 @@ function App() {
               >
                 💳 Pay Online with Card &amp; UPI
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Popular Taxi Services & Intercity Cab Routes Section */}
+        <section className="py-6 sm:py-10 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto" id="popular-taxi-routes">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-7 shadow-sm">
+            <div className="border-b border-slate-100 pb-3 mb-4">
+              <h3 className="text-base sm:text-xl font-bold font-serif text-slate-900 flex items-center gap-2">
+                
+                <span>Popular Taxi Services &amp; Intercity Cab Routes from Jaipur</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                Select a category below to explore routes and get instant fare quotes
+              </p>
+            </div>
+
+            {/* Category Filter Tab Buttons */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-2.5 mb-4 scrollbar-none -mx-1 px-1">
+              {taxiCategories.map((cat) => (
+                <button
+                  key={cat.id}
+                  type="button"
+                  onClick={() => setActiveTaxiCategory(cat.id)}
+                  className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 shrink-0 ${
+                    activeTaxiCategory === cat.id
+                      ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-sm shadow-orange-500/20"
+                      : "bg-slate-100 text-slate-700 hover:bg-slate-200/70"
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Taxi Routes Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+              {taxiRoutes
+                .filter((r) => activeTaxiCategory === "all" || r.category === activeTaxiCategory)
+                .map((route, idx) => (
+                  <a
+                    key={idx}
+                    href="#enquiry-form-section"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleTaxiRouteClick(route);
+                    }}
+                    className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200/70 text-slate-700 hover:text-orange-600 hover:bg-orange-50/60 hover:border-orange-200 transition-all text-xs sm:text-sm font-medium group cursor-pointer"
+                  >
+                    <span className="flex items-center gap-2 min-w-0">
+                      <span className="text-orange-500 font-bold group-hover:translate-x-0.5 transition-transform shrink-0">›</span>
+                      <span className="truncate">{route.label}</span>
+                    </span>
+                    <span className="text-[11px] text-orange-600 font-medium bg-orange-100/70 px-2 py-0.5 rounded-full shrink-0 ml-1.5 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                      Book 💬
+                    </span>
+                  </a>
+                ))}
             </div>
           </div>
         </section>
@@ -2608,36 +2744,6 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="footer-taxi-section">
-            <h4 className="footer-taxi-title">
-              Popular Taxi Services &amp; Intercity Cab Routes from Jaipur
-              <span className="taxi-swipe-hint">👈 Slide Left-Right 👉</span>
-            </h4>
-            <div className="footer-taxi-grid">
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur City Taxi Tour."); }}>› Jaipur Taxi Tour</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need Jaipur Airport Transfer Pickup/Drop Cab."); }}>› Jaipur Airport Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Delhi Taxi."); }}>› Jaipur to Delhi Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Agra Taj Mahal Taxi."); }}>› Jaipur to Agra Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Ajmer Sharif Taxi."); }}>› Jaipur to Ajmer Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Pushkar Brahma Temple Taxi."); }}>› Jaipur to Pushkar Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Khatu Shyam Ji Temple Taxi."); }}>› Jaipur to Khatu Shyam Ji Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Salasar Balaji Temple Taxi."); }}>› Jaipur to Salasar Balaji Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Ranthambore Tiger Safari Taxi."); }}>› Jaipur to Ranthambore Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Jodhpur Blue City Taxi."); }}>› Jaipur to Jodhpur Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Udaipur Lake City Taxi."); }}>› Jaipur to Udaipur Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Jaisalmer Desert Safari Taxi."); }}>› Jaipur to Jaisalmer Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Bikaner Fort Taxi."); }}>› Jaipur to Bikaner Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Mount Abu Hill Station Taxi."); }}>› Jaipur to Mount Abu Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Haridwar Rishikesh Taxi."); }}>› Jaipur to Haridwar Rishikesh Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Mathura Vrindavan Taxi."); }}>› Jaipur to Mathura Vrindavan Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Chokhi Dhani Ethnic Village Taxi."); }}>› Jaipur to Chokhi Dhani Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Banasthali Vidyapith Taxi."); }}>› Jaipur to Banasthali Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Bharatpur Bird Sanctuary Taxi."); }}>› Jaipur to Bharatpur Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Sariska Tiger Reserve Taxi."); }}>› Jaipur to Sariska Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Jaipur to Mandawa Haveli Heritage Taxi."); }}>› Jaipur to Mandawa Taxi</a>
-              <a href="#enquiry-form-section" onClick={(e) => { e.preventDefault(); openWhatsApp("Hi Meharoli Tours, I need a cab fare quote for Golden Triangle Tour (Delhi-Agra-Jaipur)."); }}>› Taxi for Golden Triangle Tour</a>
-            </div>
-          </div>
           <div className="footer-columns">
             <div className="footer-column">
               <h4>Holiday Packages</h4>
@@ -2725,13 +2831,6 @@ function App() {
             © {new Date().getFullYear()} Meharoli Tours and Travels. All rights
             reserved.
           </p>
-          <button
-            type="button"
-            onClick={() => setIsAdminOpen(true)}
-            className="text-xs text-slate-400 hover:text-orange-400 transition flex items-center gap-1.5 cursor-pointer bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700"
-          >
-            <span>🔐 Admin Portal</span>
-          </button>
         </div>
       </footer>
     </div>
