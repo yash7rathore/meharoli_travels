@@ -994,6 +994,43 @@ function App() {
 
       if (path === "/admin" || hash === "#admin") {
         setIsAdminOpen(true);
+      } else if (path === "/delhi" || hash === "#destination-delhi") {
+        setActiveDestination("delhi");
+        setActiveBlogKey(null);
+        window.scrollTo(0, 0);
+      } else if (path === "/agra" || hash === "#destination-agra") {
+        setActiveDestination("agra");
+        setActiveBlogKey(null);
+        window.scrollTo(0, 0);
+      } else if (path === "/rajasthan" || hash === "#destination-rajasthan") {
+        setActiveDestination("rajasthan");
+        setActiveRajasthanCity(null);
+        setActiveBlogKey(null);
+        window.scrollTo(0, 0);
+      } else if (path === "/blogs" || hash === "#blogs") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget("blogs");
+      } else if (path === "/packages" || hash === "#packages") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget("packages");
+      } else if (path === "/cars" || hash === "#cars") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget("cars");
+      } else if (path === "/popular-taxi-routes" || hash === "#popular-taxi-routes") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget("popular-taxi-routes");
+      } else if (path === "/about" || hash === "#about") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget("about");
+      } else if (path === "/contact" || hash === "#enquiry-form-section") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget("enquiry-form-section");
       } else if (hash.startsWith("#destination-")) {
         const dest = hash.replace("#destination-", "");
         if (destinationsData[dest]) {

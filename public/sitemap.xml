@@ -1,81 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.meharolitravels.com/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <loc>https://www.meharolitourstravels.com/</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.meharolitravels.com/#destination-delhi</loc>
-    <lastmod>2026-07-29</lastmod>
+    <loc>https://www.meharolitourstravels.com/delhi</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.meharolitravels.com/#destination-agra</loc>
-    <lastmod>2026-07-29</lastmod>
+    <loc>https://www.meharolitourstravels.com/agra</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.meharolitravels.com/#destination-rajasthan</loc>
-    <lastmod>2026-07-29</lastmod>
+    <loc>https://www.meharolitourstravels.com/rajasthan</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.meharolitravels.com/#blogs</loc>
-    <lastmod>2026-07-29</lastmod>
+    <loc>https://www.meharolitourstravels.com/packages</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.meharolitravels.com/#blog-agra-taj-mahal-guide</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.meharolitravels.com/#blog-mandawa-fresco-art</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.meharolitravels.com/#blog-rajasthan-secret-forts</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.meharolitravels.com/#blog-delhi-street-food-markets</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.meharolitravels.com/#packages</loc>
-    <lastmod>2026-07-29</lastmod>
+    <loc>https://www.meharolitourstravels.com/cars</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.meharolitravels.com/#cars</loc>
-    <lastmod>2026-07-29</lastmod>
+    <loc>https://www.meharolitourstravels.com/popular-taxi-routes</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.meharolitourstravels.com/blogs</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.meharolitourstravels.com/about</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.meharolitravels.com/#about</loc>
-    <lastmod>2026-07-29</lastmod>
+    <loc>https://www.meharolitourstravels.com/contact</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.meharolitravels.com/#enquiry-form-section</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 </urlset>
