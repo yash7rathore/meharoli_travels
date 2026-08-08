@@ -1805,13 +1805,13 @@ function App() {
       ) : (
         <>
           <Helmet>
-            <title>Meharoli Tours &amp; Travels | Custom Rajasthan, Delhi &amp; Agra Tour Packages</title>
-            <meta name="description" content="Book personalized tour packages for the Golden Triangle (Delhi, Agra, Jaipur), tiger safaris in Ranthambore, lake palaces in Udaipur, desert camping in Jaisalmer, and local shopping guides. Direct AC taxi hire, premium hotel bookings, and expert local guides." />
-            <link rel="canonical" href="https://www.meharolitravels.com/" />
-            <meta property="og:title" content="Meharoli Tours &amp; Travels | Custom Rajasthan, Delhi &amp; Agra Tour Packages" />
-            <meta property="og:description" content="Book personalized tour packages for the Golden Triangle (Delhi, Agra, Jaipur), tiger safaris, lake palaces, desert camping, and local shopping guides." />
-            <meta property="og:image" content="https://www.meharolitravels.com/pictures/agra_tajmahal.jpg" />
-            <meta property="og:url" content="https://www.meharolitravels.com/" />
+            <title>Best Travel Agency in Jaipur | Jaipur Sightseeing &amp; Tours</title>
+            <meta name="description" content="★ 4.9 Rated Travel Agency in Jaipur! Book Jaipur Sightseeing, Rajasthan Tour Packages, Khatu Shyam Yatra &amp; Private AC Cabs @ Best Rates with Meharoli Tours." />
+            <link rel="canonical" href="https://www.meharolitourstravels.com/" />
+            <meta property="og:title" content="Best Travel Agency in Jaipur | Jaipur Sightseeing &amp; Tours" />
+            <meta property="og:description" content="★ 4.9 Rated Travel Agency in Jaipur! Book Jaipur Sightseeing, Rajasthan Tour Packages, Khatu Shyam Yatra &amp; Private AC Cabs @ Best Rates with Meharoli Tours." />
+            <meta property="og:image" content="https://www.meharolitourstravels.com/pictures/main-section/jaipur-jal-mahal-water-palace.jpg" />
+            <meta property="og:url" content="https://www.meharolitourstravels.com/" />
           </Helmet>
           <section className="hero" id="top">
         {/* Decorative background blobs */}
