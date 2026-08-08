@@ -8,13 +8,13 @@
           "value": "meharolitravels.com"
         }
       ],
-      "destination": "https://www.meharolitravels.com/:path*",
+      "destination": "https://www.meharolitourstravels.com/:path*",
       "permanent": true
     }
   ],
   "rewrites": [
     {
-      "source": "/admin",
+      "source": "/((?!pictures|assets|favicon|apple-touch-icon|site.webmanifest|sitemap.xml|robots.txt|googled0b71a599009aa5e.html).*)",
       "destination": "/index.html"
     }
   ],
