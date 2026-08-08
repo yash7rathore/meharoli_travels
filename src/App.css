@@ -909,10 +909,20 @@ main {
 .hero-cta-row {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 0.75rem;
   margin-top: 0.25rem;
   animation: brandEntrance 1s 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-cta-btn {
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  white-space: nowrap;
+  border-radius: 9999px;
+  box-sizing: border-box;
 }
 
 .hero-right {
@@ -1915,119 +1925,12 @@ main {
   gap: 0.75rem;
 }
 
-.footer-taxi-section {
-  width: 100%;
-  margin: 1.5rem 0 1rem;
-  padding: 1.25rem 1.5rem;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 0.75rem;
-}
-
-.footer-taxi-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.taxi-swipe-hint {
+.scrollbar-none::-webkit-scrollbar {
   display: none;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #ea580c;
-  background: #ffedd5;
-  padding: 0.2rem 0.55rem;
-  border-radius: 9999px;
-  border: 1px solid #fed7aa;
 }
-
-.footer-taxi-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.6rem 1rem;
-}
-
-@media (max-width: 900px) {
-  .footer-taxi-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .taxi-swipe-hint {
-    display: inline-flex;
-  }
-  .footer-taxi-section {
-    padding: 1rem 0.75rem;
-    overflow: hidden;
-  }
-  .footer-taxi-grid {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 170px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    overflow-x: auto;
-    overflow-y: hidden;
-    gap: 0.35rem 1.5rem;
-    padding: 0.25rem 0.25rem 0.6rem;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-x;
-    scrollbar-width: thin;
-    scrollbar-color: #fdba74 transparent;
-  }
-  .footer-taxi-grid::-webkit-scrollbar {
-    height: 4px;
-    display: block;
-  }
-  .footer-taxi-grid::-webkit-scrollbar-thumb {
-    background: #fdba74;
-    border-radius: 4px;
-  }
-  .footer-taxi-grid a {
-    white-space: nowrap;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: #334155;
-    background: transparent;
-    border: none;
-    padding: 0.15rem 0;
-    margin: 0;
-    height: 28px;
-    box-sizing: border-box;
-    display: inline-flex;
-    align-items: center;
-  }
-  .footer-taxi-grid a:active,
-  .footer-taxi-grid a:hover {
-    color: #ea580c;
-  }
-}
-
-.footer-taxi-grid a {
-  font-size: 0.82rem;
-  color: #334155;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.footer-taxi-grid a:hover {
-  color: #ea580c;
-  transform: translateX(3px);
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .footer-columns {
@@ -2721,8 +2624,29 @@ main {
   }
   .hero-cta-row {
     order: 5;
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center;
     justify-content: center;
     width: 100%;
+    gap: 0.3rem !important;
+    padding-inline: 0.15rem;
+  }
+  .hero-cta-row .hero-cta-btn {
+    flex: 1 1 0% !important;
+    width: 33.33% !important;
+    min-width: 0 !important;
+    height: 42px !important;
+    padding: 0 0.2rem !important;
+    font-size: clamp(0.68rem, 2.5vw, 0.78rem) !important;
+    letter-spacing: -0.01em;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    white-space: nowrap !important;
   }
   .hero-stats {
     order: 6;
