@@ -86,7 +86,7 @@ export default function ReviewModal({ isOpen, onClose }) {
               <input
                 type="text"
                 required
-                placeholder="e.g. Ramesh Kumar"
+                placeholder="Your Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-slate-800 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm outline-none"

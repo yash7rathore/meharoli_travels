@@ -1732,32 +1732,45 @@ main {
 .form-row {
   display: flex;
   gap: 0.9rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .form-row.two-cols > .form-field {
   flex: 1;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .form-field {
   display: flex;
   flex-direction: column;
   margin-bottom: 0.85rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .form-field.full-width {
   width: 100%;
+  max-width: 100%;
 }
 
 .form-field label {
   font-size: 0.8rem;
   margin-bottom: 0.3rem;
   color: #4b5563;
+  font-weight: 600;
 }
 
 .form-field input,
 .form-field select,
 .form-field textarea {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   border-radius: 0.8rem;
   border: 1px solid rgba(209, 213, 219, 0.9);
   background: #f9fafb;
@@ -1766,6 +1779,19 @@ main {
   font-size: 0.9rem;
   font-family: inherit;
   box-sizing: border-box;
+  display: block;
+}
+
+.form-field input[type="date"] {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  min-height: 42px;
+  background-color: #f9fafb;
 }
 
 .form-field select {
@@ -2691,34 +2717,23 @@ main {
     font-size: 1.45rem;
   }
 
-  /* Packages – horizontal scroll snap carousel */
+  /* Packages – vertical stacked layout on mobile for full visibility */
   .packages-carousel-wrap {
-    overflow-x: auto;
-    overflow-y: visible;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 0 1rem 1rem;
-    margin: 0 -0.75rem;
-    /* hide scrollbar */
-    scrollbar-width: none;
-  }
-  .packages-carousel-wrap::-webkit-scrollbar {
-    display: none;
+    overflow: visible;
+    padding: 0;
+    margin: 0;
   }
 
   .packages-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 1rem;
-    width: max-content;
-    grid-template-columns: unset;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    width: 100%;
   }
 
   .package-card {
-    width: 80vw;
-    max-width: 300px;
-    flex-shrink: 0;
-    scroll-snap-align: start;
+    width: 100%;
+    max-width: 100%;
   }
 
   /* Services */
@@ -2796,10 +2811,23 @@ main {
   .enquiry-form {
     padding: 1.2rem 1rem 1rem;
     border-radius: 1rem;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .form-row {
     flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+
+  .form-row.two-cols > .form-field {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    flex: none;
   }
 
   /* Double Decker showcase – scale bus proportionally with smaller container */
@@ -3398,5 +3426,20 @@ main {
   height: 18px;
   fill: currentColor;
   flex-shrink: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
 }
 
