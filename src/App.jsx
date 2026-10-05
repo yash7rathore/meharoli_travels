@@ -366,6 +366,402 @@ const destinationsData = {
   }
 };
 
+const blogsData = [
+  {
+    id: "agra-taj-mahal-guide",
+    title: "The Ultimate Guide to Agra: Taj Mahal & Beyond",
+    excerpt: "Experience the romance of the Taj Mahal at sunrise, uncover the corridors of Agra Fort, and sample Agra's legendary local street food.",
+    category: "Agra Guide",
+    date: "July 29, 2026",
+    readTime: "5 min read",
+    coverImage: "/pictures/agra_tajmahal.jpg",
+    images: [
+      "/pictures/agra_tajmahal.jpg",
+      "/pictures/taj_marble_detail.jpg",
+      "/pictures/main-section/jaipur-jal-mahal-lake-view.jpg"
+    ],
+    content: [
+      {
+        heading: "Taj Mahal Sunrise: The Golden Hour",
+        text: "There is nothing quite like watching the first rays of the morning sun strike the white marble dome of the Taj Mahal. To experience this, plan to arrive at the gates by 5:30 AM. The morning mist over the Yamuna River adds a mystical overlay to the view, and you'll beat the heavy midday crowds. Remember to book your tickets online in advance to skip the main queues."
+      },
+      {
+        heading: "Exploring Agra Fort's Mughal Legacy",
+        text: "After visiting the Taj, head to Agra Fort, a massive 16th-century red sandstone fortress. Walk through the grand Amar Singh Gate, explore the Jahangiri Mahal, and stand in the octagonal tower (Musamman Burj) where Emperor Shah Jahan spent his final years gazing out at the Taj Mahal. The fort is a masterpiece of design, blending Persian, Timurid, and Hindu architecture."
+      },
+      {
+        heading: "Street Food & Marble Bazaars",
+        text: "Agra is famous for its culinary delights. Don't leave without tasting Bedai (puffy fried bread stuffed with lentils) served with spicy potato curry and sweet, crispy Jalebi, Agra's traditional breakfast. For souvenirs, visit Taj Ganj or Sadar Bazar to purchase beautiful marble inlay replicas, leather crafts, and the famous 'Petha' (a translucent sweet made from ash gourd)."
+      }
+    ]
+  },
+  {
+    id: "mandawa-fresco-art",
+    title: "Mandawa: Shekhawati's Open-Air Art Gallery",
+    excerpt: "Step back in time as we wander the corridors of Mandawa, exploring beautifully painted heritage Havelis adorned with vintage frescoes.",
+    category: "Heritage & Art",
+    date: "July 25, 2026",
+    readTime: "4 min read",
+    coverImage: "/pictures/mandawa.jpg",
+    images: [
+      "/pictures/mandawa.jpg",
+      "/pictures/haveli_wall_detail.jpg",
+      "/pictures/bikaner.jpg"
+    ],
+    content: [
+      {
+        heading: "The Painted Havelis of Mandawa",
+        text: "Mandawa, situated in the Shekhawati region of Rajasthan, is world-famous for its grand Havelis (mansions) built by wealthy merchant families in the 18th and 19th centuries. What makes these structures unique is their walls, which are covered in rich, hand-painted frescoes. These murals depict everything from traditional mythology and royal processions to modern 19th-century inventions like trains and telephones."
+      },
+      {
+        heading: "Must-Visit Havelis in Mandawa",
+        text: "Make sure to visit the Sewaram Saraf Haveli, known for its pristine paintings, and the Hanuman Prasad Goenka Haveli, which has a fresco showing Lord Indra on his elephant. Castle Mandawa, now a heritage hotel, is another grand spot showcasing old weapons, portraits, and traditional courtyards."
+      },
+      {
+        heading: "Shopping for Antiques & Local Art",
+        text: "The local bazaars around Mandawa Castle are perfect for finding vintage chests, hand-painted wooden furniture, puppets, and traditional miniature paintings. Local artisans still practice the ancient painting styles, using natural dyes extracted from minerals and plants, which you can watch live in their workshops."
+      }
+    ]
+  },
+  {
+    id: "rajasthan-secret-forts",
+    title: "Secret Forts & Palaces of Royal Rajasthan",
+    excerpt: "Go beyond the usual tourist trail and discover the lesser-known fortresses, palace views, and mountain lakes of Rajasthan.",
+    category: "Adventure Tour",
+    date: "July 20, 2026",
+    readTime: "6 min read",
+    coverImage: "/pictures/main-section/jaipur-amber-fort-amer-palace.jpg",
+    images: [
+      "/pictures/main-section/jaipur-amber-fort-amer-palace.jpg",
+      "/pictures/jodhpur.jpg",
+      "/pictures/udaipur.jpg",
+      "/pictures/jaisalmer_desert.jpg"
+    ],
+    content: [
+      {
+        heading: "Junagarh Fort, Bikaner: The Unconquered Palace",
+        text: "While Jaipur's Amer Fort and Jodhpur's Mehrangarh are famous, Bikaner's Junagarh Fort is an underrated masterpiece. Unlike most forts built on hilltops, Junagarh was constructed on flat ground. Inside, you'll find incredibly preserved courtyards, gold-leaf-embellished halls, and even a historic World War I biplane model housed inside the Darbar Hall."
+      },
+      {
+        heading: "Nakki Lake & Toad Rock, Mount Abu",
+        text: "Escape the desert heat and head to Mount Abu, Rajasthan's only hill station. Nakki Lake is a sacred lake surrounded by Aravali hills, where you can paddle-boat in the cool breeze. Right above the lake sits Toad Rock, a massive natural boulder that looks like a toad about to leap. The views from the top at sunset are breath-taking."
+      },
+      {
+        heading: "The Thar Desert Sunset of Jaisalmer",
+        text: "Nothing compares to spending a night in the Thar Desert. Explore Jaisalmer's living Golden Fort (Sonar Qila), then head to Sam Sand Dunes. Ride a camel over the soft sand ridges, watch a colorful traditional Rajasthani folk dance program by the campfire, and sleep under a clear, un-polluted night sky filled with stars."
+      }
+    ]
+  },
+  {
+    id: "delhi-street-food-markets",
+    title: "Delhi Street Food & Local Bazaars Guide",
+    excerpt: "A beginner-friendly guide to tasting the legendary street food of Old Delhi and shopping for traditional handicrafts at local markets.",
+    category: "Food & Shopping",
+    date: "July 15, 2026",
+    readTime: "5 min read",
+    coverImage: "/pictures/delhi.jpg",
+    images: [
+      "/pictures/delhi.jpg",
+      "/pictures/main-section/jaipur-patrika-gate-monument.jpg",
+      "/pictures/main-section/jaipur-hawa-mahal-palace-of-winds.jpg"
+    ],
+    content: [
+      {
+        heading: "The Flavors of Chandni Chowk",
+        text: "Chandni Chowk in Old Delhi is the street food capital of India. Navigate its crowded lanes to visit the famous Paranthe Wali Gali, where flatbreads stuffed with everything from potatoes to bananas are deep-fried in ghee. Try the sweet, thick Jalebi at Old Famous Jalebi Wala, and cool down with Rabri Falooda at Giani's."
+      },
+      {
+        heading: "Shopping at Dilli Haat & Janpath",
+        text: "If you want to shop for authentic souvenirs, head to Dilli Haat, a relaxed open-air marketplace showcasing handloom clothing, embroidered textiles, leather bags, and wood carvings directly from rural artisans. If you are good at bargaining, check out Janpath Market for brass statues, colorful accessories, and fashionable clothes."
+      },
+      {
+        heading: "Navigating Delhi's Historic Monuments",
+        text: "In between meals, make time to visit Humayun's Tomb, a gorgeous red sandstone Mughal garden tomb, and the Qutub Minar complex. Using Delhi's air-conditioned Metro is the fastest and cleanest way to zip between Old Delhi's food markets and New Delhi's heritage monuments."
+      }
+    ]
+  },
+  {
+    id: "jaipur-diwali-lights-guide",
+    title: "Diwali in Jaipur & Rajasthan: Fairs, Lights & Royal Celebrations",
+    excerpt: "Discover why Jaipur's Pink City bazaars, Nahargarh Fort, and illuminated heritage palaces offer India's grandest Diwali festival experience.",
+    category: "Festival Special",
+    date: "October 12, 2026",
+    readTime: "6 min read",
+    coverImage: "/pictures/diwali_festival_jaipur.jpg",
+    images: [
+      "/pictures/diwali_festival_jaipur.jpg",
+      "/pictures/main-section/jaipur-albert-hall-museum.jpg",
+      "/pictures/main-section/jaipur-jal-mahal-water-palace.jpg"
+    ],
+    content: [
+      {
+        heading: "The Legendary Pink City Bazaars Diwali Lighting",
+        text: "Jaipur takes Diwali celebrations to a royal level! Every year during Diwali, the Vyapar Mandals (traders associations) of Johari Bazaar, Bapu Bazaar, MI Road, and Tripolia Bazaar spend months installing millions of fairy lights, thematic arches, and glittering LED gates. Walking through the illuminated Pink City streets feels like stepping into a fairy tale kingdom."
+      },
+      {
+        heading: "Diya Lighting & Royal Palace Traditions",
+        text: "Experience traditional Lakshmi Puja at historic temples like Govind Dev Ji Temple and Moti Dungri Ganesh Temple. Thousands of brass earthen lamps (diyas) light up palace courtyards, while Nahargarh Fort offers a breathtaking panoramic night view of the glowing Pink City below."
+      },
+      {
+        heading: "Authentic Rajasthani Diwali Sweets & Shopping",
+        text: "Taste freshly made Mawa Kachori, Ghewar, and Kaju Katli from Jaipur's iconic sweet shops like Laxmi Misthan Bhandar (LMB) and Rawat Sweets. Pair your festival tour with private AC cab transfers for a seamless experience."
+      }
+    ]
+  },
+  {
+    id: "pushkar-camel-fair-guide",
+    title: "Pushkar Camel Fair: Dates, Highlights & Culture Guide",
+    excerpt: "Everything you need to know about Pushkar Mela: camel trading, turban competitions, holy lake ghat Aarti, and desert photography tips.",
+    category: "Fairs & Culture",
+    date: "November 05, 2026",
+    readTime: "7 min read",
+    coverImage: "/pictures/pushkar_lake.jpg",
+    images: [
+      "/pictures/pushkar_lake.jpg",
+      "/pictures/bikaner.jpg",
+      "/pictures/main-section/jaipur-amber-fort-amer-palace.jpg"
+    ],
+    content: [
+      {
+        heading: "The Spirit of Pushkar Camel Fair (Pushkar Mela)",
+        text: "Held annually in the sacred town of Pushkar, Rajasthan, the Pushkar Camel Fair is one of the world's largest livestock fairs. Over 50,000 camels, horses, and cattle are brought by nomadic traders across the Thar Desert for trade, dressed in colorful pom-poms, silver anklets, and embroidered saddles."
+      },
+      {
+        heading: "Cultural Competitions & Desert Festivities",
+        text: "The fair grounds host hilarious and thrilling events including the 'Longest Mustache Competition', 'Bridal Dress Competition', 'Rajasthani Turban Tying Contest', and spirited Matka Race. Folk dancers and musicians perform Kalbelia and Ghoomar under the evening sky."
+      },
+      {
+        heading: "Sacred Lake Pushkar Ghats & Brahma Temple",
+        text: "Pushkar is home to the world's only Lord Brahma Temple. Take a holy dip at the 52 ghats surrounding Pushkar Lake during Kartik Purnima, followed by participating in the divine Maha Aarti with lamps floating across the water."
+      }
+    ]
+  },
+  {
+    id: "holi-festival-rajasthan-guide",
+    title: "Holi Festival in Jaipur & Mathura: Organic Colors & Royal Traditions",
+    excerpt: "Experience the vibrant Festival of Colors in Jaipur royal court style and Mathura-Vrindavan's sacred Krishna temples.",
+    category: "Festival Special",
+    date: "March 15, 2027",
+    readTime: "5 min read",
+    coverImage: "/pictures/holi_festival_jaipur.jpg",
+    images: [
+      "/pictures/holi_festival_jaipur.jpg",
+      "/pictures/khatu_shyam_salasar_temple.jpg",
+      "/pictures/main-section/jaipur-patrika-gate-monument.jpg"
+    ],
+    content: [
+      {
+        heading: "Royal Holi Celebrations in Jaipur",
+        text: "Celebrate Holi like Rajasthani royalty! Jaipur's heritage hotels and City Palace host private Holi gatherings featuring organic herbal Gulal colors, live Chang & Dhol drum beats, Ghoomar folk dancers, and refreshing saffron Thandai drinks."
+      },
+      {
+        heading: "Mathura & Vrindavan Sacred Holi",
+        text: "Just a short drive from Agra on the Golden Triangle circuit lies Mathura & Vrindavan, birthplace of Lord Krishna. Experience Phoolon ki Holi (Holi played with flower petals) at Banke Bihari Temple and Lathmar Holi traditions."
+      },
+      {
+        heading: "Travel Tips for International Tourists on Holi",
+        text: "Wear white cotton clothes, use natural herbal colors (Gulal), protect your camera with dry bags, and book a dedicated private AC driver with Meharoli Tours for hassle-free festive travel."
+      }
+    ]
+  },
+  {
+    id: "jaipur-kite-festival-guide",
+    title: "Jaipur International Kite Festival (Makar Sankranti) Guide",
+    excerpt: "Join the sky-high energy of Jaipur's Kite Flying Festival on Jan 14 with rooftop DJ parties, Til-Laddoo treats, and evening fireworks.",
+    category: "Festivals & Events",
+    date: "January 10, 2027",
+    readTime: "4 min read",
+    coverImage: "/pictures/kite_festival_jaipur.jpg",
+    images: [
+      "/pictures/kite_festival_jaipur.jpg",
+      "/pictures/main-section/jaipur-jal-mahal-water-palace.jpg",
+      "/pictures/main-section/jaipur-albert-hall-museum.jpg"
+    ],
+    content: [
+      {
+        heading: "Jaipur's Sky of Kites on Makar Sankranti",
+        text: "On January 14 every year, the entire city of Jaipur moves to its rooftops! Millions of colorful paper kites fill the sky as locals battle each other with shouts of 'Woh Katae!' echoing across Pink City neighborhoods."
+      },
+      {
+        heading: "International Kite Festival at Jal Mahal Ground",
+        text: "Jaipur Tourism organizes the International Kite Festival at Polo Ground and Jal Mahal lakefront, featuring giant stunt kites flown by master kite flyers from Japan, USA, UK, and Europe."
+      },
+      {
+        heading: "Night Sky Lanterns & Festive Gastronomy",
+        text: "As darkness falls, the sky lights up with thousands of glowing paper sky lanterns (Tukkal) and fireworks. Savor traditional seasonal delicacies like Til-Gud Laddoo, Pakoras, and Gazak."
+      }
+    ]
+  },
+  {
+    id: "gangaur-festival-jaipur-guide",
+    title: "Gangaur Festival Jaipur: Royal Palanquin Procession & Heritage Guide",
+    excerpt: "Experience the magnificent Gangaur festival in Jaipur: Goddess Gauri royal palanquin procession, decorated elephants, brass kalash dance, and heritage court traditions.",
+    category: "Festival Special",
+    date: "April 02, 2027",
+    readTime: "5 min read",
+    coverImage: "/pictures/gangaur_festival_jaipur.jpg",
+    images: [
+      "/pictures/gangaur_festival_jaipur.jpg",
+      "/pictures/main-section/jaipur-patrika-gate-monument.jpg",
+      "/pictures/main-section/jaipur-hawa-mahal-palace-of-winds.jpg"
+    ],
+    content: [
+      {
+        heading: "The Majesty of Gangaur Procession at Tripolia Gate",
+        text: "Gangaur is one of Rajasthan's most sacred and colorful festivals. Celebrating Goddess Gauri (Parvati), married and unmarried women wear traditional bright Rajasthani attire, carry brass kalash and decorated wooden idols on their heads, and process through Tripolia Gate from City Palace."
+      },
+      {
+        heading: "Royal Elephants, Camels & Folk Troupes",
+        text: "The Jaipur royal family sends out caparisoned elephants, decorated horses, vintage palanquins, and royal guards alongside traditional Kalbelia dancers, Shekhawati Dhol performers, and local musicians."
+      },
+      {
+        heading: "Festive Delicacies & Photography Locations",
+        text: "Tasting seasonal Ghewar sweets and observing intricate Henna (Mehendi) designs are central to Gangaur. The best photo spots include City Palace Tripolia Gate balcony and Chhoti Chaupar."
+      }
+    ]
+  },
+  {
+    id: "luxury-india-travel-guide-heritage-palaces",
+    title: "Luxury Travel in India: Royal Heritage Palaces, Private Drivers & Curated Escapes",
+    excerpt: "An insider guide for international luxury travelers exploring India in style — from Oberoi and Taj palace stays to private chauffeured cars and curated VIP experiences.",
+    category: "Luxury Travel",
+    date: "May 10, 2027",
+    readTime: "8 min read",
+    coverImage: "/pictures/bikaner.jpg",
+    images: [
+      "/pictures/bikaner.jpg",
+      "/pictures/udaipur.jpg",
+      "/pictures/main-section/jaipur-amber-fort-amer-palace.jpg"
+    ],
+    content: [
+      {
+        heading: "Staying in Royal Heritage Palaces & Oberoi Retreats",
+        text: "India offers one of the world's most unique luxury hospitality experiences. Former royal residences, such as Taj Lake Palace in Udaipur, Umaid Bhawan Palace in Jodhpur, and Rambagh Palace in Jaipur, allow guests to live like Maharajas with personal butler services, private vintage car transfers, and moonlit dining overlooking sacred lakes."
+      },
+      {
+        heading: "The Importance of a Private Car with Chauffeur",
+        text: "Navigating India's bustling highways and historic city corridors is effortless when accompanied by a professional English-speaking private driver. Experienced chauffeurs act as local route experts, ensuring safe, air-conditioned transfers between monuments, luxury hotels, and authentic food halts."
+      },
+      {
+        heading: "Curated VIP Experiences Across North & South India",
+        text: "From private sunrise access at the Taj Mahal to luxury desert glamping in Jaisalmer's Sam Sand Dunes and private backwater houseboats in Kerala, bespoke itineraries cater to discerning travelers seeking privacy, comfort, and authentic cultural connection."
+      }
+    ]
+  },
+  {
+    id: "rajasthan-car-rental-with-driver-tips",
+    title: "Hiring a Private Car & Driver in Rajasthan: Essential Guide for Foreign Tourists",
+    excerpt: "Why hiring a private AC sedan or luxury SUV with an experienced English-speaking driver is the safest, most flexible, and comfortable way to explore India's royal state.",
+    category: "Travel Tips",
+    date: "May 02, 2027",
+    readTime: "6 min read",
+    coverImage: "/pictures/main-section/jaipur-patrika-gate-monument.jpg",
+    images: [
+      "/pictures/main-section/jaipur-patrika-gate-monument.jpg",
+      "/pictures/jodhpur.jpg",
+      "/pictures/delhi.jpg"
+    ],
+    content: [
+      {
+        heading: "Why Renting a Car with Driver Beats Driving or Trains",
+        text: "Navigating Rajasthan's highways requires local expertise. Renting a private car with a dedicated driver gives you 100% door-to-door flexibility. You can stop at roadside stepwells, chai stalls, and village craft centers at your own pace without stress."
+      },
+      {
+        heading: "Choosing the Right Vehicle for Your Group",
+        text: "For couples and solo travelers, comfortable sedans like Suzuki Dzire provide smooth transport. For families and small groups, Toyota Innova Crysta luxury SUVs offer superior legroom and suspension for long desert drives between Jaipur, Jodhpur, and Udaipur."
+      },
+      {
+        heading: "Transparent All-Inclusive Pricing",
+        text: "Always ensure your rental includes all highway toll taxes, interstate permits, parking fees, fuel, and driver allowances with zero hidden costs, allowing you to enjoy your holiday without unexpected expenses."
+      }
+    ]
+  },
+  {
+    id: "golden-triangle-luxury-itinerary-first-time-tourists",
+    title: "The Ultimate Luxury Golden Triangle Tour: Delhi, Taj Mahal Agra & Jaipur",
+    excerpt: "Discover how to experience India's classic Golden Triangle circuit with 5-star heritage hotels, private sunrise Taj access, and stress-free luxury transfers.",
+    category: "Golden Triangle",
+    date: "April 20, 2027",
+    readTime: "7 min read",
+    coverImage: "/pictures/agra_tajmahal.jpg",
+    images: [
+      "/pictures/agra_tajmahal.jpg",
+      "/pictures/main-section/jaipur-hawa-mahal-palace-of-winds.jpg",
+      "/pictures/delhi.jpg"
+    ],
+    content: [
+      {
+        heading: "Classic Circuit with 5-Star Comfort",
+        text: "The Golden Triangle linking Delhi, Agra, and Jaipur is India's most celebrated travel corridor. Staying at world-famous luxury retreats like Oberoi Amarvilas in Agra (where every room faces the Taj Mahal) elevates this classic route into an extraordinary journey."
+      },
+      {
+        heading: "Private Sunrise Taj Mahal Excursion",
+        text: "Skip midday heat and crowds by entering the Taj Mahal complex at first light. Accompanied by a private historian guide, witness the marble change from cool blue to warm gold as morning sun breaks over the Yamuna River."
+      },
+      {
+        heading: "Private Forts & Bazaars in Jaipur",
+        text: "In Jaipur, ascend hilltop Amer Fort by private Jeep, explore the royal court chambers of City Palace, and enjoy curated shopping in Johari Bazaar for emerald jewelry and hand-printed silk textiles."
+      }
+    ]
+  },
+  {
+    id: "varanasi-ganges-aarti-spiritual-tour-guide",
+    title: "Varanasi Ganga Aarti & Sacred Ghats: Spiritual Escapes for Overseas Visitors",
+    excerpt: "Experience the eternal soul of India in Varanasi — private sunrise boat rides along the Ganges, evening Harishchandra Ghat Aarti, and ancient temple walks.",
+    category: "Spiritual Travel",
+    date: "April 10, 2027",
+    readTime: "6 min read",
+    coverImage: "/pictures/pushkar_lake.jpg",
+    images: [
+      "/pictures/pushkar_lake.jpg",
+      "/pictures/khatu_shyam_salasar_temple.jpg",
+      "/pictures/delhi.jpg"
+    ],
+    content: [
+      {
+        heading: "Sunrise Boat Cruise on the Sacred Ganges",
+        text: "Varanasi is one of the world's oldest continuously inhabited cities. At dawn, board a private wooden boat along the River Ganges to watch pilgrims perform morning prayers, yoga, and ritual dips across 84 historic ghats."
+      },
+      {
+        heading: "Grand Evening Ganga Aarti at Dashashwamedh Ghat",
+        text: "As darkness falls, priest scholars in gilded robes perform the grand Ganga Aarti with brass oil lamps, incense, chank shells, and rhythmic Vedic chants. Watching the ritual from a private boat on the water is an unforgettable spiritual memory."
+      },
+      {
+        heading: "Sarnath Buddhist Heritage & Old City Walking Tour",
+        text: "Visit nearby Sarnath, where Lord Buddha gave his first sermon after enlightenment. Walk through Varanasi's ancient narrow alleys (Galisa) tasting hot Malaiyyo cream sweets and visiting Banarasi silk weaving workshops."
+      }
+    ]
+  },
+  {
+    id: "kerala-backwaters-houseboat-luxury-wellness-escape",
+    title: "Kerala Backwaters & Houseboats: Luxury Wellness & Nature Retreat Guide",
+    excerpt: "Unwind in South India's palm-fringed backwaters with private luxury houseboats, Ayurvedic spa treatments, and tea plantation walks in Munnar.",
+    category: "South India Luxury",
+    date: "March 28, 2027",
+    readTime: "6 min read",
+    coverImage: "/pictures/pushkar_lake.jpg",
+    images: [
+      "/pictures/pushkar_lake.jpg",
+      "/pictures/bikaner.jpg",
+      "/pictures/main-section/jaipur-jal-mahal-water-palace.jpg"
+    ],
+    content: [
+      {
+        heading: "Cruising the Palm-Fringed Backwaters of Alleppey",
+        text: "Board a private luxury Kettuvallam (traditional thatched houseboat) in Alleppey. Cruise past serene coconut groves, paddy fields, and quiet canal villages while your private onboard chef prepares fresh coastal seafood and traditional Kerala thali."
+      },
+      {
+        heading: "Misty Tea Gardens of Munnar & Wildlife Safaris",
+        text: "Ascend into the Western Ghats to Munnar, famous for rolling green tea estates, cardamom hills, and cool mountain air. Visit Periyar Tiger Reserve in Thekkady for bamboo rafting and spice plantation walks."
+      },
+      {
+        heading: "Authentic Ayurvedic Spa & Beachfront Luxury",
+        text: "Rejuvenate with traditional Abhyanga oil massages and herbal wellness therapies at beachfront spa resorts in Mararikulam and Kovalam."
+      }
+    ]
+  }
+];
+
 function DestinationDetailView({
   destinationKey,
   activeRajasthanCity,
@@ -387,13 +783,35 @@ function DestinationDetailView({
     return () => clearInterval(timer);
   }, [data.images]);
 
+  const pageUrl = `https://www.meharolitravels.com/#destination-${destinationKey}`;
+  const pageTitle = `${data.title} Tour Packages & Sightseeing | Meharoli Tours`;
+  const pageDesc = `${data.description} Book custom ${data.title} tour packages with direct AC taxi hire, premium hotel stays, and expert local guides.`;
+  const pageImage = `https://www.meharolitravels.com${data.coverImage}`;
+
+  const schemaJson = {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    "name": `${data.title} Tour Packages`,
+    "description": pageDesc,
+    "image": pageImage,
+    "url": pageUrl,
+    "provider": {
+      "@type": "TravelAgency",
+      "name": "Meharoli Tours & Travels",
+      "telephone": "+918824976479"
+    }
+  };
+
   return (
     <div className="destination-detail-page bg-slate-50 min-h-screen py-8 px-4 sm:px-6 lg:px-8 mt-16 animate-fadeIn">
       {/* Back Button */}
       <div className="max-w-7xl mx-auto mb-6">
         <button
           type="button"
-          onClick={onClose}
+          onClick={() => {
+            window.location.hash = "#top";
+            onClose();
+          }}
           className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-700 hover:text-orange-600 font-semibold rounded-lg shadow-sm border border-gray-200 transition hover:shadow-md cursor-pointer"
         >
           ← Back to Homepage
@@ -615,17 +1033,147 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
+  const scrollToTarget = (id, attempts = 0) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else if (attempts < 15) {
+      setTimeout(() => scrollToTarget(id, attempts + 1), 40);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  // Handle URL Hash & Path Deep-linking & SEO Title Sync for Crawlers & Visitors
+  useEffect(() => {
+    const handleUrlChange = () => {
+      const hash = window.location.hash.toLowerCase();
+      const path = window.location.pathname.toLowerCase().replace(/\/$/, "");
+
+      if (path === "/admin" || hash === "#admin") {
+        setIsAdminOpen(true);
+      } else if (path === "/delhi" || hash === "#destination-delhi") {
+        setActiveDestination("delhi");
+        setActiveBlogKey(null);
+        window.scrollTo(0, 0);
+      } else if (path === "/agra" || hash === "#destination-agra") {
+        setActiveDestination("agra");
+        setActiveBlogKey(null);
+        window.scrollTo(0, 0);
+      } else if (path === "/rajasthan" || hash === "#destination-rajasthan") {
+        setActiveDestination("rajasthan");
+        setActiveRajasthanCity(null);
+        setActiveBlogKey(null);
+        window.scrollTo(0, 0);
+      } else if (path === "/blogs" || hash === "#blogs") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget("blogs");
+      } else if (path === "/packages" || hash === "#packages") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget("packages");
+      } else if (path === "/cars" || hash === "#cars") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget("cars");
+      } else if (path === "/popular-taxi-routes" || hash === "#popular-taxi-routes") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget("popular-taxi-routes");
+      } else if (path === "/about" || hash === "#about") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget("about");
+      } else if (path === "/contact" || hash === "#enquiry-form-section") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget("enquiry-form-section");
+      } else if (hash.startsWith("#destination-")) {
+        const dest = hash.replace("#destination-", "");
+        if (destinationsData[dest]) {
+          setActiveDestination(dest);
+          setActiveBlogKey(null);
+          window.scrollTo(0, 0);
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      } else if (hash.startsWith("#blog-")) {
+        const blogId = hash.replace("#blog-", "");
+        const blog = blogsData.find((b) => b.id === blogId);
+        if (blog) {
+          setActiveBlogKey(blogId);
+          setActiveDestination(null);
+          window.scrollTo(0, 0);
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      } else if (hash === "#blogs") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget("blogs");
+      } else if (hash.startsWith("#") && hash.length > 1 && hash !== "#top") {
+        const targetId = hash.replace("#", "");
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        scrollToTarget(targetId);
+      } else if (hash === "" || hash === "#top") {
+        setActiveDestination(null);
+        setActiveBlogKey(null);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    };
+
+    handleUrlChange();
+    window.addEventListener("hashchange", handleUrlChange);
+    window.addEventListener("popstate", handleUrlChange);
+    return () => {
+      window.removeEventListener("hashchange", handleUrlChange);
+      window.removeEventListener("popstate", handleUrlChange);
+    };
+  }, []);
+
+  // Update Page Title dynamically based on active view for search engines
+  useEffect(() => {
+    if (activeBlogKey) {
+      const blog = blogsData.find((b) => b.id === activeBlogKey);
+      if (blog) {
+        document.title = `${blog.title} | Meharoli Travels Blog`;
+      }
+    } else if (activeDestination) {
+      const dest = destinationsData[activeDestination];
+      if (dest) {
+        document.title = `${dest.title} Tour Packages & Sightseeing | Meharoli Tours`;
+      }
+    } else {
+      document.title = "Best Travel Agency in Jaipur | Jaipur Sightseeing & Tours | Meharoli Tours";
+    }
+  }, [activeDestination, activeBlogKey]);
+
   const scrollCars = (dir) => {
     if (carScrollRef.current) {
       carScrollRef.current.scrollBy({ left: dir * 300, behavior: "smooth" });
     }
   };
 
-  const scrollToForm = () => {
-    const formSection = document.getElementById("enquiry-form-section");
-    if (formSection) {
-      formSection.scrollIntoView({ behavior: "smooth" });
+  const handleNavClick = (targetId) => {
+    setMenuOpen(false);
+    setActiveDestination(null);
+    setActiveBlogKey(null);
+    setDestDropdownOpen(false);
+
+    if (targetId === "top") {
+      window.location.hash = "#top";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
     }
+
+    window.location.hash = `#${targetId}`;
+    scrollToTarget(targetId);
+  };
+
+  const scrollToForm = () => {
+    handleNavClick("enquiry-form-section");
   };
 
   const openWhatsApp = (message) => {
@@ -889,7 +1437,7 @@ function App() {
             className="guru-kripa-img"
           />
           <a
-            href="#top"
+            href="/"
             className="header-brand"
             onClick={() => {
               setMenuOpen(false);
@@ -914,7 +1462,7 @@ function App() {
             aria-label="Main navigation"
           >
             <a
-              href="#top"
+              href="/"
               className="nav-item"
               onClick={() => {
                 setMenuOpen(false);
@@ -941,6 +1489,7 @@ function App() {
                   type="button"
                   className="dropdown-item"
                   onClick={() => {
+                    window.location.hash = "#destination-delhi";
                     setActiveDestination("delhi");
                     setMenuOpen(false);
                     setDestDropdownOpen(false);
@@ -953,6 +1502,7 @@ function App() {
                   type="button"
                   className="dropdown-item"
                   onClick={() => {
+                    window.location.hash = "#destination-agra";
                     setActiveDestination("agra");
                     setMenuOpen(false);
                     setDestDropdownOpen(false);
@@ -965,6 +1515,7 @@ function App() {
                   type="button"
                   className="dropdown-item"
                   onClick={() => {
+                    window.location.hash = "#destination-rajasthan";
                     setActiveDestination("rajasthan");
                     setActiveRajasthanCity(null);
                     setMenuOpen(false);
@@ -977,49 +1528,69 @@ function App() {
               </div>
             </div>
             <a
-              href="#packages"
+              href="/packages"
               className="nav-item"
               onClick={() => setMenuOpen(false)}
             >
               Packages
             </a>
             <a
-              href="#double-decker-package"
+              href="/double-decker-package"
               className="nav-item"
               onClick={() => setMenuOpen(false)}
             >
               Double Decker
             </a>
             <a
-              href="#cars"
+              href="/cars"
               className="nav-item"
               onClick={() => setMenuOpen(false)}
             >
               Cars
             </a>
             <a
-              href="#services"
+              href="#popular-taxi-routes"
+              className="nav-item"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("popular-taxi-routes");
+              }}
+            >
+              Cabs &amp; Taxi
+            </a>
+            <a
+              href="/services"
               className="nav-item"
               onClick={() => setMenuOpen(false)}
             >
               Services
             </a>
             <a
-              href="#testimonials"
+              href="/testimonials"
               className="nav-item"
               onClick={() => setMenuOpen(false)}
             >
               Reviews
             </a>
             <a
-              href="#about"
+              href="#blogs"
+              className="nav-item"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("blogs");
+              }}
+            >
+              Blogs
+            </a>
+            <a
+              href="/about"
               className="nav-item"
               onClick={() => setMenuOpen(false)}
             >
               About
             </a>
             <a
-              href="#enquiry-form-section"
+              href="/contact"
               className="nav-item nav-cta"
               onClick={() => setMenuOpen(false)}
             >
@@ -1051,6 +1622,15 @@ function App() {
         />
       ) : (
         <>
+          <Helmet>
+            <title>Rajasthan Tour Packages &amp; Private Chauffeur Car Rental | Meharoli Tours</title>
+            <meta name="description" content="Explore 26 Iconic Rajasthan Cities, Golden Triangle &amp; Sacred Yatra Circuits in Ultimate Comfort. Book Custom Tour Packages, Wildlife Safaris &amp; Private AC Cars with Professional Chauffeurs at Best Guaranteed Rates." />
+            <link rel="canonical" href="https://www.meharolitourstravels.com/" />
+            <meta property="og:title" content="Rajasthan Tour Packages &amp; Private Chauffeur Car Rental | Meharoli Tours" />
+            <meta property="og:description" content="Explore 26 Iconic Rajasthan Cities, Golden Triangle &amp; Sacred Yatra Circuits in Ultimate Comfort. Book Custom Tour Packages, Wildlife Safaris &amp; Private AC Cars with Professional Chauffeurs at Best Guaranteed Rates." />
+            <meta property="og:image" content="https://www.meharolitourstravels.com/pictures/main-section/jaipur-jal-mahal-water-palace.jpg" />
+            <meta property="og:url" content="https://www.meharolitourstravels.com/" />
+          </Helmet>
           <section className="hero" id="top">
         {/* Decorative background blobs */}
         <div className="hero-bg-effects" aria-hidden="true">
@@ -1100,7 +1680,7 @@ function App() {
                 Tours &amp; Travels
               </span>
             </span>
-            <span className="sr-only">Meharoli Tours and Travels</span>
+            <span className="sr-only">Meharoli Tours &amp; Travels — Best Rajasthan Tour Packages &amp; Private Car with Driver</span>
           </h1>
           <p className="hero-tagline">
             Crafting custom luxury tour packages across Rajasthan, Delhi &amp; Agra for international guests from USA, UK, Europe, Australia, New Zealand &amp; worldwide.
@@ -1133,7 +1713,14 @@ function App() {
             >
               Plan My Trip
             </button>
-            <a href="#packages" className="btn ghost">
+            <button
+              type="button"
+              className="nav-pay-btn hero-cta-btn"
+              onClick={() => setIsPaymentModalOpen(true)}
+            >
+              💳 Pay Online
+            </button>
+            <a href="#packages" className="btn primary hero-cta-btn">
               View Packages
             </a>
           </div>
@@ -1192,6 +1779,126 @@ function App() {
                 💳 Pay Online with Card &amp; UPI
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Popular Taxi Services & Intercity Cab Routes Section */}
+        <section className="py-6 sm:py-10 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto" id="popular-taxi-routes">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-7 shadow-sm">
+            <div className="border-b border-slate-100 pb-3 mb-4">
+              <h3 className="text-base sm:text-xl font-bold font-serif text-slate-900 flex items-center gap-2">
+                
+                <span>Popular Taxi Services &amp; Intercity Cab Routes from Jaipur</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                Select a category below to explore routes and get instant fare quotes
+              </p>
+            </div>
+
+            {/* Instant Taxi Search Bar */}
+            <div className="relative mb-4">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400 text-sm">
+                🔍
+              </span>
+              <input
+                type="text"
+                value={taxiSearchQuery}
+                onChange={(e) => {
+                  setTaxiSearchQuery(e.target.value);
+                  setShowAllTaxis(true);
+                }}
+                placeholder="Search taxi route (e.g. Khatu Shyam, Mount Abu, Agra, Delhi, Udaipur)..."
+                className="w-full pl-10 pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all shadow-inner"
+              />
+              {taxiSearchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setTaxiSearchQuery("")}
+                  className="absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400 hover:text-slate-600 text-xs font-bold cursor-pointer"
+                >
+                  ✕ Clear
+                </button>
+              )}
+            </div>
+
+            {/* Category Filter Tab Buttons */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-2.5 mb-4 scrollbar-none -mx-1 px-1">
+              {taxiCategories.map((cat) => (
+                <button
+                  key={cat.id}
+                  type="button"
+                  onClick={() => {
+                    setActiveTaxiCategory(cat.id);
+                    setShowAllTaxis(false);
+                  }}
+                  className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 shrink-0 ${
+                    activeTaxiCategory === cat.id
+                      ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-sm shadow-orange-500/20"
+                      : "bg-slate-100 text-slate-700 hover:bg-slate-200/70"
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Taxi Routes Cards Grid with 10-item limit & View More / Hide Toggle */}
+            {(() => {
+              const filteredRoutes = taxiRoutes.filter((r) => {
+                const matchesCategory = activeTaxiCategory === "all" || r.category === activeTaxiCategory;
+                const matchesQuery = !taxiSearchQuery || r.label.toLowerCase().includes(taxiSearchQuery.toLowerCase());
+                return matchesCategory && matchesQuery;
+              });
+              const visibleRoutes = showAllTaxis ? filteredRoutes : filteredRoutes.slice(0, 10);
+
+              return (
+                <>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+                    {visibleRoutes.map((route, idx) => (
+                      <a
+                        key={idx}
+                        href="#enquiry-form-section"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleTaxiRouteClick(route);
+                        }}
+                        className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200/70 text-slate-700 hover:text-orange-600 hover:bg-orange-50/60 hover:border-orange-200 transition-all text-xs sm:text-sm font-medium group cursor-pointer"
+                      >
+                        <span className="flex items-center gap-2 min-w-0">
+                          <span className="text-orange-500 font-bold group-hover:translate-x-0.5 transition-transform shrink-0">›</span>
+                          <span className="truncate">{route.label}</span>
+                        </span>
+                        <span className="text-[11px] text-orange-600 font-medium bg-orange-100/70 px-2 py-0.5 rounded-full shrink-0 ml-1.5 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                          Book 💬
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+
+                  {filteredRoutes.length > 10 && (
+                    <div className="mt-5 text-center">
+                      <button
+                        type="button"
+                        onClick={() => setShowAllTaxis(!showAllTaxis)}
+                        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm font-extrabold shadow-md shadow-orange-500/20 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                      >
+                        {showAllTaxis ? (
+                          <>
+                            <span>Show Less Taxi Routes</span>
+                            <span className="text-sm">▲</span>
+                          </>
+                        ) : (
+                          <>
+                            <span>View All ({filteredRoutes.length - 10} More Taxi Routes)</span>
+                            <span className="text-sm">▼</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  )}
+                </>
+              );
+            })()}
           </div>
         </section>
 
@@ -1356,60 +2063,209 @@ function App() {
             </p>
           </div>
           <div className="packages-carousel-wrap">
-            <div className="packages-grid">
-              {packages.map((pkg) => (
-                <article key={pkg.id} className="package-card">
-                  <div
-                    className="package-image"
-                    aria-hidden="true"
-                    style={{ backgroundImage: `url(${pkg.image})` }}
-                  >
-                    <div className="package-badge">{pkg.tag}</div>
+            {(() => {
+              const filteredPackages = packages.filter((pkg) => {
+                const matchesCategory = activePkgCategory === "all" || pkg.category === activePkgCategory;
+                const q = pkgSearchQuery.toLowerCase().trim();
+                const matchesQuery =
+                  !q ||
+                  pkg.name.toLowerCase().includes(q) ||
+                  pkg.duration.toLowerCase().includes(q) ||
+                  pkg.destinations.some((d) => d.toLowerCase().includes(q)) ||
+                  pkg.kms.toLowerCase().includes(q) ||
+                  (pkg.tag && pkg.tag.toLowerCase().includes(q));
+
+                return matchesCategory && matchesQuery;
+              });
+              const visiblePackages = showAllPackages
+                ? filteredPackages
+                : filteredPackages.slice(0, 10);
+
+              return (
+                <>
+                  <div className="packages-grid">
+                    {visiblePackages.map((pkg) => (
+                      <article key={pkg.id} className="package-card flex flex-col justify-between">
+                        <div>
+                          <div
+                            className="package-image cursor-pointer relative group overflow-hidden"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              setSelectedModalPackage(pkg);
+                              setActiveModalTab("itinerary");
+                            }}
+                            style={{ backgroundImage: `url(${pkg.image})` }}
+                          >
+                            <div className="package-badge">{pkg.tag}</div>
+                            <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/40 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                              <span className="bg-white/95 text-slate-900 text-xs font-black px-3.5 py-1.5 rounded-full shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all">
+                                👁️ View Detailed Itinerary ➔
+                              </span>
+                            </div>
+                          </div>
+                          <div className="package-body">
+                            <div className="package-title-row">
+                              <h3
+                                className="cursor-pointer hover:text-orange-600 transition-colors"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  setSelectedModalPackage(pkg);
+                                  setActiveModalTab("itinerary");
+                                }}
+                              >
+                                {pkg.name}
+                              </h3>
+                              {pkg.duration && (
+                                <span className="package-duration-badge">⏱ {pkg.duration}</span>
+                              )}
+                            </div>
+
+                            {/* Distance & Festival Date Badges */}
+                            <div className="flex flex-wrap items-center gap-2 my-2">
+                              <span className="bg-emerald-50 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md border border-emerald-200">
+                                📏 {pkg.kms}
+                              </span>
+                              {pkg.festivalDates && (
+                                <span className="bg-amber-100 text-amber-900 text-[11px] font-black px-2.5 py-0.5 rounded-md border border-amber-300">
+                                  {pkg.festivalDates}
+                                </span>
+                              )}
+                            </div>
+
+                            <p className="package-destinations">
+                              <strong>Route:</strong> {pkg.destinations.join(" → ")}
+                            </p>
+
+                            {pkg.tip && (
+                              <div className="package-tip-box">
+                                <span className="tip-icon">💡</span>
+                                <span>{pkg.tip}</span>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="package-body pt-0">
+                          <div className="no-hidden-badge">
+                            🛡️ <strong>No Hidden Charges:</strong> Toll, Parking, Fuel &amp; Driver Allowance Included!
+                          </div>
+
+                          <div className="package-actions grid grid-cols-2 gap-2 mt-3">
+                            <button
+                              type="button"
+                              className="px-3 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs transition-colors shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setSelectedModalPackage(pkg);
+                                setActiveModalTab("itinerary");
+                              }}
+                            >
+                              <span>👁️ View Detail</span>
+                            </button>
+                            <button
+                              type="button"
+                              className="px-3 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs transition-colors shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
+                              onClick={() => {
+                                openWhatsApp(
+                                  `Hi Meharoli Tours, I am interested in ${pkg.name} (${pkg.duration}). Please share full itinerary & best fare.`
+                                );
+                              }}
+                            >
+                              <span>💬 WhatsApp</span>
+                            </button>
+                          </div>
+                        </div>
+                      </article>
+                    ))}
                   </div>
-                  <div className="package-body">
-                    <div className="package-title-row">
-                      <h3>{pkg.name}</h3>
-                      {pkg.duration && (
-                        <span className="package-duration-badge">⏱ {pkg.duration}</span>
-                      )}
-                    </div>
-                    <p className="package-destinations">
-                      <strong>Route:</strong> {pkg.destinations.join(" → ")}
-                    </p>
-                    <ul className="package-includes">
-                      {pkg.includes ? (
-                        pkg.includes.map((inc, idx) => (
-                          <li key={idx}>{inc}</li>
-                        ))
-                      ) : (
-                        <>
-                          <li>Comfortable hotels</li>
-                          <li>Private cab transfers</li>
-                          <li>Guided sightseeing</li>
-                          <li>Breakfast & selected meals</li>
-                        </>
-                      )}
-                    </ul>
-                    <div className="package-actions">
+
+                  {filteredPackages.length > 10 && (
+                    <div className="mt-8 text-center">
                       <button
                         type="button"
-                        className="btn primary full"
-                        onClick={() => handlePackageEnquiry(pkg.name)}
+                        onClick={() => setShowAllPackages(!showAllPackages)}
+                        className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-orange-600 hover:bg-orange-700 text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-orange-600/20 hover:scale-105 active:scale-95 transition-all cursor-pointer"
                       >
-                        Send enquiry
-                      </button>
-                      <button
-                        type="button"
-                        className="btn ghost full"
-                        onClick={() =>
-                          openWhatsApp(
-                            `Hi Meharoli Tours and Travels, I want to know more about the ${pkg.name} package.`,
-                          )
-                        }
-                      >
-                        WhatsApp about this
+                        {showAllPackages ? (
+                          <>
+                            <span>Show Less Tour Packages</span>
+                            <span className="text-base">▲</span>
+                          </>
+                        ) : (
+                          <>
+                            <span>View All ({filteredPackages.length - 10} More Tour Packages)</span>
+                            <span className="text-base">▼</span>
+                          </>
+                        )}
                       </button>
                     </div>
+                  )}
+                </>
+              );
+            })()}
+          </div>
+        </section>
+
+        {/* ── TRAVEL BLOGS & GUIDES ── */}
+        <section className="blogs py-16 bg-slate-100/60" id="blogs">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="bg-orange-100 text-orange-600 text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full inline-block mb-3">
+                Travel Stories &amp; Insights
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-800 font-serif">
+                Travel Guides &amp; Inspiration
+              </h2>
+              <p className="text-gray-500 mt-2 text-sm sm:text-base max-w-2xl mx-auto">
+                Explore insider tips, food guides, and secret heritage destinations curated by our expert local travel team.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {blogsData.map((blog) => (
+                <article
+                  key={blog.id}
+                  className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col cursor-pointer group"
+                  onClick={() => {
+                    window.location.hash = `#blog-${blog.id}`;
+                    setActiveBlogKey(blog.id);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  <div className="h-48 overflow-hidden relative">
+                    <img
+                      src={blog.coverImage}
+                      alt={blog.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="absolute top-3 left-3 bg-orange-500 text-white text-xs font-bold px-2.5 py-1 rounded-md shadow">
+                      {blog.category}
+                    </div>
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex justify-between items-center text-xs text-gray-400 font-medium mb-2">
+                        <span>📅 {blog.date}</span>
+                        <span>⏱ {blog.readTime}</span>
+                      </div>
+                      <h3 className="text-lg font-bold text-slate-800 group-hover:text-orange-600 transition-colors line-clamp-2 mb-2 font-serif">
+                        {blog.title}
+                      </h3>
+                      <p className="text-gray-500 text-xs sm:text-sm line-clamp-3 leading-relaxed mb-4">
+                        {blog.excerpt}
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      className="w-full py-2.5 bg-orange-50 hover:bg-orange-500 text-orange-600 hover:text-white font-semibold text-xs sm:text-sm rounded-xl transition-colors duration-200 border border-orange-200 hover:border-orange-500 flex items-center justify-center gap-1"
+                    >
+                      Read Full Article →
+                    </button>
                   </div>
                 </article>
               ))}
@@ -1668,10 +2524,10 @@ function App() {
             <div className="footer-column">
               <h4>Holiday Packages</h4>
               <ul>
-                <li><a href="#packages" className="hover:text-orange-500 transition-colors">Golden Triangle Tour</a></li>
-                <li><a href="#packages" className="hover:text-orange-500 transition-colors">Maharaja Heritage Trail</a></li>
-                <li><a href="#packages" className="hover:text-orange-500 transition-colors">Tiger Safari &amp; Wildlife Special</a></li>
-                <li><a href="#packages" className="hover:text-orange-500 transition-colors">Lake Palace Luxury Tour</a></li>
+                <li><a href="/packages" onClick={(e) => { e.preventDefault(); handleNavClick("packages"); }} className="hover:text-orange-500 transition-colors">Golden Triangle Tour</a></li>
+                <li><a href="/packages" onClick={(e) => { e.preventDefault(); handleNavClick("packages"); }} className="hover:text-orange-500 transition-colors">Maharaja Heritage Trail</a></li>
+                <li><a href="/packages" onClick={(e) => { e.preventDefault(); handleNavClick("packages"); }} className="hover:text-orange-500 transition-colors">Tiger Safari &amp; Wildlife Special</a></li>
+                <li><a href="/packages" onClick={(e) => { e.preventDefault(); handleNavClick("packages"); }} className="hover:text-orange-500 transition-colors">Lake Palace Luxury Tour</a></li>
               </ul>
             </div>
             <div className="footer-column">
@@ -1679,7 +2535,6 @@ function App() {
               <ul>
                 <li>Dilip Singh Meharoli: +91 9829017853</li>
                 <li>Namrata Shekhawat: +91 88249 76479</li>
-                <li>Yashwant Rathore : +91 97844 91826</li>
                 <li>Email: meharolitours.travels@gmail.com</li>
               </ul>
             </div>
@@ -1753,6 +2608,150 @@ function App() {
           </p>
         </div>
       </footer>
+    </div>
+  );
+}
+
+function BlogDetailView({ blogKey, onClose, openWhatsApp }) {
+  const blog = blogsData.find((b) => b.id === blogKey);
+  if (!blog) return null;
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }, [blogKey]);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }, 10);
+    return () => clearTimeout(t);
+  }, [blogKey]);
+
+  useEffect(() => {
+    if (!blog.images || blog.images.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % blog.images.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [blog.images]);
+
+  const pageUrl = `https://www.meharolitravels.com/#blog-${blogKey}`;
+  const pageTitle = `${blog.title} | Meharoli Travels Blog`;
+  const pageDesc = blog.excerpt;
+  const pageImage = `https://www.meharolitravels.com${blog.coverImage}`;
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": blog.title,
+    "description": blog.excerpt,
+    "image": pageImage,
+    "url": pageUrl,
+    "datePublished": "2026-07-29",
+    "author": {
+      "@type": "Organization",
+      "name": "Meharoli Tours & Travels"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Meharoli Tours & Travels",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.meharolitravels.com/pictures/main-section/logo-removebg-preview.png"
+      }
+    }
+  };
+
+  return (
+    <div className="blog-detail-page bg-slate-50 min-h-screen py-8 px-4 sm:px-6 lg:px-8 mt-16 animate-fadeIn">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+        <meta property="og:image" content={pageImage} />
+        <meta property="og:url" content={pageUrl} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDesc} />
+        <meta name="twitter:image" content={pageImage} />
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+      </Helmet>
+      {/* Back Button */}
+      <div className="max-w-4xl mx-auto mb-6">
+        <button
+          type="button"
+          onClick={() => onClose()}
+          className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-700 hover:text-orange-600 font-semibold rounded-lg shadow-sm border border-gray-200 transition hover:shadow-md cursor-pointer"
+        >
+          ← Back to All Blogs
+        </button>
+      </div>
+
+      {/* Hero Banner Section with Slideshow */}
+      <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-xl mb-10 relative h-[250px] sm:h-[400px]">
+        {blog.images && blog.images.length > 0 ? (
+          blog.images.map((src, idx) => (
+            <div
+              key={idx}
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+                idx === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ backgroundImage: `url(${src})` }}
+            />
+          ))
+        ) : (
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${blog.coverImage})` }}
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent z-10" />
+        <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10 text-white z-20">
+          <span className="bg-orange-500 text-white text-xs uppercase tracking-wider font-bold px-3 py-1 rounded-full mb-3 inline-block">
+            {blog.category}
+          </span>
+          <h1 className="text-2xl sm:text-4xl font-extrabold font-serif mb-2">{blog.title}</h1>
+          <div className="flex gap-4 text-xs sm:text-sm text-slate-200 font-medium">
+            <span>📅 {blog.date}</span>
+            <span>•</span>
+            <span>⏱ {blog.readTime}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Blog Content */}
+      <article className="max-w-4xl mx-auto bg-white p-6 sm:p-10 rounded-3xl shadow-sm border border-gray-100 mb-10">
+        {blog.content.map((sec, idx) => (
+          <div key={idx} className="mb-8 last:mb-0">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-800 mb-4 font-serif">{sec.heading}</h2>
+            <p className="text-gray-600 leading-relaxed text-sm sm:text-base whitespace-pre-line">{sec.text}</p>
+          </div>
+        ))}
+
+        {/* CTA box at end of blog */}
+        <div className="mt-12 p-6 sm:p-8 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl text-white text-center shadow-lg">
+          <h3 className="text-lg sm:text-xl font-bold mb-2">Want to experience this yourself?</h3>
+          <p className="text-sm text-orange-50 mb-6">Let us build a customized heritage &amp; travel itinerary for you today.</p>
+          <button
+            type="button"
+            className="px-6 py-3 bg-white text-orange-600 font-bold rounded-xl shadow-md hover:bg-orange-50 transition transform hover:-translate-y-0.5 cursor-pointer text-sm"
+            onClick={() =>
+              openWhatsApp(
+                `Hi Meharoli Tours, I read your blog "${blog.title}" and would like to plan a custom trip.`
+              )
+            }
+          >
+            💬 Inquire via WhatsApp
+          </button>
+        </div>
+      </article>
     </div>
   );
 }
