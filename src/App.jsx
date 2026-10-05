@@ -808,6 +808,165 @@ const destinationsData = {
 
 const blogsData = [
   {
+    id: "car-with-driver-cost-india-2026-price-guide",
+    title: "How Much Does a Car with Driver Cost in India? (2026 Price Guide)",
+    excerpt: "Complete transparent 2026 price guide for hiring a private car and driver in India. Daily rates for sedans, SUVs (Innova Crysta), fuel, interstate toll taxes, driver night allowance, and tipping etiquette.",
+    category: "Price Guide",
+    date: "October 01, 2026",
+    readTime: "7 min read",
+    coverImage: "/pictures/cars/crysta.jpeg",
+    images: [
+      "/pictures/cars/crysta.jpeg",
+      "/pictures/cars/dzire.jpeg",
+      "/pictures/main-section/jaipur-patrika-gate-monument.jpg"
+    ],
+    content: [
+      {
+        heading: "Typical Daily Rates: What You Should Expect to Pay in 2026",
+        text: "In India, hiring a private car with an experienced English-speaking chauffeur generally costs between $28 and $65 USD (₹2,400 to ₹5,500 INR) per day, depending on vehicle class. For solo travelers or couples, an air-conditioned sedan like the Maruti Suzuki Dzire or Toyota Etios costs around $28 to $35/day. For families or travelers carrying multiple suitcases across Rajasthan's desert highways, a premium Toyota Innova Crysta SUV costs $50 to $65/day. For larger tour groups, a 12-to-17-seater Tempo Traveller ranges between $75 and $95/day."
+      },
+      {
+        heading: "What Should Be Included vs. Hidden Charges to Watch Out For",
+        text: "Many online aggregators quote suspiciously cheap base fares, only to hit overseas travelers with surprise bills during the trip. With a reputable operator like Meharoli Tours, your quote is 100% all-inclusive: all highway FASTag tolls, state border permits (inter-state commercial road taxes), monument & airport parking fees, vehicle fuel (diesel/petrol), and the driver's daily food and lodging allowance (Bhatta). Always verify that AC is guaranteed to run throughout the journey with zero surcharge."
+      },
+      {
+        heading: "Why Hiring a Private Car Beats Trains, Domestic Flights & Self-Driving",
+        text: "Self-driving in India is strongly discouraged for foreign tourists due to left-hand traffic, unpredictable cattle on roads, and complex local driving conventions. While domestic trains are picturesque, securing confirmed first-class berths often requires weeks of advance planning, and train delays can derail a tight schedule. A private chauffeur offers door-to-door luggage safety, flexible morning departure times, scenic photo stops at historic stepwells (Baoris), and clean roadside cafe breaks at your own pace."
+      },
+      {
+        heading: "Driver Tipping Etiquette & Booking Tips for International Travelers",
+        text: "Tipping your driver is customary in India and greatly appreciated for attentive service. A typical tip ranges from ₹400 to ₹600 INR ($5 to $7 USD) per day from the group if the driver was helpful, punctual, and safe. Ensure you book with an established local tour agency in Rajasthan like Meharoli Tours, offering verified police-cleared chauffeurs, transparent English communication, and zero advance cancellation penalties."
+      }
+    ]
+  },
+  {
+    id: "complete-7-days-rajasthan-itinerary-private-car",
+    title: "Complete 7 Days Rajasthan Itinerary by Private Car (Forts, Palaces & Desert)",
+    excerpt: "The ultimate 1-week Rajasthan road trip route: Delhi to Agra Taj Mahal, Jaipur Pink City, Pushkar, Jodhpur Blue City, and Udaipur Lake City with drive times, heritage stops, and photo spots.",
+    category: "Itinerary",
+    date: "September 28, 2026",
+    readTime: "8 min read",
+    coverImage: "/pictures/main-section/jaipur-amber-fort-amer-palace.jpg",
+    images: [
+      "/pictures/main-section/jaipur-amber-fort-amer-palace.jpg",
+      "/pictures/jodhpur.jpg",
+      "/pictures/udaipur.jpg"
+    ],
+    content: [
+      {
+        heading: "Why a 7-Day Road Trip by Private Car is the Ideal Rajasthan Route",
+        text: "Rajasthan is a land of massive distances, magnificent hill forts, and vibrant desert landscapes. A 7-day road trip by private AC car allows international visitors to seamlessly connect the Golden Triangle with royal desert kingdoms without losing precious vacation time waiting in airport queues or crowded railway platforms."
+      },
+      {
+        heading: "Days 1 to 3: Delhi Arrival, Agra Taj Mahal Sunrise & The Pink City of Jaipur",
+        text: "Day 1: Arrive at Delhi IGI Airport, meet your private chauffeur, and cruise down the Yamuna Expressway to Agra (3.5 hours). Witness the sunset over Agra Fort. Day 2: Experience sunrise at the Taj Mahal before the morning heat. Drive to Jaipur (4 hours) with en-route visits to Mughal ghost city Fatehpur Sikri and the 1,000-year-old Abhaneri Chand Baori stepwell. Day 3: Explore Jaipur's Amer Fort, Jal Mahal water palace, Hawa Mahal (Palace of Winds), and the royal City Palace observatory."
+      },
+      {
+        heading: "Days 4 to 5: Sacred Pushkar Lake & Jodhpur's Mighty Blue City",
+        text: "Day 4: Depart Jaipur for Jodhpur (5.5 hours) with a relaxing lunch stop in holy Pushkar to visit the world's rare Lord Brahma Temple and sacred lakeside ghats. Arrive in Jodhpur by sunset. Day 5: Tour Mehrangarh Fort towering 400 feet above the cobalt-blue painted Brahmin houses, visit the marble cenotaph at Jaswant Thada, and stroll through the spice-scented Sardar Clock Tower bazaar."
+      },
+      {
+        heading: "Days 6 to 7: Ranakpur Marble Jain Temples to Romantic Udaipur",
+        text: "Day 6: Drive from Jodhpur to Udaipur through the scenic Aravalli hills (5 hours). Stop at the 15th-century Ranakpur Jain Temple, world-renowned for its 1,444 intricately hand-carved marble pillars, no two of which are identical. Day 7: Spend a fairy-tale day in Udaipur — tour the grand City Palace overlooking Lake Pichola, take a private sunset boat ride past Jag Mandir Island, and visit Jagdish Temple before your evening departure."
+      }
+    ]
+  },
+  {
+    id: "is-it-safe-hire-private-driver-rajasthan-tourists",
+    title: "Is it Safe to Hire a Private Driver in Rajasthan for Tourists?",
+    excerpt: "An in-depth safety and trust review for foreign travelers from the UK, USA, Europe & Australia. Police background checks, commercial tourist licensing, female solo safety, scam prevention, and GPS tracking.",
+    category: "Safety & Trust",
+    date: "September 25, 2026",
+    readTime: "6 min read",
+    coverImage: "/pictures/cars/crysta.jpeg",
+    images: [
+      "/pictures/main-section/jaipur-jal-mahal-water-palace.jpg",
+      "/pictures/delhi.jpg"
+    ],
+    content: [
+      {
+        heading: "The Real Safety Picture: Why Private Drivers are the Gold Standard for Foreigners",
+        text: "Yes, hiring a private driver through a certified, government-recognized travel agency like Meharoli Tours is by far the safest, most reliable way for international tourists to navigate India. Unlike street cabs, unregulated auto-rickshaws, or crowded overnight buses, a pre-vetted private chauffeur stays with you for your entire journey, safeguarding your luggage and providing a private air-conditioned sanctuary between bustling monuments."
+      },
+      {
+        heading: "Meharoli's 5-Tier Chauffeur Verification Protocol",
+        text: "Every chauffeur at Meharoli Tours undergoes rigorous screening: 1) Verified criminal background checks through state police departments, 2) Valid commercial passenger driver licenses with at least 10+ years of highway driving experience, 3) Fluent conversational English skills to ensure smooth communication, 4) Strict zero-alcohol and defensive driving policies, and 5) Government tourism hospitality training."
+      },
+      {
+        heading: "How to Protect Yourself from the 'Commission Shop' Trap",
+        text: "The most common complaint foreign tourists have with unvetted drivers is being pressured to visit high-commission souvenir shops (carpets, gemstones, cashmere pashminas) where prices are marked up 300%. At Meharoli Tours, we maintain a strict 100% No Forced Shopping Guarantee. Our drivers will only take you to authorized artisan cooperatives or government emporiums if you specifically request it."
+      },
+      {
+        heading: "Emergency Back-Up, Real-Time GPS Tracking & 24/7 Helpline",
+        text: "All our vehicles are equipped with GPS tracking, and our 24/7 central management desk in Jaipur maintains direct contact with both you and your driver. In the rare event of flat tires or vehicle mechanical issues, our extensive network across Rajasthan guarantees an immediate replacement vehicle with zero delay to your sightseeing schedule."
+      }
+    ]
+  },
+  {
+    id: "delhi-airport-to-jaipur-private-cab-guide",
+    title: "Delhi Airport to Jaipur by Private Cab: Everything You Need to Know",
+    excerpt: "Everything overseas travelers need to know about traveling from Delhi IGI Airport (DEL) Terminal 3 to Jaipur via the new Delhi-Mumbai Expressway. Travel times, meeting points, luggage room, and flat-rate pricing.",
+    category: "Airport Transfer",
+    date: "September 20, 2026",
+    readTime: "5 min read",
+    coverImage: "/pictures/delhi.jpg",
+    images: [
+      "/pictures/delhi.jpg",
+      "/pictures/cars/dzire.jpeg",
+      "/pictures/main-section/jaipur-hawa-mahal-pink-city-facade.jpg"
+    ],
+    content: [
+      {
+        heading: "Delhi Airport to Jaipur: How the New Expressway Changed Everything",
+        text: "Thanks to the newly opened Delhi-Mumbai Expressway (NE-4), the road journey from Indira Gandhi International Airport (DEL) to Jaipur now takes just 3.5 to 4 hours of effortless cruising on an 8-lane access-controlled highway. This has made a private cab transfer significantly faster, more reliable, and far less stressful than booking a connecting domestic flight (which requires 3 hours of airport waiting, bag re-check, and transfers)."
+      },
+      {
+        heading: "IGI Terminal 3 Arrival & Smooth Meet-and-Greet Process",
+        text: "When your international flight lands at Delhi IGI Terminal 3, navigating the arrivals terminal with heavy bags can be overwhelming. Your Meharoli Tours chauffeur tracks your flight status in real time and waits right outside the international arrival gate holding a personalized name placard. You receive the driver's phone number, photo, vehicle number, and live WhatsApp location before you even board your flight."
+      },
+      {
+        heading: "Choosing the Right Vehicle for International Luggage",
+        text: "International travelers typically travel with large hard-shell suitcases. A sedan (Suzuki Dzire) easily accommodates 2 passengers with 2 large suitcases and carry-ons. For 3 or more passengers or excess luggage, we strongly recommend our Toyota Innova Crysta SUV, which provides cavernous luggage capacity, superior captain seat suspension, and individual USB charging ports."
+      },
+      {
+        heading: "Verified Clean Rest Stops & Transparent Fixed Price",
+        text: "The new expressway features modern rest areas (Wayside Amenities) with hygienic Western restrooms and familiar international food outlets such as Starbucks, Subway, Costa Coffee, and Haldiram's. Your quote from Meharoli Tours includes all expressway FASTag tolls and Delhi airport parking with 0 hidden surcharges, even if your flight lands in the middle of the night."
+      }
+    ]
+  },
+  {
+    id: "solo-female-travel-india-trusted-driver",
+    title: "Solo Female Travel in India with Trusted Driver: The Ultimate Safety & Route Guide",
+    excerpt: "Essential safety blueprint for women traveling solo in India. Vetted police-verified chauffeurs, 24/7 female support coordinator, live GPS tracking, safe hotel check-in protocols, and top recommended circuits.",
+    category: "Solo Female Safety",
+    date: "September 15, 2026",
+    readTime: "8 min read",
+    coverImage: "/pictures/main-section/jaipur-hawa-mahal-pink-city-facade.jpg",
+    images: [
+      "/pictures/main-section/jaipur-hawa-mahal-pink-city-facade.jpg",
+      "/pictures/dilip_singh_meharoli.jpg",
+      "/pictures/udaipur.jpg"
+    ],
+    content: [
+      {
+        heading: "Is India Safe for Solo Female Travelers? The Honest Truth",
+        text: "India is one of the most culturally vibrant, welcoming, and transformative destinations on earth. However, for a solo female traveler from the UK, USA, Europe, or Australia, navigating public transport, crowded railway stations, and overzealous touts can feel intimidating. Hiring a trusted, police-verified private chauffeur completely transforms your experience into a safe, stress-free, and empowering adventure by creating a secure, personal bubble from morning to night."
+      },
+      {
+        heading: "Meharoli's Dedicated Solo Female Safety Protocol",
+        text: "At Meharoli Tours, we have hosted hundreds of solo female international travelers. Our dedicated safety measures include: 1) Hand-selected senior chauffeurs with proven track records of courtesy, respect, and zero infractions, 2) A dedicated direct line to our female travel coordinator, Namrata Shekhawat (+91 88249 76479), available 24/7 on WhatsApp, 3) Real-time GPS vehicle tracking that you can share with your family back home, 4) Strict hotel escort protocol: your driver waits in the hotel lobby until you have safely checked in and verified your room, and 5) Zero unauthorized stops or unscheduled companions."
+      },
+      {
+        heading: "Practical Safety & Cultural Tips for Women Visiting Rajasthan",
+        text: "Dress comfortably but respectfully: lightweight cotton maxi dresses, linen trousers, and loose tops with a light cotton scarf (dupatta) will help you blend in and keep you cool. Buy an Indian eSIM (Airtel or Jio) at Delhi airport for uninterrupted Google Maps and WhatsApp connectivity. Avoid arriving in unfamiliar small towns late at night; your driver will coordinate departures so you always arrive at hotels before dark."
+      },
+      {
+        heading: "Top 4 Safest Routes for Solo Female Travelers",
+        text: "The Golden Triangle (Delhi - Agra - Jaipur) is India's most tourist-friendly circuit with excellent 4- and 5-star heritage hotels. For serene romance and peaceful lake views, Udaipur is widely regarded as India's safest and most female-friendly city. Pushkar offers spiritual yoga retreats and vibrant craft shopping. Jodhpur and Jaisalmer provide unforgettable camel safaris with verified heritage desert camp operators."
+      }
+    ]
+  },
+  {
     id: "agra-taj-mahal-guide",
     title: "The Ultimate Guide to Agra: Taj Mahal & Beyond",
     excerpt: "Experience the romance of the Taj Mahal at sunrise, uncover the corridors of Agra Fort, and sample Agra's legendary local street food.",
@@ -1239,10 +1398,10 @@ function DestinationDetailView({
     return () => clearInterval(timer);
   }, [data.images]);
 
-  const pageUrl = `https://www.meharolitravels.com/#destination-${destinationKey}`;
+  const pageUrl = `https://www.meharolitourstravels.com/${destinationKey}`;
   const pageTitle = `${data.title} Tour Packages & Sightseeing | Meharoli Tours`;
   const pageDesc = `${data.description} Book custom ${data.title} tour packages with direct AC taxi hire, premium hotel stays, and expert local guides.`;
-  const pageImage = `https://www.meharolitravels.com${data.coverImage}`;
+  const pageImage = `https://www.meharolitourstravels.com${data.coverImage}`;
 
   const schemaJson = {
     "@context": "https://schema.org",
@@ -1278,7 +1437,7 @@ function DestinationDetailView({
         <button
           type="button"
           onClick={() => {
-            window.location.hash = "#top";
+            window.history.pushState(null, "", "/");
             onClose();
           }}
           className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-700 hover:text-orange-600 font-semibold rounded-lg shadow-sm border border-gray-200 transition hover:shadow-md cursor-pointer"
@@ -1673,12 +1832,47 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
+  const SECTION_PATH_MAP = {
+    top: "/",
+    packages: "/packages",
+    "double-decker-package": "/double-decker-package",
+    cars: "/cars",
+    "popular-taxi-routes": "/popular-taxi-routes",
+    services: "/services",
+    testimonials: "/testimonials",
+    blogs: "/blogs",
+    about: "/about",
+    "enquiry-form-section": "/contact",
+    "solo-female-travel": "/solo-female-travel"
+  };
+
+  const PATH_SECTION_MAP = {
+    "/packages": "packages",
+    "/double-decker-package": "double-decker-package",
+    "/cars": "cars",
+    "/popular-taxi-routes": "popular-taxi-routes",
+    "/cabs": "popular-taxi-routes",
+    "/services": "services",
+    "/testimonials": "testimonials",
+    "/reviews": "testimonials",
+    "/blogs": "blogs",
+    "/about": "about",
+    "/contact": "enquiry-form-section",
+    "/book-now": "enquiry-form-section"
+  };
+
   const scrollToTarget = (id, attempts = 0) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    } else if (attempts < 15) {
-      setTimeout(() => scrollToTarget(id, attempts + 1), 40);
+      const headerOffset = 80;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition > 0 ? offsetPosition : 0,
+        behavior: "smooth"
+      });
+    } else if (attempts < 30) {
+      setTimeout(() => scrollToTarget(id, attempts + 1), 50);
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -1688,80 +1882,102 @@ function App() {
   useEffect(() => {
     const handleUrlChange = () => {
       const hash = window.location.hash.toLowerCase();
-      const path = window.location.pathname.toLowerCase().replace(/\/$/, "");
+      const rawPath = window.location.pathname.toLowerCase().replace(/\/$/, "");
+      const path = rawPath || "/";
 
-      if (path === "/admin" || hash === "#admin") {
-        setIsAdminOpen(true);
-      } else if (path === "/delhi" || hash === "#destination-delhi") {
+      // 1. Direct blog routes: /blogs/:id or /blog/:id
+      if (path.startsWith("/blogs/") || path.startsWith("/blog/")) {
+        const blogSlug = path.replace(/^\/(blogs|blog)\//, "");
+        const blog = blogsData.find((b) => b.id.toLowerCase() === blogSlug);
+        if (blog) {
+          setActiveBlogKey(blog.id);
+          setActiveDestination(null);
+          window.scrollTo(0, 0);
+          return;
+        }
+      }
+
+      // 2. Direct destination routes: /destination/:id or /delhi /agra /rajasthan
+      if (path === "/delhi" || hash === "#destination-delhi") {
         setActiveDestination("delhi");
         setActiveBlogKey(null);
         window.scrollTo(0, 0);
-      } else if (path === "/agra" || hash === "#destination-agra") {
+        return;
+      }
+      if (path === "/agra" || hash === "#destination-agra") {
         setActiveDestination("agra");
         setActiveBlogKey(null);
         window.scrollTo(0, 0);
-      } else if (path === "/rajasthan" || hash === "#destination-rajasthan") {
+        return;
+      }
+      if (path === "/rajasthan" || hash === "#destination-rajasthan") {
         setActiveDestination("rajasthan");
         setActiveRajasthanCity(null);
         setActiveBlogKey(null);
         window.scrollTo(0, 0);
-      } else if (path === "/blogs" || hash === "#blogs") {
+        return;
+      }
+      if (path.startsWith("/destination/")) {
+        const destKey = path.replace(/^\/destination\//, "");
+        if (destinationsData[destKey]) {
+          setActiveDestination(destKey);
+          setActiveBlogKey(null);
+          window.scrollTo(0, 0);
+          return;
+        }
+      }
+
+      // 3. Special landing pages
+      if (path === "/solo-female-travel" || hash === "#solo-female-travel" || hash === "#solo-female") {
+        setActiveDestination(null);
+        setActiveBlogKey("solo-female-travel-india-trusted-driver");
+        window.scrollTo(0, 0);
+        return;
+      }
+
+      if (path === "/admin" || hash === "#admin") {
+        setIsAdminOpen(true);
+        return;
+      }
+
+      // 4. Clean section paths (/packages, /double-decker-package, /cars, etc.)
+      const sectionId = PATH_SECTION_MAP[path];
+      if (sectionId) {
         setActiveDestination(null);
         setActiveBlogKey(null);
-        scrollToTarget("blogs");
-      } else if (path === "/packages" || hash === "#packages") {
-        setActiveDestination(null);
-        setActiveBlogKey(null);
-        scrollToTarget("packages");
-      } else if (path === "/cars" || hash === "#cars") {
-        setActiveDestination(null);
-        setActiveBlogKey(null);
-        scrollToTarget("cars");
-      } else if (path === "/popular-taxi-routes" || hash === "#popular-taxi-routes") {
-        setActiveDestination(null);
-        setActiveBlogKey(null);
-        scrollToTarget("popular-taxi-routes");
-      } else if (path === "/about" || hash === "#about") {
-        setActiveDestination(null);
-        setActiveBlogKey(null);
-        scrollToTarget("about");
-      } else if (path === "/contact" || hash === "#enquiry-form-section") {
-        setActiveDestination(null);
-        setActiveBlogKey(null);
-        scrollToTarget("enquiry-form-section");
-      } else if (hash.startsWith("#destination-")) {
+        scrollToTarget(sectionId);
+        return;
+      }
+
+      // 5. Backward compatibility for legacy hashes
+      if (hash.startsWith("#destination-")) {
         const dest = hash.replace("#destination-", "");
         if (destinationsData[dest]) {
           setActiveDestination(dest);
           setActiveBlogKey(null);
           window.scrollTo(0, 0);
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
+          return;
         }
       } else if (hash.startsWith("#blog-")) {
         const blogId = hash.replace("#blog-", "");
-        const blog = blogsData.find((b) => b.id === blogId);
+        const blog = blogsData.find((b) => b.id.toLowerCase() === blogId);
         if (blog) {
-          setActiveBlogKey(blogId);
+          setActiveBlogKey(blog.id);
           setActiveDestination(null);
           window.scrollTo(0, 0);
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
+          return;
         }
-      } else if (hash === "#blogs") {
-        setActiveDestination(null);
-        setActiveBlogKey(null);
-        scrollToTarget("blogs");
       } else if (hash.startsWith("#") && hash.length > 1 && hash !== "#top") {
         const targetId = hash.replace("#", "");
         setActiveDestination(null);
         setActiveBlogKey(null);
         scrollToTarget(targetId);
-      } else if (hash === "" || hash === "#top") {
-        setActiveDestination(null);
-        setActiveBlogKey(null);
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
       }
+
+      // 6. Homepage root ("/")
+      setActiveDestination(null);
+      setActiveBlogKey(null);
     };
 
     handleUrlChange();
@@ -1778,7 +1994,7 @@ function App() {
     if (activeBlogKey) {
       const blog = blogsData.find((b) => b.id === activeBlogKey);
       if (blog) {
-        document.title = `${blog.title} | Meharoli Travels Blog`;
+        document.title = `${blog.title} | Meharoli Tours`;
       }
     } else if (activeDestination) {
       const dest = destinationsData[activeDestination];
@@ -1786,7 +2002,7 @@ function App() {
         document.title = `${dest.title} Tour Packages & Sightseeing | Meharoli Tours`;
       }
     } else {
-      document.title = "Best Travel Agency in Jaipur | Jaipur Sightseeing & Tours | Meharoli Tours";
+      document.title = "Rajasthan Tour Packages & Private Driver | Meharoli Tours";
     }
   }, [activeDestination, activeBlogKey]);
 
@@ -1798,17 +2014,27 @@ function App() {
 
   const handleNavClick = (targetId) => {
     setMenuOpen(false);
-    setActiveDestination(null);
-    setActiveBlogKey(null);
     setDestDropdownOpen(false);
 
-    if (targetId === "top") {
-      window.location.hash = "#top";
+    if (targetId === "solo-female-travel" || targetId === "solo-female") {
+      setActiveDestination(null);
+      setActiveBlogKey("solo-female-travel-india-trusted-driver");
+      window.history.pushState(null, "", "/solo-female-travel");
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
-    window.location.hash = `#${targetId}`;
+    const cleanPath = SECTION_PATH_MAP[targetId] || (targetId === "top" ? "/" : `/${targetId}`);
+    window.history.pushState(null, "", cleanPath);
+
+    setActiveDestination(null);
+    setActiveBlogKey(null);
+
+    if (targetId === "top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
     scrollToTarget(targetId);
   };
 
@@ -5980,7 +6206,7 @@ function App() {
       <header className="app-header">
         <div className="header-inner">
           <a
-            href="#top"
+            href="/"
             className="header-brand"
             onClick={(e) => {
               e.preventDefault();
@@ -6019,7 +6245,7 @@ function App() {
             aria-label="Main navigation"
           >
             <a
-              href="#top"
+              href="/"
               className="nav-item"
               onClick={(e) => {
                 e.preventDefault();
@@ -6046,7 +6272,7 @@ function App() {
                   type="button"
                   className="dropdown-item"
                   onClick={() => {
-                    window.location.hash = "#destination-delhi";
+                    window.history.pushState(null, "", "/delhi");
                     setActiveDestination("delhi");
                     setActiveBlogKey(null);
                     setMenuOpen(false);
@@ -6060,7 +6286,7 @@ function App() {
                   type="button"
                   className="dropdown-item"
                   onClick={() => {
-                    window.location.hash = "#destination-agra";
+                    window.history.pushState(null, "", "/agra");
                     setActiveDestination("agra");
                     setActiveBlogKey(null);
                     setMenuOpen(false);
@@ -6074,7 +6300,7 @@ function App() {
                   type="button"
                   className="dropdown-item"
                   onClick={() => {
-                    window.location.hash = "#destination-rajasthan";
+                    window.history.pushState(null, "", "/rajasthan");
                     setActiveDestination("rajasthan");
                     setActiveRajasthanCity(null);
                     setActiveBlogKey(null);
@@ -6088,7 +6314,7 @@ function App() {
               </div>
             </div>
             <a
-              href="#packages"
+              href="/packages"
               className="nav-item"
               onClick={(e) => {
                 e.preventDefault();
@@ -6098,7 +6324,7 @@ function App() {
               Packages
             </a>
             <a
-              href="#double-decker-package"
+              href="/double-decker-package"
               className="nav-item"
               onClick={(e) => {
                 e.preventDefault();
@@ -6108,7 +6334,7 @@ function App() {
               Double Decker
             </a>
             <a
-              href="#cars"
+              href="/cars"
               className="nav-item"
               onClick={(e) => {
                 e.preventDefault();
@@ -6118,7 +6344,7 @@ function App() {
               Cars
             </a>
             <a
-              href="#popular-taxi-routes"
+              href="/popular-taxi-routes"
               className="nav-item"
               onClick={(e) => {
                 e.preventDefault();
@@ -6128,7 +6354,7 @@ function App() {
               Cabs &amp; Taxi
             </a>
             <a
-              href="#services"
+              href="/services"
               className="nav-item"
               onClick={(e) => {
                 e.preventDefault();
@@ -6138,7 +6364,7 @@ function App() {
               Services
             </a>
             <a
-              href="#testimonials"
+              href="/testimonials"
               className="nav-item"
               onClick={(e) => {
                 e.preventDefault();
@@ -6148,7 +6374,7 @@ function App() {
               Reviews
             </a>
             <a
-              href="#blogs"
+              href="/blogs"
               className="nav-item"
               onClick={(e) => {
                 e.preventDefault();
@@ -6158,7 +6384,7 @@ function App() {
               Blogs
             </a>
             <a
-              href="#about"
+              href="/about"
               className="nav-item"
               onClick={(e) => {
                 e.preventDefault();
@@ -6168,7 +6394,7 @@ function App() {
               About
             </a>
             <a
-              href="#enquiry-form-section"
+              href="/contact"
               className="nav-item nav-cta"
               onClick={(e) => {
                 e.preventDefault();
@@ -6211,11 +6437,12 @@ function App() {
       ) : (
         <>
           <Helmet>
-            <title>Rajasthan Tour Packages &amp; Private Chauffeur Car Rental | Meharoli Tours</title>
-            <meta name="description" content="Explore 26 Iconic Rajasthan Cities, Golden Triangle &amp; Sacred Yatra Circuits in Ultimate Comfort. Book Custom Tour Packages, Wildlife Safaris &amp; Private AC Cars with Professional Chauffeurs at Best Guaranteed Rates." />
+            <title>Rajasthan Tour Packages &amp; Private Driver | Meharoli Tours</title>
+            <meta name="description" content="Book custom Rajasthan tour packages &amp; private car with English-speaking driver. Golden Triangle, desert safaris &amp; outstation cabs with no hidden charges." />
+            <meta name="keywords" content="Solo Female Travel in India with Trusted Driver, How Much Does a Car with Driver Cost in India 2026 Price Guide, Complete 7 Days Rajasthan Itinerary by Private Car, Is it Safe to Hire a Private Driver in Rajasthan for Tourists, Delhi Airport to Jaipur by Private Cab, English Speaking Driver Rajasthan India, Police Verified Tourist Drivers India, No Hidden Charges Rajasthan Car Rental, Chauffeur Driven Car Rental India, India Private Driver Cost Per Day, Rajasthan Tour Packages for Foreigners, Safe Car Hire for Female Solo Travelers India, Golden Triangle Tour with Private Driver, Private Taxi with Driver in India, Jaipur to Agra Private Driver, Jaipur to Udaipur Car with Driver, Meharoli Tours and Travels" />
             <link rel="canonical" href="https://www.meharolitourstravels.com/" />
-            <meta property="og:title" content="Rajasthan Tour Packages &amp; Private Chauffeur Car Rental | Meharoli Tours" />
-            <meta property="og:description" content="Explore 26 Iconic Rajasthan Cities, Golden Triangle &amp; Sacred Yatra Circuits in Ultimate Comfort. Book Custom Tour Packages, Wildlife Safaris &amp; Private AC Cars with Professional Chauffeurs at Best Guaranteed Rates." />
+            <meta property="og:title" content="Rajasthan Tour Packages &amp; Private Driver | Meharoli Tours" />
+            <meta property="og:description" content="Book custom Rajasthan tour packages &amp; private car with English-speaking driver. Golden Triangle, desert safaris &amp; outstation cabs with no hidden charges." />
             <meta property="og:image" content="https://www.meharolitourstravels.com/pictures/main-section/jaipur-jal-mahal-water-palace.jpg" />
             <meta property="og:url" content="https://www.meharolitourstravels.com/" />
           </Helmet>
@@ -6268,7 +6495,7 @@ function App() {
                 Tours &amp; Travels
               </span>
             </span>
-            <span className="sr-only">Meharoli Tours and Travels</span>
+            <span className="sr-only">Meharoli Tours &amp; Travels — Best Rajasthan Tour Packages &amp; Private Car with Driver</span>
           </h1>
           <p className="hero-tagline">
             Crafting custom luxury tour packages across Rajasthan, Delhi &amp; Agra for international guests from USA, UK, Europe, Australia, New Zealand &amp; worldwide.
@@ -6308,7 +6535,14 @@ function App() {
             >
               💳 Pay Online
             </button>
-            <a href="#packages" className="btn primary hero-cta-btn">
+            <a
+              href="/packages"
+              className="btn primary hero-cta-btn"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("packages");
+              }}
+            >
               View Packages
             </a>
           </div>
@@ -6455,7 +6689,7 @@ function App() {
                     {visibleRoutes.map((route, idx) => (
                       <a
                         key={idx}
-                        href="#enquiry-form-section"
+                        href="/contact"
                         onClick={(e) => {
                           e.preventDefault();
                           handleTaxiRouteClick(route);
@@ -6953,7 +7187,7 @@ function App() {
                   key={blog.id}
                   className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col cursor-pointer group"
                   onClick={() => {
-                    window.location.hash = `#blog-${blog.id}`;
+                    window.history.pushState(null, "", `/blogs/${blog.id}`);
                     setActiveBlogKey(blog.id);
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
@@ -7366,10 +7600,10 @@ function App() {
             <div className="footer-column">
               <h4>Holiday Packages</h4>
               <ul>
-                <li><a href="#packages" className="hover:text-orange-500 transition-colors">Golden Triangle Tour</a></li>
-                <li><a href="#packages" className="hover:text-orange-500 transition-colors">Maharaja Heritage Trail</a></li>
-                <li><a href="#packages" className="hover:text-orange-500 transition-colors">Tiger Safari &amp; Wildlife Special</a></li>
-                <li><a href="#packages" className="hover:text-orange-500 transition-colors">Lake Palace Luxury Tour</a></li>
+                <li><a href="/packages" onClick={(e) => { e.preventDefault(); handleNavClick("packages"); }} className="hover:text-orange-500 transition-colors">Golden Triangle Tour</a></li>
+                <li><a href="/packages" onClick={(e) => { e.preventDefault(); handleNavClick("packages"); }} className="hover:text-orange-500 transition-colors">Maharaja Heritage Trail</a></li>
+                <li><a href="/packages" onClick={(e) => { e.preventDefault(); handleNavClick("packages"); }} className="hover:text-orange-500 transition-colors">Tiger Safari &amp; Wildlife Special</a></li>
+                <li><a href="/packages" onClick={(e) => { e.preventDefault(); handleNavClick("packages"); }} className="hover:text-orange-500 transition-colors">Lake Palace Luxury Tour</a></li>
               </ul>
             </div>
             <div className="footer-column">
@@ -7377,7 +7611,6 @@ function App() {
               <ul>
                 <li>Dilip Singh Meharoli: +91 9829017853</li>
                 <li>Namrata Shekhawat: +91 88249 76479</li>
-                <li>Yashwant Rathore : +91 97844 91826</li>
                 <li>Email: meharolitours.travels@gmail.com</li>
               </ul>
             </div>
@@ -7484,10 +7717,10 @@ function BlogDetailView({ blogKey, onClose, openWhatsApp }) {
     return () => clearInterval(timer);
   }, [blog.images]);
 
-  const pageUrl = `https://www.meharolitravels.com/#blog-${blogKey}`;
-  const pageTitle = `${blog.title} | Meharoli Travels Blog`;
+  const pageUrl = `https://www.meharolitourstravels.com/blogs/${blogKey}`;
+  const pageTitle = `${blog.title} | Meharoli Tours`;
   const pageDesc = blog.excerpt;
-  const pageImage = `https://www.meharolitravels.com${blog.coverImage}`;
+  const pageImage = `https://www.meharolitourstravels.com${blog.coverImage}`;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -7506,7 +7739,7 @@ function BlogDetailView({ blogKey, onClose, openWhatsApp }) {
       "name": "Meharoli Tours & Travels",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.meharolitravels.com/pictures/main-section/logo-removebg-preview.png"
+        "url": "https://www.meharolitourstravels.com/pictures/main-section/logo-removebg-preview.png"
       }
     }
   };
@@ -7530,7 +7763,10 @@ function BlogDetailView({ blogKey, onClose, openWhatsApp }) {
       <div className="max-w-4xl mx-auto mb-6">
         <button
           type="button"
-          onClick={() => onClose()}
+          onClick={() => {
+            window.history.pushState(null, "", "/blogs");
+            onClose();
+          }}
           className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-700 hover:text-orange-600 font-semibold rounded-lg shadow-sm border border-gray-200 transition hover:shadow-md cursor-pointer"
         >
           ← Back to All Blogs
@@ -7577,6 +7813,41 @@ function BlogDetailView({ blogKey, onClose, openWhatsApp }) {
             <p className="text-gray-600 leading-relaxed text-sm sm:text-base whitespace-pre-line">{sec.text}</p>
           </div>
         ))}
+
+        {/* If this is the Solo Female Travel Guide, show dedicated coordinator & safety badge */}
+        {blog.id === "solo-female-travel-india-trusted-driver" && (
+          <div className="my-8 p-6 bg-gradient-to-br from-rose-50 to-orange-50 border-2 border-rose-200 rounded-2xl shadow-xs">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <span className="bg-rose-500 text-white text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+                  Female Travel Coordinator Desk
+                </span>
+                <h3 className="text-xl font-bold font-serif text-slate-900 mt-2">
+                  Talk to Namrata Shekhawat (Women Travel Specialist)
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                  Have questions about safety, hotel check-ins, or custom routes? Chat directly with our female coordinator on WhatsApp.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span className="bg-white px-2.5 py-1 rounded-md border border-rose-200 text-rose-700 font-semibold">✓ 24/7 Female Support</span>
+                  <span className="bg-white px-2.5 py-1 rounded-md border border-rose-200 text-rose-700 font-semibold">✓ Live GPS Vehicle Sharing</span>
+                  <span className="bg-white px-2.5 py-1 rounded-md border border-rose-200 text-rose-700 font-semibold">✓ Police-Cleared Drivers</span>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() =>
+                  openWhatsApp(
+                    "Hi Namrata, I am planning a solo trip to India/Rajasthan and would like information about your verified drivers and female safety protocols."
+                  )
+                }
+                className="px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow transition cursor-pointer whitespace-nowrap"
+              >
+                Chat with Namrata (+91 88249 76479)
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* CTA box at end of blog */}
         <div className="mt-12 p-6 sm:p-8 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl text-white text-center shadow-lg">
