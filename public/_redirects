@@ -1,2 +1,7 @@
-http://meharolitravels.com/* https://www.meharolitravels.com/:splat 301!
-https://meharolitravels.com/* https://www.meharolitravels.com/:splat 301!
+http://meharolitravels.com/* https://www.meharolitourstravels.com/:splat 301!
+https://meharolitravels.com/* https://www.meharolitourstravels.com/:splat 301!
+http://www.meharolitravels.com/* https://www.meharolitourstravels.com/:splat 301!
+https://www.meharolitravels.com/* https://www.meharolitourstravels.com/:splat 301!
+http://meharolitourstravels.com/* https://www.meharolitourstravels.com/:splat 301!
+https://meharolitourstravels.com/* https://www.meharolitourstravels.com/:splat 301!
+/* /index.html 200

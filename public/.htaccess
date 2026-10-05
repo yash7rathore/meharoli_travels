@@ -1,13 +1,14 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Redirect non-www to www
-  RewriteCond %{HTTP_HOST} ^meharolitravels\.com$ [NC]
-  RewriteRule ^(.*)$ https://www.meharolitravels.com/$1 [R=301,L]
+  # Redirect any legacy domain or non-canonical host to https://www.meharolitourstravels.com
+  RewriteCond %{HTTP_HOST} ^(www\.)?meharolitravels\.com$ [NC,OR]
+  RewriteCond %{HTTP_HOST} ^meharolitourstravels\.com$ [NC]
+  RewriteRule ^(.*)$ https://www.meharolitourstravels.com/$1 [R=301,L]
 
   # Force HTTPS
   RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://www.meharolitravels.com/$1 [R=301,L]
+  RewriteRule ^(.*)$ https://www.meharolitourstravels.com/$1 [R=301,L]
 
   # SPA Routing Fallback
   RewriteCond %{REQUEST_FILENAME} !-f
